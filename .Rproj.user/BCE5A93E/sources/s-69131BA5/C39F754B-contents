@@ -1,0 +1,1127 @@
+library(shiny)
+#library(ggplot2)
+library(tidyverse)
+#############################################################pacotes da leitura do mapa
+library(tidyverse)
+library(sf)
+library(stringr)
+library(readxl)
+library(leaflet)
+library(RColorBrewer)
+library(DT)
+library(leafpop)
+library(readxl)
+library(rgeos) #https://statistique-et-logiciel-r.com/premiers-pas-en-cartographie-avec-r/
+library(viridis)
+library(rainbow)
+library(httr)
+library(curl)
+library(abjutils)
+library(shinydashboard)
+library(plotly)
+library(scales)
+
+###########################################################################################################
+###########################################################################
+######## Bancos de dados
+###########################################################################
+###########################################################################################################
+
+
+###########################################################################
+### leitura dados banco
+###########################################################################
+#mapa
+mapa_rs_shp <- sf::st_read("43MUE250GC_SIR.shp", quiet = TRUE)
+#mapa_rs_shp_mesoregiao=sf::st_read("43MEE250GC_SIR.shp", quiet = TRUE)
+dplyr::glimpse(mapa_rs_shp)
+mapa_rs_shp <- mapa_rs_shp %>% 
+  mutate(municipio = rm_accent(str_to_lower(NM_MUNICIP))) # todas as cidades com letra minuscula  e tira o acento
+######## centroids
+centroids <- gCentroid(spgeom = methods::as( object = mapa_rs_shp, Class = "Spatial" ),byid = TRUE)
+latitude=c(centroids$y)
+longitude= c(centroids$x)
+aux_centroids = data.frame(latitude= latitude, longitude= longitude, municipio = mapa_rs_shp$municipio)
+mapa_rs_shp_centroids <- merge(aux_centroids, mapa_rs_shp, by.x = "municipio", by.y = "municipio") # une os dois 
+####### regioes
+rs_mesoregiao_microregiao <- read_csv("rs_mesoregiao_microregiao.csv")
+rs_mesoregiao_microregiao= modify(rs_mesoregiao_microregiao, str_to_lower) %>%
+  modify(rm_accent)  
+
+mapa_rs_shp_centroids <- merge(rs_mesoregiao_microregiao, mapa_rs_shp_centroids, by.x = "municipio", by.y = "municipio") # une os dois bancos dado as cidades
+
+#casos leitos equipamentos covid municipios
+dados_rs_municipio = read_csv("covid_municipios_rs.csv")
+dados_rs_municipio <- dados_rs_municipio %>% 
+  mutate(municipio = rm_accent(str_to_lower(cidade))) # todas as cidades com letra minuscula  e tira o 
+########## leitos plano de contingencia rs
+leitos_rs <- read_excel("leitos_rs.xlsx")
+names(leitos_rs)=c("hospital", "municipio", "CNES", "leitos_enfermaria_ampliados", "leitos_uti_ampliados", "total_leitos_enfermaria", "total_leitos_uti", "regiao")
+leitos_rs2 <- leitos_rs %>% 
+  mutate(municipio = rm_accent(str_to_lower(municipio))) %>% # todas as cidades com letra minuscula  e tira o 
+  group_by(municipio, regiao) %>%
+  summarise(leitos_enfermaria_ampliados = sum(leitos_enfermaria_ampliados),
+            leitos_uti_ampliados = sum(leitos_uti_ampliados),
+            total_leitos_enfermaria = sum(total_leitos_enfermaria),
+            total_leitos_uti = sum(total_leitos_uti))
+######### equipamentos de manutencao a vida
+equipamentos_manutencao_vida_rs1 <- read_excel("equipamentos_manutencao_vida_rs.xlsx", skip = 4)
+names(equipamentos_manutencao_vida_rs1)= c("var")
+equipamentos_manutencao_vida_rs = equipamentos_manutencao_vida_rs1 %>% 
+  separate(var, into = c("cases", "equipamentos"), sep = ";") %>%
+  separate(cases, into = c("codigo", "municipio"), sep = 7) %>%
+  mutate(municipio=rm_accent(str_to_lower(municipio)) )
+equipamentos_manutencao_vida_rs$manuntecao_vida_equipamentos=as.numeric(equipamentos_manutencao_vida_rs$equipamentos)
+####### equipamentos ventilador
+respirador_ventilador <- read_delim("respirador_ventilador.csv", ";", escape_double = FALSE, locale = locale(encoding = "WINDOWS-1252"), 
+                                    trim_ws = TRUE, skip = 4)
+respirador_ventilador = respirador_ventilador %>% 
+  separate(Município, into = c("codigo", "municipio"), sep = 7) %>%
+  mutate(municipio=rm_accent(str_to_lower(municipio)) ) %>%
+  mutate(equipamentos_ventilador=Equipamentos_Existentes) %>%
+  select(-Equipamentos_Existentes ) 
+
+
+####### numero de leitos internacao datasus
+leitos_internacao <- read_delim("leitos_internacao.csv", ";", escape_double = FALSE, locale = locale(encoding = "WINDOWS-1252"), 
+                                trim_ws = TRUE, skip = 3)
+leitos_internacao = leitos_internacao %>% 
+  separate(Município, into = c("codigo", "municipio") ,sep = 7) %>%
+  mutate(municipio=rm_accent(str_to_lower(municipio)) ) %>%
+  mutate(leitos_internacao=Qtd_existente) %>%
+  select(-Qtd_existente) 
+
+################### juntando os bancos
+n_municipios=length(mapa_rs_shp_centroids$municipio)
+aux_dados_todos =data.frame(municipio = mapa_rs_shp_centroids$municipio,  data = rep("na", n_municipios), 
+                            casos = rep(0, n_municipios), regiao =rep("na", n_municipios), 
+                            leitos_uti_ampliados = rep(0, n_municipios), leitos_enfermaria_ampliados = rep(0, n_municipios),
+                            total_leitos_uti = rep(0, n_municipios), total_leitos_enfermaria = rep(0, n_municipios),
+                            manuntecao_vida_equipamentos = rep(0, n_municipios), equipamentos_ventilador = rep(0, n_municipios),
+                            leitos_internacao = rep(0, n_municipios))
+
+
+
+
+
+aux_dados_todos2 = dplyr::bind_rows(dados_rs_municipio, leitos_rs2, equipamentos_manutencao_vida_rs, 
+                                    respirador_ventilador, leitos_internacao) 
+aux_dados_todos2 = aux_dados_todos2%>%
+  select(-codigo, -equipamentos, -cidade)%>%
+  replace_na(list(data = "na", casos = 0, regiao = "na", leitos_enfermaria_ampliados = 0,
+                  leitos_uti_ampliados = 0, total_leitos_enfermaria=0, 
+                  total_leitos_uti = 0, manuntecao_vida_equipamentos =0, equipamentos_ventilador = 0,
+                  leitos_internacao = 0))
+
+aux_dados_todos3=rbind(aux_dados_todos, aux_dados_todos2)
+# ###########################################################################
+# ######## unindo os bancos
+# ###########################################################################
+
+banco_covid_rs <- merge(aux_dados_todos3, mapa_rs_shp_centroids, by.x = "municipio", by.y = "municipio") # une os dois bancos dado as cidades
+dplyr::glimpse(banco_covid_rs) # transforma em objeto espacial, n?o sei qual das duas funcoes usar
+banco_covid_rs = st_as_sf(banco_covid_rs)
+banco_covid_rs <- st_transform(banco_covid_rs, "+init=epsg:4326")
+
+##### gustavo
+##### mudando para formato de data a coluna de data no banco original
+
+banco_covid_rs$data <- format(as.Date(banco_covid_rs$data, format = "%d-%m-%Y"), "%d-%m-%Y")
+dados_rs_municipio$data <- format(as.Date(dados_rs_municipio$data, format = "%d-%m-%Y"), "%d-%m-%Y")
+
+# criando um objeto dia_mais_atualizado, para pegar o Ãºltimo dia q se tem
+dia_mais_atualizado <- max(banco_covid_rs$data, na.rm = T)
+
+
+###########################################################################################################
+###########################################################################
+######## Aplicativo
+###########################################################################
+###########################################################################################################
+###########################################################################
+
+
+ui <- dashboardPage(
+  dashboardHeader(title = "Dados COVID19 no Rio Grande do Sul",
+                  titleWidth = 500#,
+                      # dropdownMenu(type = "notifications",
+                      #              notificationItem(
+                      #                text = tags$div("Márcia Helena Barbian",
+                      #                                style = "display: inline-block; vertical-align: middle;"),
+                      #                icon = icon("id-card"),
+                      #                status = "success"
+                      #              ), 
+                      #              headerText = "Aplicativo desenvolvido por")
+  ),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Mapa casos de COVID19 por municipio", tabName = "mapa_porporcao"),
+      menuItem("Serie Temporal de casos por município", tabName = "serie_proporcao"),
+      menuItem("Tabela casos confirmados covid19", tabName = "tabela"),
+      menuItem("Mapa do número de leitos hospitalares", tabName = "mapa_leitos_internacao"),
+      menuItem("Tabela do número de leitos hospitalares", tabName = "tabela_leitos_internacao"),
+      menuItem("Mapa do número de equipamentos de ventilacao", tabName = "cnes_equipamento_ventilador"),
+      menuItem("Tabela do número de equipamentos de ventilacao", tabName = "tabela_ventilacao"),
+      menuItem("Mapa quantidade de leitos plano acao", tabName = "mapa_leitos"),
+      menuItem("Tabela quantidade de leitos do plano de ação da Sec. Saúde", tabName = "tabela_leitos"),
+      menuItem("Mapa quantidade equipamentos mantedores da vida", tabName = "mapa_equipamentos"),
+      menuItem("Tabela quantidade de equipamentos mantendendores da vida", tabName = "tabela_equipamentos")
+      
+     
+    ),
+    width = 420
+  ),
+  
+  dashboardBody(
+    tabItems(
+      tabItem("serie_proporcao",
+              fluidPage(
+                titlePanel("Serie Temporal do numero de casos do COVID19 por municipio"),
+                fluidRow(
+                  sidebarPanel(
+                    #h3("Escolha a Cidade"),
+                    selectizeInput("cidade1",
+                                   label = "Escolha a Cidade",
+                                   choices = unique(dados_rs_municipio$municipio),
+                                   multiple = T,
+                                   options = list(maxItems = 300, placeholder = 'Escolha as cidades'),
+                                   selected = "porto alegre"),
+                    sliderInput("limite1",
+                                "Limites do eixo vertical",
+                                min = (0),
+                                max = round(max(dados_rs_municipio$casos)+10, digits = 4),
+                                value = c(0,round(max(dados_rs_municipio$casos), digits = 4)),
+                                step = 1),
+                    width = 12
+                  )
+                ),
+                mainPanel(
+                  plotlyOutput("grafico_serie_proporcao", height = "600px"),
+                  width = 12
+                )
+              )
+      ),
+      
+      
+      tabItem("tabela",
+              fluidPage(
+                titlePanel("Tabela com casos por município no Rio Grande do Sul"),
+                mainPanel(
+                  DTOutput(outputId = "tabela")
+                )
+              )
+      ),
+
+      
+      tabItem("tabela_leitos",
+              fluidPage(
+                titlePanel("Tabela leitos por município no Rio Grande do Sul"),
+                mainPanel(
+                  DTOutput(outputId = "tabela_leitos")
+                )
+              )
+      ),
+      
+      tabItem("tabela_equipamentos",
+              fluidPage(
+                titlePanel("Numero de equipamentos mantededores da vida"),
+                mainPanel(
+                  DTOutput(outputId = "tabela_equipamentos")
+                )
+              )
+      ),
+      
+      tabItem("mapa_porporcao",
+              fluidPage(
+                titlePanel("Mapa do número de casos confirmados de COVID19"),
+                
+                # adicionando as caixas com números gerais pra quando tiver dados de mortes, recuperados, etc.
+                
+                fluidRow(
+                  valueBoxOutput("box_conf", width = 4),
+                  valueBoxOutput("box_ativ", width = 4),
+                  valueBoxOutput("box_mort", width = 4)
+                ),
+                fluidRow(
+                  column(12,
+                         selectizeInput("y",
+                                        label = "Escolha a data",
+                                        choices = unique(dados_rs_municipio$data),
+                                        selected = dia_mais_atualizado)
+                  ),
+                  mainPanel(
+                    leafletOutput("grafico_mapa_proporcao", height = "700px"),
+                    width = 12,
+                    HTML("<br><br><br>") # para dar um espaço entre os gráficos
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Número de casos por município",
+                      background = "light-blue",
+                      plotlyOutput("barras_municipios", height = "500px"),
+                      width = 12
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Número de novos casos por dia no Rio Grande do Sul",
+                      background = "light-blue",
+                      plotlyOutput("novos_casos", height = "500px"),
+                      width = 12
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Número de casos no Rio Grande do Sul",
+                      background = "light-blue",
+                      plotlyOutput("serie_casos_rs", height = "500px"),
+                      width = 12
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Comparacao numero de casos novos e numero total de casos confirmados no Rio Grande do Sul",
+                      background = "light-blue",
+                      plotlyOutput("serie_casos_rs_total_dia", height = "500px"),
+                      width = 12
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Numero de casos novos por mesorregião",
+                      background = "light-blue",
+                      plotlyOutput("serie_casos_rs_mesorregiao", height = "500px"),
+                      width = 12
+                    )
+                  )
+                )
+              )
+      ),
+      tabItem("mapa_equipamentos",
+              fluidPage(
+                titlePanel("Mapa do número de equipamentos mantendedores da vida"),
+                
+                fluidRow(
+                  column(7,
+                         selectizeInput("y_data_equipamento",
+                                        label = "Escolha a data",
+                                        choices = unique(dados_rs_municipio$data),
+                                        selected = "21-3-2020")
+                  ),
+                  mainPanel(
+                    leafletOutput("grafico_mapa_equipamentos", height = "600px"),
+                    width = 12
+                  )
+                )
+              )
+      ),
+      tabItem("mapa_leitos",
+              fluidPage(
+                titlePanel("Mapa dos casos confirmados de COVID19 e do número de leitos no nível 3 do 
+                           plano de ação da secretaria de saúde do RS"),
+                
+                fluidRow(
+                         selectizeInput("tipo_leito",
+                                        label = "Escolha o tipo de leito",
+                                        choices = c("leitos_uti_ampliados", "leitos_enfermaria_ampliados",
+                                                    "total_leitos_uti", "total_leitos_enfermaria"), 
+                                        selected = "total_leitos_uti"),
+                         selectizeInput("calendario",
+                                        label = "Escolha a data",
+                                        choices = unique(dados_rs_municipio$data),
+                                        selected = "21-3-2020"),
+                  mainPanel(
+                    leafletOutput("grafico_mapa_leitos", height = "600px"),
+                    width = 12
+                  )
+                )
+              )
+              
+      ),
+      tabItem("tabela_leitos_internacao",
+              fluidPage(
+                titlePanel("Mapa do número de leitos de internacao hospitalares existentes por município do Rio Grande 
+                           do Sul- Dado Ministério da Saúde - DATASUS - Informações de Saúde - CNES Recursos físicos - Hospitalar - 
+                             Leitos Internação - Rede Assistencial - URL: http://www2.datasus.gov.br/DATASUS/index.php?
+                             area=0204&id=11663"),
+                mainPanel(
+                  DTOutput(outputId = "tabela_leitos_internacao")
+                )
+              )
+      ),
+      tabItem("mapa_leitos_internacao",
+              fluidPage(
+                titlePanel("Mapa do número de leitos de internacao hospitalares existentes por município do Rio Grande 
+                           do Sul- Dado Ministério da Saúde - DATASUS - Informações de Saúde - CNES Recursos físicos - Hospitalar - 
+                             Leitos Internação - Rede Assistencial - URL: http://www2.datasus.gov.br/DATASUS/index.php?
+                             area=0204&id=11663"),
+                 fluidRow(
+                   valueBoxOutput("box_leitos_internacao", width = 4),
+                   valueBoxOutput("box_conf2", width = 4),
+                   valueBoxOutput("box_mort2", width = 4)
+                 ),
+                fluidRow(
+                  column(6,
+                         selectizeInput("data_leitos_internacao",
+                                        label = "Escolha a data",
+                                        choices = unique(dados_rs_municipio$data),
+                                        selected = "10-3-2020")
+                  ),
+                  mainPanel(
+                    leafletOutput("grafico_mapa_leitos_internacao", height = "700px"),
+                    width = 12,
+                    HTML("<br><br><br>") # para dar um espaço entre os gráficos
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Municípios com 150 ou mais leitos de internação hospitalar",
+                      background = "light-blue",
+                      plotlyOutput("barras_municipios_leitos_internacao", height = "500px"),
+                      width = 12
+                    )
+                  ),
+                  column(
+                    width = 6,
+                    box(
+                      title = "Múmero de leitos de internacao hospitalares por mesorregião",
+                      background = "light-blue",
+                      plotlyOutput("barras_mesorregiao_leitos_internacao", height = "500px"),
+                      width = 12
+                    )
+                  )
+              
+              ) #fluidrow
+      ) #fluidPage
+    ),
+    tabItem("cnes_equipamento_ventilador",
+            fluidPage(
+              titlePanel("Mapa do número de equipamentos do tipo respirador/ventilador existentes por município do Rio Grande 
+                do Sul- Dado Ministério da Saúde - DATASUS - Informações de Saúde - Rede Assistencial - URL: http://www2.datasus.gov.br/DATASUS/index.php?
+area=0204&id=11663"),
+              fluidRow(
+                valueBoxOutput("box_ventiladores", width = 4),
+                valueBoxOutput("box_conf3", width = 4),
+                valueBoxOutput("box_mort3", width = 4)
+              ),
+              fluidRow(
+                column(6,
+                       selectizeInput("data_ventilador",
+                                      label = "Escolha a data",
+                                      choices = unique(dados_rs_municipio$data),
+                                      selected = "10-3-2020")
+                ),
+                mainPanel(
+                  leafletOutput("grafico_mapa_ventilador", height = "700px"),
+                  width = 12,
+                  HTML("<br><br><br>") # para dar um espaço entre os gráficos
+                ),
+                column(
+                  width = 6,
+                  box(
+                    title = "Municípios com 10 ou mais equipamentos de ventilação",
+                    background = "light-blue",
+                    plotlyOutput("barras_municipios_ventilador", height = "500px"),
+                    width = 12
+                  )
+                ),
+                column(
+                  width = 6,
+                  box(
+                    title = "Múmero de aparelhos de ventilacao por mesorregião",
+                    background = "light-blue",
+                    plotlyOutput("barras_mesorregiao_ventilador", height = "500px"),
+                    width = 12
+                  )
+                )
+                
+              ) #fluidRow
+            )
+    ),
+    
+    tabItem("tabela_ventilacao",
+            fluidPage(
+              titlePanel("Tabela do número de equipamentos do tipo respirador/ventilador existentes por município do Rio Grande 
+                           do Sul- Dado Ministério da Saúde - DATASUS - Informações de Saúde - Rede Assistencial - URL: http://www2.datasus.gov.br/DATASUS/index.php?
+                             area=0204&id=11663"),
+              mainPanel(
+                DTOutput(outputId = "tabela_ventilacao")
+              )
+            )
+    )# tabItem
+##################################    
+    
+  ) # tabItems
+)#dashboardBody
+
+)  #dashboardPage
+
+###########################################################################################################
+###########################################################################
+######## SERVER
+###########################################################################
+###########################################################################################################
+###########################################################################
+
+
+server <- function(input, output) {
+  
+  # caixas com numeros gerais
+  
+  # caixa de confirmados
+  output$box_conf <- renderValueBox({
+    aux <- dados_rs_municipio %>%
+      filter(data == dia_mais_atualizado)
+    
+    total <- sum(aux$casos)
+    
+    valueBox(
+      total,
+      "Número de casos confirmados",
+      icon = icon("notes-medical"),
+      color = "red" 
+    )
+  })
+  # caixa (novos casos no dia)
+  output$box_ativ <- renderValueBox({
+    aux <- dados_rs_municipio %>%
+      filter(data == dia_mais_atualizado)
+    
+    total_hj <- sum(aux$casos)
+    
+    aux2 <- dados_rs_municipio %>%
+      filter(data == format(as.Date(dia_mais_atualizado, format = "%d-%m-%Y")-1, "%d-%m-%Y"))
+    
+    total_ontem <- sum(aux2$casos)
+    
+    novos_hj <- total_hj-total_ontem
+    
+    valueBox(
+      novos_hj,
+      "Número de casos confirmados no ultimo boletim epidemiologico",
+      icon = icon("ambulance"),
+      color = "red" 
+    )
+  })
+  # caixa de mortes
+  output$box_mort <- renderValueBox({
+    mortes <- 1
+    valueBox(
+      mortes,
+      "Número de mortes",
+      icon = icon("heartbeat"),
+      color = "purple", 
+    )
+  })
+  # caixas de recuperados
+  #
+  
+  
+  ## gráfico de barras com casos por municipio
+  #
+  output$barras_municipios <- renderPlotly({
+    
+    aux <- dados_rs_municipio %>%
+      filter(data == dia_mais_atualizado) %>%
+      arrange(casos)
+    
+    ordem <- aux$municipio
+    
+    p <- ggplot(aux, aes(x = municipio, y = casos)) +
+      geom_col(fill = "red") +
+      labs(x = "Município", y = "Total de casos confirmados") +
+      scale_x_discrete(limits = ordem) +
+#      axis.text.x = element_text(angle=90,size=7, vjust = 0.5)
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  
+  output$serie_casos_rs_mesorregiao <- renderPlotly({
+    
+    aux <- banco_covid_rs %>%
+      filter(data == dia_mais_atualizado) %>%
+      group_by(mesorregiao)%>%
+      summarise(casos = sum(casos))%>%
+      arrange(casos)
+    
+    ordem <- aux$mesorregiao
+    
+    
+    p <- ggplot(aux, aes(x = mesorregiao, y = casos)) +
+      geom_col(fill = "red") +
+      labs(y = "Total de casos confirmados") +
+      scale_x_discrete(limits = ordem) +
+      #      axis.text.x = element_text(angle=90,size=7, vjust = 0.5)
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  
+  
+  output$barras_mesorregiao_leitos_internacao <- renderPlotly({
+    
+    aux <- data.frame(mesorregiao= banco_covid_rs$mesorregiao, leitos_internacao= banco_covid_rs$leitos_internacao) %>%
+      group_by(mesorregiao)%>%
+      summarise(leitos_internacao = sum(leitos_internacao))%>%
+      arrange(leitos_internacao)
+    
+    ordem <- aux$mesorregiao
+    
+    p <- ggplot(aux, aes(x = mesorregiao, y = leitos_internacao)) +
+      geom_col(fill = "Sky blue") +
+      labs(y = "Número de leitos de internação hospitalar por mesorregião") +
+      scale_x_discrete(limits = ordem) +
+      #axis.title.y = element_blank()+
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  ## Gráfico de barras com novos casos por dia
+  #
+  
+  output$novos_casos <- renderPlotly({
+    
+    aux <- dados_rs_municipio %>%
+      group_by(data) %>%
+      summarise(acumulado = sum(casos))
+    
+    aux$novos <- c(aux$acumulado[1],rep(NA,nrow(aux)-1))
+    for(i in 2:nrow(aux)) {
+      aux$novos[i] <- aux$acumulado[i]-aux$acumulado[i-1]
+    }
+    
+    aux$data <- as.Date(aux$data, format = "%d-%m-%Y")
+    aux$data <- str_c(lubridate::day(aux$data),"-",lubridate::month(aux$data))
+    
+    p <- ggplot(aux, aes(x = data, y = novos)) +
+      geom_col(fill = "red") +
+      #geom_line(aes(x = data, y = acumulado), size=5)
+      labs(x = "Dia", y = "Casos novos por dia no Rio Grande do Sul")+
+      theme( axis.text.x = element_text(angle=90))
+    
+    ggplotly(p)
+    
+    
+  })   
+  
+  output$serie_casos_rs <- renderPlotly({
+    
+    aux <- dados_rs_municipio %>%
+      group_by(data) %>%
+      summarise(acumulado = sum(casos))
+    
+    aux$novos <- c(aux$acumulado[1],rep(NA,nrow(aux)-1))
+    for(i in 2:nrow(aux)) {
+      aux$novos[i] <- aux$acumulado[i]-aux$acumulado[i-1]
+    }
+    
+    aux$data <- as.Date(aux$data, format = "%d-%m-%Y")
+    aux$data <- str_c(lubridate::day(aux$data),"-",lubridate::month(aux$data))
+    
+    p <- ggplot(aux) +
+      #geom_line(aes(x = data, y = acumulado), size=2)+
+      geom_col(aes(x = data, y = acumulado), fill="red") +
+      labs(x = "Dia", y = "Número de casos no Rio Grande do Sul")+
+      theme( axis.text.x = element_text(angle=90))
+      
+    ggplotly(p)
+    
+    
+  }) 
+  
+  
+  output$serie_casos_rs_total_dia <- renderPlotly({
+    
+    aux <- dados_rs_municipio %>%
+      group_by(data) %>%
+      summarise(acumulado = sum(casos))
+    
+    aux$novos <- c(aux$acumulado[1],rep(NA,nrow(aux)-1))
+    for(i in 2:nrow(aux)) {
+      aux$novos[i] <- aux$acumulado[i]-aux$acumulado[i-1]
+    }
+    
+    #format(as.Date(dados_rs_municipio$data, format = "%d-%m-%Y"), "%d-%m-%Y")
+    
+    aux$data <- as.Date(aux$data, format = "%d-%m-%Y")
+    #aux$data2 <- str_c(lubridate::day(aux$data),"-",lubridate::month(aux$data))
+    
+    p <- ggplot(aux) +
+      #geom_line(aes(x = data, y = acumulado), size=2)+
+      geom_line(aes(x = data, y = acumulado)) +
+      geom_point(aes(x = data, y= acumulado), size=2)+
+      geom_bar(aes(x= data, y = novos), fill = "red", stat = "identity")+
+      labs(x = "Dia", y = "Número de casos no Rio Grande do Sul")+
+      theme( axis.text.x = element_text(angle=90,size=7, vjust = 0.5))
+    
+    ggplotly(p)
+    
+    
+  })
+  
+  
+  
+  output$grafico_serie_proporcao <- renderPlotly({
+    
+    dados_rs_municipio$data <- as.Date(dados_rs_municipio$data,format = "%d-%m-%Y") 
+    
+    serie2 <- dados_rs_municipio %>%
+      filter(municipio %in% input$cidade1) 
+    
+    
+    ggplotly(
+      ggplot(serie2, aes(x = data , y = casos, colour = `municipio`)) +
+        geom_line(size = 1) +
+        geom_point(size = 2)+
+        ylim(input$limite1[1],c(input$limite1[2]))+
+        labs(x = "dia", y = "Numero de casos confirmados")+
+        theme( axis.text.x = element_text(angle=90))+
+        scale_x_date(labels = date_format("%d-%m"))
+    )
+    
+  })
+  
+  
+  output$grafico_mapa_proporcao <- renderLeaflet({
+    
+    banco_covid_rs_tudo = banco_covid_rs %>%  # aqui coloca o filtro 
+      filter(data == input$y | is.na(data)) %>%
+      group_by(municipio) %>%
+      mutate(data==input$y)%>%
+      summarise(casos=max(casos))
+    
+    ## banco filtrado pra fazer o grafico
+    banco_covid_rs_filtro = banco_covid_rs %>%
+                                  filter(data == input$y)
+    
+    ####################################################    
+    y_quantidade=banco_covid_rs_tudo$casos
+    bins <- c(0, 1, 2, 3, 10, 20, 30, 40, max(y_quantidade))
+    #bins = c(1, 100)
+    #pal <- colorBin("magma", domain = y, bins = bins)
+    #pal <- colorBin("white", domain = y)
+    pal <- colorBin("YlOrRd", domain = y_quantidade, bins = bins)
+    
+    
+    leaflet(banco_covid_rs_tudo) %>%
+      addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
+      addCircleMarkers(data=banco_covid_rs_filtro, lng=banco_covid_rs_filtro$longitude, 
+                       lat = banco_covid_rs_filtro$latitude, radius=~banco_covid_rs_filtro$casos, 
+                       weight = 1, color = "red", fillOpacity = 0.5)%>%
+      addPolygons(fillColor = ~pal(y_quantidade), 
+                  weight = 1,
+                  opacity = 0.5,
+                  fillOpacity = 0.5,
+                  color = "gray",
+                  highlight = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
+                  label = sprintf("%s - numero de casos %s", banco_covid_rs_tudo$municipio, round(y_quantidade, 6)),
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "6px 11px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~y_quantidade, opacity = 0.7, title = "casos confirmados",
+                labFormat = labelFormat(digits = 5),
+                position = "bottomright") #%>%
+   
+    #popup=~banco_covid_rs_filtro$casos)# %>%
+    #addLegendCustom(colors = c("red"), labels = c("casos confirmados"), sizes = c(5))
+  })
+  
+  ######
+  
+  output$grafico_mapa_leitos <- renderLeaflet({
+    
+    # banco filtro leitos
+    #aux_nome2 = input$tipo_leito
+    #aux_aux_nome2 = which(ax_nome2==names(banco_covid_rs))
+    #nomes_filtro= c(municipio,input$tipo_leito )
+    #data[,names(data) %in% input$show_vars]
+    
+    #banco_covid_rs[, c(municipio,input$tipo_leito)]
+    
+    aux_nome_leito = which(input$tipo_leito ==names(banco_covid_rs))  
+    
+    banco_covid_rs_leitos = banco_covid_rs %>%  # aqui coloca o filtro
+      group_by(municipio) %>%
+      summarize_at(colnames(banco_covid_rs)[aux_nome_leito], funs(max))
+      #summarize_at(vars(starts_with(input$tipo_leito)), leito_escolhido = funs(max))
+    
+
+    ## banco filtrado casos
+    banco_covid_rs_calendario_filtro = banco_covid_rs %>%
+        filter(data == input$calendario)
+      
+    ####################################################    
+    y_quantidade_leitos=data.frame(banco_covid_rs_leitos)[,2]
+    bins <- c(0, 10, 20, 30, 50, 100, 300)
+    #bins = c(1, 100)
+    #pal <- colorBin("magma", domain = y, bins = bins)
+    #pal <- colorBin("white", domain = y)
+    # pal <- colorBin("Blues", domain = y_quantidade_leitos, bins = 5)
+    pal <- colorBin("Blues", domain = y_quantidade_leitos, bins = bins)                                                   
+
+    leaflet(banco_covid_rs_leitos) %>%
+      addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
+      addCircleMarkers(banco_covid_rs_calendario_filtro, lng=  banco_covid_rs_calendario_filtro$longitude, 
+                       lat =   banco_covid_rs_calendario_filtro$latitude, radius=~banco_covid_rs_calendario_filtro$casos, 
+                       weight = 1, color = "red", fillOpacity = 2)%>%
+       addLegend(colors=rep("red"), labels=c("casos confirmados"))%>%
+      addPolygons(fillColor = ~pal(y_quantidade_leitos), 
+                  weight = 1,
+                  opacity = 0.6,
+                  fillOpacity = 0.6,
+                  color = "gray",
+                  highlight = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
+                  label = sprintf("%s - numero leitos %s", banco_covid_rs_leitos$municipio, round(y_quantidade_leitos, 6)),
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "6px 11px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~y_quantidade_leitos, opacity = 0.9,
+                title = input$tipo_leito,
+                labFormat = labelFormat(digits = 5),
+                position = "bottomright") 
+  })
+  
+  output$grafico_mapa_equipamentos <- renderLeaflet({
+    
+    banco_covid_rs_equipamentos = banco_covid_rs %>%  # aqui coloca o filtro 
+      filter(data == input$y_data_equipamento| is.na(data)) %>%
+      group_by(municipio) %>%
+      #mutate(data=="20-3-2020")
+      mutate(data==input$y)%>%
+      summarise(equipamentos=max(manuntecao_vida_equipamentos))
+    
+    ## banco filtrado pra fazer o grafico
+    banco_covid_rs_filtro = banco_covid_rs %>%
+      filter(data == input$y_data_equipamento)
+    
+    ####################################################    
+    y_quantidade=banco_covid_rs_equipamentos$equipamentos
+    bins <- c(0, 10, 50, 100, 1000, 2000, 3000, max(y_quantidade))
+    #bins = c(1, 100)
+    #pal <- colorBin("magma", domain = y, bins = bins)
+    #pal <- colorBin("white", domain = y)
+    pal <- colorBin("Blues", domain = y_quantidade, bins = bins)
+    
+    
+    leaflet(banco_covid_rs_equipamentos) %>%
+      addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
+      addCircleMarkers(data=banco_covid_rs_filtro, lng=banco_covid_rs_filtro$longitude, 
+                       lat = banco_covid_rs_filtro$latitude, radius=~(banco_covid_rs_filtro$casos)*2, 
+                       weight = 1, color = "red", fillOpacity = 300)%>%
+      addLegend(colors=rep("red"), labels=c("casos confirmados"))%>%
+      addPolygons(fillColor = ~pal(y_quantidade), 
+                  weight = 1,
+                  opacity = 0.6,
+                  fillOpacity = 0.6,
+                  color = "gray",
+                  highlight = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
+                  label = sprintf("%s - numero equipamentos %s", banco_covid_rs_equipamentos$municipio, round(y_quantidade, 6)),
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "6px 11px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~y_quantidade, opacity = 0.7, title = "quantidade de equipamentos",
+                labFormat = labelFormat(digits = 5),
+                position = "bottomright") #%>%
+    
+    #popup=~banco_covid_rs_filtro$casos)# %>%
+    #addLegendCustom(colors = c("red"), labels = c("casos confirmados"), sizes = c(5))
+  })
+  
+  
+   
+  output$tabela <- renderDT(dados_rs_municipio)
+  
+  output$tabela_leitos <- renderDT(leitos_rs)
+  
+  output$tabela_equipamentos <- renderDT(equipamentos_manutencao_vida_rs)
+  
+  output$tabela_leitos_internacao <- renderDT(leitos_internacao)
+  
+  output$mapa_leitos_internacao <- renderDT(leitos_internacao)
+  
+  output$box_leitos_internacao <- renderValueBox({
+    
+    aux = sum(banco_covid_rs$leitos_internacao)
+          
+    valueBox(
+      aux,
+      "Número de leitos de internacao hospitalar no Rio Grande do Sul",
+      icon = icon("notes-medical"),
+      color = "light-blue" 
+    )
+  })
+  
+  # caixa de confirmados
+  output$box_conf2 <- renderValueBox({
+    aux <- dados_rs_municipio %>%
+      filter(data == dia_mais_atualizado)
+    
+    total <- sum(aux$casos)
+    
+    valueBox(
+      total,
+      "Número de casos confirmados",
+      icon = icon("notes-medical"),
+      color = "red" 
+    )
+  })
+  
+  # caixa de mortes
+  output$box_mort2 <- renderValueBox({
+    mortes <- 1
+    valueBox(
+      mortes,
+      "Número de mortes",
+      icon = icon("heartbeat"),
+      color = "purple", 
+    )
+  })
+  
+  output$barras_municipios_leitos_internacao <- renderPlotly({
+    
+    aux <- banco_covid_rs %>%
+      filter(leitos_internacao>150) %>%
+      arrange(leitos_internacao)
+    
+    ordem <- aux$municipio
+    
+    p <- ggplot(aux, aes(x = municipio, y = leitos_internacao)) +
+      geom_col(fill = "Sky blue") +
+      labs(x = "Município", y = "Número de leitos de internaçao hospitalar por município") +
+      scale_x_discrete(limits = ordem) +
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  
+  output$barras_mesorregiao_leitos_internacao <- renderPlotly({
+    
+    aux <- data.frame(mesorregiao= banco_covid_rs$mesorregiao, leitos_internacao= banco_covid_rs$leitos_internacao) %>%
+      group_by(mesorregiao)%>%
+      summarise(leitos_internacao = sum(leitos_internacao))%>%
+      arrange(leitos_internacao)
+    
+    ordem <- aux$mesorregiao
+    
+    p <- ggplot(aux, aes(x = mesorregiao, y = leitos_internacao)) +
+      geom_col(fill = "Sky blue") +
+      labs(y = "Número de leitos de internação hospitalar por mesorregião") +
+      scale_x_discrete(limits = ordem) +
+      #axis.title.y = element_blank()+
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  
+  output$grafico_mapa_leitos_internacao <- renderLeaflet({
+    
+    banco_covid_rs_leitos_internacao = banco_covid_rs %>%  # aqui coloca o filtro 
+      filter(data == input$data_leitos_internacao| is.na(data)) %>%
+      group_by(municipio) %>%
+      mutate(data==input$data_leitos_internacao)%>%
+      summarise(leitos_internacao=max(leitos_internacao))
+    
+    ## banco filtrado pra fazer o grafico
+    banco_covid_rs_filtro = banco_covid_rs %>%
+      filter(data == input$data_leitos_internacao)
+    
+    ####################################################    
+    y_quantidade=banco_covid_rs_leitos_internacao$leitos_internacao
+    bins <- c(0, 1, 10, 50, 100, 200, 500, 1000, 1300, max(y_quantidade))
+    #bins = c(1, 100)
+    #pal <- colorBin("magma", domain = y, bins = bins)
+    #pal <- colorBin("white", domain = y)
+    pal <- colorBin("Blues", domain = y_quantidade, bins = bins)
+    
+    
+    leaflet(banco_covid_rs_leitos_internacao) %>%
+      addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
+      addCircleMarkers(data=banco_covid_rs_filtro, lng=banco_covid_rs_filtro$longitude, 
+                       lat = banco_covid_rs_filtro$latitude, radius=~(banco_covid_rs_filtro$casos)*2, 
+                       weight = 1, color = "red", fillOpacity = 300)%>%
+      addLegend(colors=rep("red"), labels=c("casos confirmados"))%>%
+      addPolygons(fillColor = ~pal(y_quantidade), 
+                  weight = 1,
+                  opacity = 0.6,
+                  fillOpacity = 0.6,
+                  color = "gray",
+                  highlight = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
+                  label = sprintf("%s - n. de leitos internacao  %s", banco_covid_rs_leitos_internacao$municipio, round(y_quantidade, 6)),
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "6px 11px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~y_quantidade, opacity = 0.7, title = "Qtd de leitos de internacao hospitalares",
+                labFormat = labelFormat(digits = 5),
+                position = "bottomright") #%>%
+    
+  })
+  
+  output$box_ventiladores <- renderValueBox({
+    
+    valueBox(
+      sum(banco_covid_rs$equipamentos_ventilador),
+      "Número de equipamentos de ventilação mecânica no Rio Grande do Sul",
+      icon = icon("notes-medical"),
+      color = "light-blue" 
+    )
+  })
+  
+  
+  output$box_conf3 <- renderValueBox({
+    aux <- dados_rs_municipio %>%
+      filter(data == dia_mais_atualizado)
+    
+    total <- sum(aux$casos)
+    
+    valueBox(
+      total,
+      "Número de casos confirmados",
+      icon = icon("notes-medical"),
+      color = "red" 
+    )
+  })
+  
+  # caixa de mortes
+  output$box_mort3 <- renderValueBox({
+    mortes <- 1
+    valueBox(
+      mortes,
+      "Número de mortes",
+      icon = icon("heartbeat"),
+      color = "purple", 
+    )
+  })
+  
+  
+  output$barras_municipios_ventilador <- renderPlotly({
+    
+    aux <- banco_covid_rs %>%
+      filter(equipamentos_ventilador>9) %>%
+      arrange(equipamentos_ventilador)
+    
+    ordem <- aux$municipio
+    
+    p <- ggplot(aux, aes(x = municipio, y = equipamentos_ventilador)) +
+      geom_col(fill = "Sky blue") +
+      labs(x = "Município", y = "Número de equipamentos de ventilação por município") +
+      scale_x_discrete(limits = ordem) +
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  
+  output$barras_mesorregiao_ventilador <- renderPlotly({
+    
+    aux <- data.frame(mesorregiao= banco_covid_rs$mesorregiao, equipamentos_ventilador= banco_covid_rs$equipamentos_ventilador) %>%
+      group_by(mesorregiao)%>%
+      summarise(equipamentos_ventilador = sum(equipamentos_ventilador))%>%
+      arrange(equipamentos_ventilador)
+    
+    ordem <- aux$mesorregiao
+    
+    p <- ggplot(aux, aes(x = mesorregiao, y = equipamentos_ventilador)) +
+      geom_col(fill = "Sky blue") +
+      labs(y = "Número de equipamentos de ventilação por mesorregião") +
+      scale_x_discrete(limits = ordem) +
+      #axis.title.y = element_blank()+
+      coord_flip()
+    
+    ggplotly(p)
+    
+  })
+  
+  
+  output$grafico_mapa_ventilador <- renderLeaflet({
+    
+    banco_covid_rs_ventilador = banco_covid_rs %>%  # aqui coloca o filtro 
+      filter(data == input$data_ventilador| is.na(data)) %>%
+      group_by(municipio) %>%
+      mutate(data==input$data_ventilador)%>%
+      summarise(equipamentos_ventilador2=max(equipamentos_ventilador))
+    
+    ## banco filtrado pra fazer o grafico
+    banco_covid_rs_filtro = banco_covid_rs %>%
+      filter(data == input$data_ventilador)
+    
+    ####################################################    
+    y_quantidade=banco_covid_rs_ventilador$equipamentos_ventilador2
+    bins <- c(0, 1, 5, 10, 20, 100, 300, max(y_quantidade))
+    #bins = c(1, 100)
+    #pal <- colorBin("magma", domain = y, bins = bins)
+    #pal <- colorBin("white", domain = y)
+    pal <- colorBin("Blues", domain = y_quantidade, bins = bins)
+    
+    
+    leaflet(banco_covid_rs_ventilador) %>%
+      addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
+      addCircleMarkers(data=banco_covid_rs_filtro, lng=banco_covid_rs_filtro$longitude, 
+                       lat = banco_covid_rs_filtro$latitude, radius=~(banco_covid_rs_filtro$casos)*2, 
+                       weight = 1, color = "red", fillOpacity = 300)%>%
+      addLegend(colors=rep("red"), labels=c("casos confirmados"))%>%
+      addPolygons(fillColor = ~pal(y_quantidade), 
+                  weight = 1,
+                  opacity = 0.6,
+                  fillOpacity = 0.6,
+                  color = "gray",
+                  highlight = highlightOptions(
+                    weight = 5,
+                    color = "#666",
+                    fillOpacity = 0.7,
+                    bringToFront = TRUE),
+                  label = sprintf("%s - numero de ventiladores  %s", banco_covid_rs_ventilador$municipio, round(y_quantidade, 6)),
+                  labelOptions = labelOptions(
+                    style = list("font-weight" = "normal", padding = "6px 11px"),
+                    textsize = "15px",
+                    direction = "auto")) %>%
+      addLegend(pal = pal, values = ~y_quantidade, opacity = 0.7, title = "Número de respirador/ventilador",
+                labFormat = labelFormat(digits = 5),
+                position = "bottomright") #%>%
+    
+  })
+  
+  output$tabela_ventilacao <- renderDT(respirador_ventilador)
+  
+}
+
+shinyApp(ui, server)
+
+
+

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1587606445527.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2603583397",
+    "id" : "848EF944",
+    "lastKnownWriteTime" : 1587604577,
+    "last_content_update" : 1587604577,
+    "path" : "C:/Users/mhbar/Google Drive/gustavo_bolsista_NAU/covid19_poa/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "483,33",
+        "scrollLine" : "476"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

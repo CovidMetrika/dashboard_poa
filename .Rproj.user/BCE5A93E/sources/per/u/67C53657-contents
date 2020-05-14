@@ -1,0 +1,19 @@
+output$linhas_serie_adulto2
+
+#cores_uti_emergencia = c("emergencia" = "green", "uti" = "blue")
+scale_fill_manual(values = cores_uti_emergencia)
+
+aux$data_atualizacao <- as.character(format(aux$data_atualizacao, "%d-%m"))
+cores_uti_emergencia = c("emergencia" = "#1B9E77", "uti" = "#D95F02")
+
+p <- ggplot(aux, aes(x = data_atualizacao)) +
+  geom_point(aes(y = total_leitos, color = tipo), size = 2) +
+  geom_line(aes(y = total_leitos, color = tipo, group = tipo)) +
+  geom_col(aes(y = total_ocupados, fill = tipo), position = position_dodge()) +
+  scale_fill_manual(values = cores_uti_emergencia) +
+  scale_color_manual(values = cores_uti_emergencia) +
+  #  scale_x_discrete(limits = ordem) +
+  # scale_fill_brewer(palette = "Dark2") +
+  #scale_color_brewer(palette = "Dark2") +
+  labs(x = "Dia", y = "Número de leitos") +
+  theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))

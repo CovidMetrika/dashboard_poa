@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1587182212583.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2522162635",
+    "id" : "1BE8B083",
+    "lastKnownWriteTime" : 1586807826,
+    "last_content_update" : 1586807826,
+    "path" : "C:/Users/mhbar/Google Drive/gustavo_bolsista_NAU/covid19_rs_novo/data_wrangling.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

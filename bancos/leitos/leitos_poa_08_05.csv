@@ -1,0 +1,1643 @@
+tipo,classe,local,leitos,internados,data_atualizacao,lat,long,covid,semana_epidemiologica
+emergencia,adulto,HCPA,41,17,2020-03-31,-30.038435,-51.206637,NA,14
+emergencia,adulto,Hospital Conceição,64,42,2020-03-31,-30.01587,-51.158236,NA,14
+emergencia,adulto,Instituto de Cardiologia,21,11,2020-03-31,-30.049092,-51.20903,NA,14
+emergencia,adulto,Hospital Santa Casa,24,14,2020-03-31,-30.030803,-51.221512,NA,14
+emergencia,adulto,Hospital São Lucas,17,5,2020-03-31,-30.055122,-51.173819,NA,14
+emergencia,adulto,Hospital Restinga,18,6,2020-03-31,-30.142524,-51.128803,NA,14
+emergencia,adulto,Hospital Vila Nova,26,2,2020-03-31,-30.119308,-51.207744,NA,14
+emergencia,adulto,PA Bom Jesus,7,5,2020-03-31,-30.043194,-51.153916,NA,14
+emergencia,adulto,PA Cruzeiro do Sul,12,6,2020-03-31,-30.069603,-51.216537,NA,14
+emergencia,adulto,PA Lomba do Pinheiro,9,2,2020-03-31,-30.110731,-51.110188,NA,14
+emergencia,adulto,UPA Zona Norte,17,12,2020-03-31,-30.009546,-51.146056,NA,14
+emergencia,pediatrico,HCPA,9,1,2020-03-31,-30.038435,-51.206637,NA,14
+emergencia,pediatrico,Hospital Conceição,16,3,2020-03-31,-30.01587,-51.158236,NA,14
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-03-31,-30.030803,-51.221512,NA,14
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-03-31,-30.055122,-51.173819,NA,14
+emergencia,pediatrico,HMIPV,9,4,2020-03-31,-30.029525,-51.214865,NA,14
+emergencia,pediatrico,Hospital Restinga,6,0,2020-03-31,-30.142524,-51.128803,NA,14
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-03-31,-30.043194,-51.153916,NA,14
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-03-31,-30.069603,-51.216537,NA,14
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-03-31,-30.110731,-51.110188,NA,14
+uti,adulto,Hospital Conceição,59,43,2020-03-31,-30.01587,-51.158236,1,14
+uti,adulto,HCPA,55,39,2020-03-31,-30.038435,-51.206637,6,14
+uti,adulto,Hospital Santa Casa,87,70,2020-03-31,-30.030803,-51.221512,0,14
+uti,adulto,Hospital São Lucas,59,33,2020-03-31,-30.055122,-51.173819,0,14
+uti,adulto,Hospital Cristo Redentor,29,21,2020-03-31,-30.010102,-51.15926,0,14
+uti,adulto,Hospital Moinhos de Vento,56,38,2020-03-31,-30.02552,-51.20842,7,14
+uti,adulto,Hospital Ernesto Dornelles,40,26,2020-03-31,-30.047509,-51.212131,0,14
+uti,adulto,Hospital Vila Nova,20,20,2020-03-31,-30.119308,-51.207744,0,14
+uti,adulto,HPS,20,12,2020-03-31,-30.036874,-51.209282,0,14
+uti,adulto,HospitaL Independência,10,8,2020-03-31,-30.061051,-51.149073,0,14
+uti,adulto,Hospital Femina,4,2,2020-03-31,-30.029239,-51.206848,0,14
+uti,adulto,Hospital Divina Providência,16,12,2020-03-31,-30.084428,-51.18839,0,14
+uti,adulto,Hospital Restinga,10,10,2020-03-31,-30.142524,-51.128803,0,14
+uti,adulto,Hospital Santa Ana,10,6,2020-03-31,-30.086664,-51.20689,0,14
+uti,adulto,Hospital Mãe de Deus,50,41,2020-03-31,-30.058845,-51.228945,4,14
+uti,pediatrico,Hospital Santa Casa,37,9,2020-03-31,-30.030803,-51.221512,0,14
+uti,pediatrico,Hospital São Lucas,12,4,2020-03-31,-30.055122,-51.173819,0,14
+uti,pediatrico,HCPA,13,10,2020-03-31,-30.038435,-51.206637,0,14
+uti,pediatrico,HPS,8,6,2020-03-31,-30.036874,-51.209282,0,14
+uti,pediatrico,Hospital Moinhos de Vento,11,7,2020-03-31,-30.02552,-51.20842,0,14
+uti,pediatrico,Hospital Conceição,18,5,2020-03-31,-30.01587,-51.158236,0,14
+uti,pediatrico,HMIPV,6,3,2020-03-31,-30.029525,-51.214865,0,14
+emergencia,adulto,HCPA,41,14,2020-04-01,-30.038435,-51.206637,NA,14
+emergencia,adulto,Hospital Conceição,64,38,2020-04-01,-30.01587,-51.158236,NA,14
+emergencia,adulto,Instituto de Cardiologia,21,11,2020-04-01,-30.049092,-51.20903,NA,14
+emergencia,adulto,Hospital Santa Casa,24,10,2020-04-01,-30.030803,-51.221512,NA,14
+emergencia,adulto,Hospital São Lucas,17,5,2020-04-01,-30.055122,-51.173819,NA,14
+emergencia,adulto,Hospital Restinga,18,7,2020-04-01,-30.142524,-51.128803,NA,14
+emergencia,adulto,Hospital Vila Nova,26,2,2020-04-01,-30.119308,-51.207744,NA,14
+emergencia,adulto,PA Bom Jesus,7,1,2020-04-01,-30.043194,-51.153916,NA,14
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-01,-30.069603,-51.216537,NA,14
+emergencia,adulto,PA Lomba do Pinheiro,9,6,2020-04-01,-30.110731,-51.110188,NA,14
+emergencia,adulto,UPA Zona Norte,17,4,2020-04-01,-30.009546,-51.146056,NA,14
+emergencia,adulto,HCPA,41,21,2020-04-02,-30.038435,-51.206637,NA,14
+emergencia,adulto,Hospital Conceição,64,30,2020-04-02,-30.01587,-51.158236,NA,14
+emergencia,adulto,Instituto de Cardiologia,21,10,2020-04-02,-30.049092,-51.20903,NA,14
+emergencia,adulto,Hospital Santa Casa,24,16,2020-04-02,-30.030803,-51.221512,NA,14
+emergencia,adulto,Hospital São Lucas,17,6,2020-04-02,-30.055122,-51.173819,NA,14
+emergencia,adulto,Hospital Restinga,18,11,2020-04-02,-30.142524,-51.128803,NA,14
+emergencia,adulto,Hospital Vila Nova,26,5,2020-04-02,-30.119308,-51.207744,NA,14
+emergencia,adulto,PA Bom Jesus,7,7,2020-04-02,-30.043194,-51.153916,NA,14
+emergencia,adulto,PA Cruzeiro do Sul,12,5,2020-04-02,-30.069603,-51.216537,NA,14
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-02,-30.110731,-51.110188,NA,14
+emergencia,adulto,UPA Zona Norte,17,4,2020-04-02,-30.009546,-51.146056,NA,14
+emergencia,pediatrico,HCPA,9,4,2020-04-01,-30.038435,-51.206637,NA,14
+emergencia,pediatrico,Hospital Conceição,16,3,2020-04-01,-30.01587,-51.158236,NA,14
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-01,-30.030803,-51.221512,NA,14
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-01,-30.055122,-51.173819,NA,14
+emergencia,pediatrico,HMIPV,9,3,2020-04-01,-30.029525,-51.214865,NA,14
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-01,-30.142524,-51.128803,NA,14
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-04-01,-30.043194,-51.153916,NA,14
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-01,-30.069603,-51.216537,NA,14
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-01,-30.110731,-51.110188,NA,14
+emergencia,pediatrico,HCPA,9,3,2020-04-02,-30.038435,-51.206637,NA,14
+emergencia,pediatrico,Hospital Conceição,16,3,2020-04-02,-30.01587,-51.158236,NA,14
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-02,-30.030803,-51.221512,NA,14
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-02,-30.055122,-51.173819,NA,14
+emergencia,pediatrico,HMIPV,9,1,2020-04-02,-30.029525,-51.214865,NA,14
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-02,-30.142524,-51.128803,NA,14
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-02,-30.043194,-51.153916,NA,14
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-04-02,-30.069603,-51.216537,NA,14
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-04-02,-30.110731,-51.110188,NA,14
+uti,adulto,Hospital Conceição,59,50,2020-04-01,-30.01587,-51.158236,1,14
+uti,adulto,HCPA,55,41,2020-04-01,-30.038435,-51.206637,6,14
+uti,adulto,Hospital Santa Casa,87,60,2020-04-01,-30.030803,-51.221512,0,14
+uti,adulto,Hospital São Lucas,59,33,2020-04-01,-30.055122,-51.173819,0,14
+uti,adulto,Hospital Cristo Redentor,29,18,2020-04-01,-30.010102,-51.15926,0,14
+uti,adulto,Hospital Moinhos de Vento,56,37,2020-04-01,-30.02552,-51.20842,13,14
+uti,adulto,Hospital Ernesto Dornelles,40,29,2020-04-01,-30.047509,-51.212131,0,14
+uti,adulto,Hospital Vila Nova,20,19,2020-04-01,-30.119308,-51.207744,0,14
+uti,adulto,HPS,20,13,2020-04-01,-30.036874,-51.209282,0,14
+uti,adulto,HospitaL Independência,10,8,2020-04-01,-30.061051,-51.149073,0,14
+uti,adulto,Hospital Femina,4,3,2020-04-01,-30.029239,-51.206848,0,14
+uti,adulto,Hospital Divina Providência,16,14,2020-04-01,-30.084428,-51.18839,0,14
+uti,adulto,Hospital Restinga,10,9,2020-04-01,-30.142524,-51.128803,0,14
+uti,adulto,Hospital Santa Ana,10,6,2020-04-01,-30.086664,-51.20689,0,14
+uti,adulto,Hospital Mãe de Deus,50,40,2020-04-01,-30.058845,-51.228945,5,14
+uti,adulto,Hospital Conceição,59,45,2020-04-02,-30.01587,-51.158236,1,14
+uti,adulto,HCPA,55,43,2020-04-02,-30.038435,-51.206637,6,14
+uti,adulto,Hospital Santa Casa,87,68,2020-04-02,-30.030803,-51.221512,0,14
+uti,adulto,Hospital São Lucas,59,28,2020-04-02,-30.055122,-51.173819,0,14
+uti,adulto,Hospital Cristo Redentor,29,18,2020-04-02,-30.010102,-51.15926,0,14
+uti,adulto,Hospital Moinhos de Vento,56,48,2020-04-02,-30.02552,-51.20842,14,14
+uti,adulto,Hospital Ernesto Dornelles,40,27,2020-04-02,-30.047509,-51.212131,0,14
+uti,adulto,Hospital Vila Nova,20,19,2020-04-02,-30.119308,-51.207744,0,14
+uti,adulto,HPS,20,10,2020-04-02,-30.036874,-51.209282,0,14
+uti,adulto,HospitaL Independência,10,7,2020-04-02,-30.061051,-51.149073,0,14
+uti,adulto,Hospital Femina,4,4,2020-04-02,-30.029239,-51.206848,0,14
+uti,adulto,Hospital Divina Providência,16,14,2020-04-02,-30.084428,-51.18839,0,14
+uti,adulto,Hospital Restinga,10,10,2020-04-02,-30.142524,-51.128803,0,14
+uti,adulto,Hospital Santa Ana,10,7,2020-04-02,-30.086664,-51.20689,0,14
+uti,adulto,Hospital Mãe de Deus,50,40,2020-04-02,-30.058845,-51.228945,5,14
+uti,pediatrico,Hospital Santa Casa,37,28,2020-04-01,-30.030803,-51.221512,0,14
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-01,-30.055122,-51.173819,0,14
+uti,pediatrico,HCPA,13,9,2020-04-01,-30.038435,-51.206637,0,14
+uti,pediatrico,HPS,8,3,2020-04-01,-30.036874,-51.209282,0,14
+uti,pediatrico,Hospital Moinhos de Vento,11,6,2020-04-01,-30.02552,-51.20842,0,14
+uti,pediatrico,Hospital Conceição,18,5,2020-04-01,-30.01587,-51.158236,0,14
+uti,pediatrico,HMIPV,6,3,2020-04-01,-30.029525,-51.214865,0,14
+uti,pediatrico,Hospital Santa Casa,37,31,2020-04-02,-30.030803,-51.221512,0,14
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-02,-30.055122,-51.173819,0,14
+uti,pediatrico,HCPA,13,9,2020-04-02,-30.038435,-51.206637,0,14
+uti,pediatrico,HPS,8,3,2020-04-02,-30.036874,-51.209282,0,14
+uti,pediatrico,Hospital Moinhos de Vento,11,5,2020-04-02,-30.02552,-51.20842,0,14
+uti,pediatrico,Hospital Conceição,18,5,2020-04-02,-30.01587,-51.158236,0,14
+uti,pediatrico,HMIPV,6,3,2020-04-02,-30.029525,-51.214865,0,14
+emergencia,adulto,HCPA,41,18,2020-04-03,-30.038435,-51.206637,NA,14
+emergencia,adulto,Hospital Conceição,64,30,2020-04-03,-30.01587,-51.158236,NA,14
+emergencia,adulto,Instituto de Cardiologia,21,11,2020-04-03,-30.049092,-51.20903,NA,14
+emergencia,adulto,Hospital Santa Casa,24,19,2020-04-03,-30.030803,-51.221512,NA,14
+emergencia,adulto,Hospital São Lucas,17,6,2020-04-03,-30.055122,-51.173819,NA,14
+emergencia,adulto,Hospital Restinga,18,4,2020-04-03,-30.142524,-51.128803,NA,14
+emergencia,adulto,Hospital Vila Nova,26,5,2020-04-03,-30.119308,-51.207744,NA,14
+emergencia,adulto,PA Bom Jesus,7,3,2020-04-03,-30.043194,-51.153916,NA,14
+emergencia,adulto,PA Cruzeiro do Sul,12,6,2020-04-03,-30.069603,-51.216537,NA,14
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-03,-30.110731,-51.110188,NA,14
+emergencia,adulto,UPA Zona Norte,17,12,2020-04-03,-30.009546,-51.146056,NA,14
+emergencia,pediatrico,HCPA,9,2,2020-04-03,-30.038435,-51.206637,NA,14
+emergencia,pediatrico,Hospital Conceição,16,4,2020-04-03,-30.01587,-51.158236,NA,14
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-03,-30.030803,-51.221512,NA,14
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-03,-30.055122,-51.173819,NA,14
+emergencia,pediatrico,HMIPV,9,1,2020-04-03,-30.029525,-51.214865,NA,14
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-03,-30.142524,-51.128803,NA,14
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-03,-30.043194,-51.153916,NA,14
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-03,-30.069603,-51.216537,NA,14
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-03,-30.110731,-51.110188,NA,14
+uti,adulto,Hospital Conceição,69,47,2020-04-03,-30.01587,-51.158236,3,14
+uti,adulto,HCPA,55,48,2020-04-03,-30.038435,-51.206637,6,14
+uti,adulto,Hospital Santa Casa,87,71,2020-04-03,-30.030803,-51.221512,0,14
+uti,adulto,Hospital São Lucas,59,36,2020-04-03,-30.055122,-51.173819,0,14
+uti,adulto,Hospital Cristo Redentor,29,18,2020-04-03,-30.010102,-51.15926,0,14
+uti,adulto,Hospital Moinhos de Vento,56,40,2020-04-03,-30.02552,-51.20842,14,14
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-03,-30.047509,-51.212131,0,14
+uti,adulto,Hospital Vila Nova,20,19,2020-04-03,-30.119308,-51.207744,0,14
+uti,adulto,HPS,20,9,2020-04-03,-30.036874,-51.209282,0,14
+uti,adulto,HospitaL Independência,10,7,2020-04-03,-30.061051,-51.149073,0,14
+uti,adulto,Hospital Femina,4,2,2020-04-03,-30.029239,-51.206848,0,14
+uti,adulto,Hospital Divina Providência,16,10,2020-04-03,-30.084428,-51.18839,1,14
+uti,adulto,Hospital Restinga,10,9,2020-04-03,-30.142524,-51.128803,0,14
+uti,adulto,Hospital Santa Ana,10,8,2020-04-03,-30.086664,-51.20689,0,14
+uti,adulto,Hospital Mãe de Deus,50,42,2020-04-03,-30.058845,-51.228945,5,14
+uti,pediatrico,Hospital Santa Casa,37,22,2020-04-03,-30.030803,-51.221512,0,14
+uti,pediatrico,Hospital São Lucas,12,6,2020-04-03,-30.055122,-51.173819,0,14
+uti,pediatrico,HCPA,13,8,2020-04-03,-30.038435,-51.206637,0,14
+uti,pediatrico,HPS,8,3,2020-04-03,-30.036874,-51.209282,0,14
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-03,-30.02552,-51.20842,0,14
+uti,pediatrico,Hospital Conceição,18,5,2020-04-03,-30.01587,-51.158236,0,14
+uti,pediatrico,HMIPV,8,3,2020-04-03,-30.029525,-51.214865,0,14
+emergencia,adulto,HCPA,41,20,2020-04-04,-30.038435,-51.206637,NA,14
+emergencia,adulto,Hospital Conceição,64,39,2020-04-04,-30.01587,-51.158236,NA,14
+emergencia,adulto,Instituto de Cardiologia,21,0,2020-04-04,-30.049092,-51.20903,NA,14
+emergencia,adulto,Hospital Santa Casa,24,20,2020-04-04,-30.030803,-51.221512,NA,14
+emergencia,adulto,Hospital São Lucas,17,1,2020-04-04,-30.055122,-51.173819,NA,14
+emergencia,adulto,Hospital Restinga,18,5,2020-04-04,-30.142524,-51.128803,NA,14
+emergencia,adulto,Hospital Vila Nova,26,5,2020-04-04,-30.119308,-51.207744,NA,14
+emergencia,adulto,PA Bom Jesus,7,6,2020-04-04,-30.043194,-51.153916,NA,14
+emergencia,adulto,PA Cruzeiro do Sul,12,6,2020-04-04,-30.069603,-51.216537,NA,14
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-04,-30.110731,-51.110188,NA,14
+emergencia,adulto,UPA Zona Norte,17,8,2020-04-04,-30.009546,-51.146056,NA,14
+emergencia,pediatrico,HCPA,9,5,2020-04-04,-30.038435,-51.206637,NA,14
+emergencia,pediatrico,Hospital Conceição,16,3,2020-04-04,-30.01587,-51.158236,NA,14
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-04,-30.030803,-51.221512,NA,14
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-04,-30.055122,-51.173819,NA,14
+emergencia,pediatrico,HMIPV,9,0,2020-04-04,-30.029525,-51.214865,NA,14
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-04,-30.142524,-51.128803,NA,14
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-04-04,-30.043194,-51.153916,NA,14
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-04,-30.069603,-51.216537,NA,14
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-04,-30.110731,-51.110188,NA,14
+uti,adulto,Hospital Conceição,69,50,2020-04-04,-30.01587,-51.158236,3,14
+uti,adulto,HCPA,55,48,2020-04-04,-30.038435,-51.206637,9,14
+uti,adulto,Hospital Santa Casa,87,68,2020-04-04,-30.030803,-51.221512,0,14
+uti,adulto,Hospital São Lucas,59,38,2020-04-04,-30.055122,-51.173819,0,14
+uti,adulto,Hospital Cristo Redentor,29,22,2020-04-04,-30.010102,-51.15926,0,14
+uti,adulto,Hospital Moinhos de Vento,56,38,2020-04-04,-30.02552,-51.20842,13,14
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-04,-30.047509,-51.212131,0,14
+uti,adulto,Hospital Vila Nova,20,15,2020-04-04,-30.119308,-51.207744,0,14
+uti,adulto,HPS,20,10,2020-04-04,-30.036874,-51.209282,0,14
+uti,adulto,HospitaL Independência,10,8,2020-04-04,-30.061051,-51.149073,0,14
+uti,adulto,Hospital Femina,4,2,2020-04-04,-30.029239,-51.206848,0,14
+uti,adulto,Hospital Divina Providência,16,8,2020-04-04,-30.084428,-51.18839,1,14
+uti,adulto,Hospital Restinga,10,9,2020-04-04,-30.142524,-51.128803,0,14
+uti,adulto,Hospital Santa Ana,10,8,2020-04-04,-30.086664,-51.20689,0,14
+uti,adulto,Hospital Mãe de Deus,50,39,2020-04-04,-30.058845,-51.228945,6,14
+uti,pediatrico,Hospital Santa Casa,37,26,2020-04-04,-30.030803,-51.221512,0,14
+uti,pediatrico,Hospital São Lucas,12,6,2020-04-04,-30.055122,-51.173819,0,14
+uti,pediatrico,HCPA,13,8,2020-04-04,-30.038435,-51.206637,0,14
+uti,pediatrico,HPS,8,4,2020-04-04,-30.036874,-51.209282,0,14
+uti,pediatrico,Hospital Moinhos de Vento,11,5,2020-04-04,-30.02552,-51.20842,0,14
+uti,pediatrico,Hospital Conceição,18,5,2020-04-04,-30.01587,-51.158236,0,14
+uti,pediatrico,HMIPV,6,2,2020-04-04,-30.029525,-51.214865,0,14
+emergencia,adulto,HCPA,41,14,2020-04-05,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,38,2020-04-05,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,10,2020-04-05,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,14,2020-04-05,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,1,2020-04-05,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,6,2020-04-05,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,5,2020-04-05,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,12,2020-04-05,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-05,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-05,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,8,2020-04-05,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,4,2020-04-05,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-05,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-05,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-05,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,1,2020-04-05,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,2,2020-04-05,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-05,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-05,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-04-05,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,50,2020-04-05,-30.01587,-51.158236,2,15
+uti,adulto,HCPA,55,41,2020-04-05,-30.038435,-51.206637,9,15
+uti,adulto,Hospital Santa Casa,87,71,2020-04-05,-30.030803,-51.221512,0,15
+uti,adulto,Hospital São Lucas,59,34,2020-04-05,-30.055122,-51.173819,0,15
+uti,adulto,Hospital Cristo Redentor,29,23,2020-04-05,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,30,2020-04-05,-30.02552,-51.20842,13,15
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-05,-30.047509,-51.212131,0,15
+uti,adulto,Hospital Vila Nova,20,15,2020-04-05,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,14,2020-04-05,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,6,2020-04-05,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,2,2020-04-05,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,8,2020-04-05,-30.084428,-51.18839,1,15
+uti,adulto,Hospital Restinga,10,9,2020-04-05,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,9,2020-04-05,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,39,2020-04-05,-30.058845,-51.228945,6,15
+uti,pediatrico,Hospital Santa Casa,37,24,2020-04-05,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,7,2020-04-05,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,9,2020-04-05,-30.038435,-51.206637,0,15
+uti,pediatrico,HPS,8,4,2020-04-05,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,3,2020-04-05,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,5,2020-04-05,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,2,2020-04-05,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,17,2020-04-06,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,42,2020-04-06,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,30,2020-04-06,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,22,2020-04-06,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,2,2020-04-06,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,6,2020-04-06,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,6,2020-04-06,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-06,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,11,2020-04-06,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,1,2020-04-06,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,9,2020-04-06,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,0,2020-04-06,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,4,2020-04-06,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-06,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-06,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,1,2020-04-06,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-06,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-06,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-06,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-06,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,50,2020-04-06,-30.01587,-51.158236,2,15
+uti,adulto,HCPA,55,43,2020-04-06,-30.038435,-51.206637,9,15
+uti,adulto,Hospital Santa Casa,87,70,2020-04-06,-30.030803,-51.221512,0,15
+uti,adulto,Hospital São Lucas,59,34,2020-04-06,-30.055122,-51.173819,0,15
+uti,adulto,Hospital Cristo Redentor,29,23,2020-04-06,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,30,2020-04-06,-30.02552,-51.20842,13,15
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-06,-30.047509,-51.212131,3,15
+uti,adulto,Hospital Vila Nova,20,16,2020-04-06,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,16,2020-04-06,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,6,2020-04-06,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,3,2020-04-06,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,10,2020-04-06,-30.084428,-51.18839,1,15
+uti,adulto,Hospital Restinga,10,8,2020-04-06,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,8,2020-04-06,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,38,2020-04-06,-30.058845,-51.228945,5,15
+uti,pediatrico,Hospital Santa Casa,37,26,2020-04-06,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,7,2020-04-06,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,10,2020-04-06,-30.038435,-51.206637,0,15
+uti,pediatrico,HPS,8,4,2020-04-06,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-06,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,6,2020-04-06,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,2,2020-04-06,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,17,2020-04-07,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,39,2020-04-07,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,16,2020-04-07,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,15,2020-04-07,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,2,2020-04-07,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,5,2020-04-07,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,6,2020-04-07,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,8,2020-04-07,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,8,2020-04-07,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,1,2020-04-07,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,17,2020-04-07,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,0,2020-04-07,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,7,2020-04-07,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-07,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-07,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,2,2020-04-07,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-07,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-07,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-04-07,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-07,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,51,2020-04-07,-30.01587,-51.158236,2,15
+uti,adulto,HCPA,65,36,2020-04-07,-30.038435,-51.206637,9,15
+uti,adulto,Hospital Santa Casa,87,66,2020-04-07,-30.030803,-51.221512,0,15
+uti,adulto,Hospital São Lucas,59,42,2020-04-07,-30.055122,-51.173819,0,15
+uti,adulto,Hospital Cristo Redentor,29,23,2020-04-07,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,36,2020-04-07,-30.02552,-51.20842,13,15
+uti,adulto,Hospital Ernesto Dornelles,20,9,2020-04-07,-30.047509,-51.212131,3,15
+uti,adulto,Hospital Vila Nova,20,15,2020-04-07,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,12,2020-04-07,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,8,2020-04-07,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,2,2020-04-07,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,10,2020-04-07,-30.084428,-51.18839,2,15
+uti,adulto,Hospital Restinga,10,7,2020-04-07,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,8,2020-04-07,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,35,2020-04-07,-30.058845,-51.228945,5,15
+uti,pediatrico,Hospital Santa Casa,37,30,2020-04-07,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-07,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,9,2020-04-07,-30.038435,-51.206637,1,15
+uti,pediatrico,HPS,8,4,2020-04-07,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-07,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,6,2020-04-07,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,2,2020-04-07,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,20,2020-04-08,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,33,2020-04-08,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,14,2020-04-08,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,15,2020-04-08,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,7,2020-04-08,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,4,2020-04-08,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,6,2020-04-08,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,5,2020-04-08,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,8,2020-04-08,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,6,2020-04-08,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,14,2020-04-08,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,0,2020-04-08,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-08,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,3,2020-04-08,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-08,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,0,2020-04-08,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-08,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-08,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-08,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-08,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,48,2020-04-08,-30.01587,-51.158236,2,15
+uti,adulto,HCPA,65,40,2020-04-08,-30.038435,-51.206637,10,15
+uti,adulto,Hospital Santa Casa,87,68,2020-04-08,-30.030803,-51.221512,0,15
+uti,adulto,Hospital São Lucas,59,44,2020-04-08,-30.055122,-51.173819,0,15
+uti,adulto,Hospital Cristo Redentor,29,22,2020-04-08,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,37,2020-04-08,-30.02552,-51.20842,15,15
+uti,adulto,Hospital Ernesto Dornelles,20,10,2020-04-08,-30.047509,-51.212131,3,15
+uti,adulto,Hospital Vila Nova,20,19,2020-04-08,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,16,2020-04-08,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,9,2020-04-08,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,2,2020-04-08,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,12,2020-04-08,-30.084428,-51.18839,2,15
+uti,adulto,Hospital Restinga,10,7,2020-04-08,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,5,2020-04-08,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,37,2020-04-08,-30.058845,-51.228945,4,15
+uti,pediatrico,Hospital Santa Casa,37,31,2020-04-08,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-08,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,9,2020-04-08,-30.038435,-51.206637,1,15
+uti,pediatrico,HPS,8,3,2020-04-08,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-08,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,6,2020-04-08,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,2,2020-04-08,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,12,2020-04-09,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,33,2020-04-09,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,11,2020-04-09,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,12,2020-04-09,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,7,2020-04-09,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,6,2020-04-09,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,6,2020-04-09,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,11,2020-04-09,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,8,2020-04-09,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,0,2020-04-09,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,10,2020-04-09,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,3,2020-04-09,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,3,2020-04-09,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-09,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-09,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,1,2020-04-09,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-09,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-09,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-04-09,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-09,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,40,2020-04-09,-30.01587,-51.158236,5,15
+uti,adulto,HCPA,65,43,2020-04-09,-30.038435,-51.206637,8,15
+uti,adulto,Hospital Santa Casa,87,59,2020-04-09,-30.030803,-51.221512,1,15
+uti,adulto,Hospital São Lucas,59,43,2020-04-09,-30.055122,-51.173819,1,15
+uti,adulto,Hospital Cristo Redentor,29,22,2020-04-09,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,38,2020-04-09,-30.02552,-51.20842,16,15
+uti,adulto,Hospital Ernesto Dornelles,20,10,2020-04-09,-30.047509,-51.212131,4,15
+uti,adulto,Hospital Vila Nova,20,17,2020-04-09,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,14,2020-04-09,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,8,2020-04-09,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,2,2020-04-09,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,11,2020-04-09,-30.084428,-51.18839,2,15
+uti,adulto,Hospital Restinga,10,7,2020-04-09,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,5,2020-04-09,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,35,2020-04-09,-30.058845,-51.228945,5,15
+uti,pediatrico,Hospital Santa Casa,37,33,2020-04-09,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-09,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,7,2020-04-09,-30.038435,-51.206637,1,15
+uti,pediatrico,HPS,8,3,2020-04-09,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-09,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,5,2020-04-09,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,2,2020-04-09,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,23,2020-04-10,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,34,2020-04-10,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,0,2020-04-10,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,13,2020-04-10,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,6,2020-04-10,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,5,2020-04-10,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,6,2020-04-10,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,8,2020-04-10,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-10,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,1,2020-04-10,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,11,2020-04-10,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,3,2020-04-10,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-10,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-10,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-10,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,1,2020-04-10,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-10,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-10,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-04-10,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-04-10,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,38,2020-04-10,-30.01587,-51.158236,6,15
+uti,adulto,HCPA,65,39,2020-04-10,-30.038435,-51.206637,7,15
+uti,adulto,Hospital Santa Casa,87,59,2020-04-10,-30.030803,-51.221512,1,15
+uti,adulto,Hospital São Lucas,59,42,2020-04-10,-30.055122,-51.173819,1,15
+uti,adulto,Hospital Cristo Redentor,29,19,2020-04-10,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,47,2020-04-10,-30.02552,-51.20842,17,15
+uti,adulto,Hospital Ernesto Dornelles,20,11,2020-04-10,-30.047509,-51.212131,4,15
+uti,adulto,Hospital Vila Nova,20,19,2020-04-10,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,12,2020-04-10,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,7,2020-04-10,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,2,2020-04-10,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,12,2020-04-10,-30.084428,-51.18839,2,15
+uti,adulto,Hospital Restinga,10,9,2020-04-10,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,6,2020-04-10,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,39,2020-04-10,-30.058845,-51.228945,5,15
+uti,pediatrico,Hospital Santa Casa,37,33,2020-04-10,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-10,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,9,2020-04-10,-30.038435,-51.206637,1,15
+uti,pediatrico,HPS,8,3,2020-04-10,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,6,2020-04-10,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,5,2020-04-10,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,2,2020-04-10,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,11,2020-04-11,-30.038435,-51.206637,NA,15
+emergencia,adulto,Hospital Conceição,64,39,2020-04-11,-30.01587,-51.158236,NA,15
+emergencia,adulto,Instituto de Cardiologia,21,27,2020-04-11,-30.049092,-51.20903,NA,15
+emergencia,adulto,Hospital Santa Casa,24,0,2020-04-11,-30.030803,-51.221512,NA,15
+emergencia,adulto,Hospital São Lucas,17,6,2020-04-11,-30.055122,-51.173819,NA,15
+emergencia,adulto,Hospital Restinga,18,7,2020-04-11,-30.142524,-51.128803,NA,15
+emergencia,adulto,Hospital Vila Nova,26,13,2020-04-11,-30.119308,-51.207744,NA,15
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-11,-30.043194,-51.153916,NA,15
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-11,-30.069603,-51.216537,NA,15
+emergencia,adulto,PA Lomba do Pinheiro,9,4,2020-04-11,-30.110731,-51.110188,NA,15
+emergencia,adulto,UPA Zona Norte,17,7,2020-04-11,-30.009546,-51.146056,NA,15
+emergencia,pediatrico,HCPA,9,3,2020-04-11,-30.038435,-51.206637,NA,15
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-11,-30.01587,-51.158236,NA,15
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-11,-30.030803,-51.221512,NA,15
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-11,-30.055122,-51.173819,NA,15
+emergencia,pediatrico,HMIPV,9,0,2020-04-11,-30.029525,-51.214865,NA,15
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-11,-30.142524,-51.128803,NA,15
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-11,-30.043194,-51.153916,NA,15
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-04-11,-30.069603,-51.216537,NA,15
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-11,-30.110731,-51.110188,NA,15
+uti,adulto,Hospital Conceição,69,56,2020-04-11,-30.01587,-51.158236,6,15
+uti,adulto,HCPA,65,44,2020-04-11,-30.038435,-51.206637,7,15
+uti,adulto,Hospital Santa Casa,87,61,2020-04-11,-30.030803,-51.221512,0,15
+uti,adulto,Hospital São Lucas,59,41,2020-04-11,-30.055122,-51.173819,1,15
+uti,adulto,Hospital Cristo Redentor,29,21,2020-04-11,-30.010102,-51.15926,0,15
+uti,adulto,Hospital Moinhos de Vento,56,44,2020-04-11,-30.02552,-51.20842,15,15
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-11,-30.047509,-51.212131,4,15
+uti,adulto,Hospital Vila Nova,20,17,2020-04-11,-30.119308,-51.207744,0,15
+uti,adulto,HPS,20,10,2020-04-11,-30.036874,-51.209282,0,15
+uti,adulto,HospitaL Independência,10,6,2020-04-11,-30.061051,-51.149073,0,15
+uti,adulto,Hospital Femina,4,2,2020-04-11,-30.029239,-51.206848,0,15
+uti,adulto,Hospital Divina Providência,16,12,2020-04-11,-30.084428,-51.18839,2,15
+uti,adulto,Hospital Restinga,10,10,2020-04-11,-30.142524,-51.128803,0,15
+uti,adulto,Hospital Santa Ana,10,5,2020-04-11,-30.086664,-51.20689,0,15
+uti,adulto,Hospital Mãe de Deus,50,39,2020-04-11,-30.058845,-51.228945,5,15
+uti,pediatrico,Hospital Santa Casa,37,30,2020-04-11,-30.030803,-51.221512,0,15
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-11,-30.055122,-51.173819,0,15
+uti,pediatrico,HCPA,13,9,2020-04-11,-30.038435,-51.206637,1,15
+uti,pediatrico,HPS,8,3,2020-04-11,-30.036874,-51.209282,0,15
+uti,pediatrico,Hospital Moinhos de Vento,11,5,2020-04-11,-30.02552,-51.20842,0,15
+uti,pediatrico,Hospital Conceição,18,5,2020-04-11,-30.01587,-51.158236,0,15
+uti,pediatrico,HMIPV,6,3,2020-04-11,-30.029525,-51.214865,0,15
+emergencia,adulto,HCPA,41,17,2020-04-12,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,37,2020-04-12,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,13,2020-04-12,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,9,2020-04-12,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,7,2020-04-12,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,4,2020-04-12,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,13,2020-04-12,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,8,2020-04-12,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,0,2020-04-12,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,5,2020-04-12,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,5,2020-04-12,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,3,2020-04-12,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,1,2020-04-12,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-12,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-12,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,0,2020-04-12,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-12,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,2,2020-04-12,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-12,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-12,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,44,2020-04-12,-30.01587,-51.158236,5,16
+uti,adulto,HCPA,65,39,2020-04-12,-30.038435,-51.206637,7,16
+uti,adulto,Hospital Santa Casa,87,61,2020-04-12,-30.030803,-51.221512,0,16
+uti,adulto,Hospital São Lucas,59,40,2020-04-12,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,29,18,2020-04-12,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,48,2020-04-12,-30.02552,-51.20842,15,16
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-12,-30.047509,-51.212131,3,16
+uti,adulto,Hospital Vila Nova,20,18,2020-04-12,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,10,2020-04-12,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,7,2020-04-12,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,2,2020-04-12,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,10,2020-04-12,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,10,2020-04-12,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,3,2020-04-12,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,27,2020-04-12,-30.058845,-51.228945,5,16
+uti,pediatrico,Hospital Santa Casa,37,30,2020-04-12,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-12,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,9,2020-04-12,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,3,2020-04-12,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,5,2020-04-12,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,5,2020-04-12,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,3,2020-04-12,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,17,2020-04-13,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,32,2020-04-13,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,19,2020-04-13,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,10,2020-04-13,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,7,2020-04-13,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,4,2020-04-13,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-13,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-13,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-13,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,1,2020-04-13,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,11,2020-04-13,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,3,2020-04-13,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-13,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-13,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-13,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,1,2020-04-13,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-13,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-13,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-13,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-13,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,49,2020-04-13,-30.01587,-51.158236,6,16
+uti,adulto,HCPA,65,38,2020-04-13,-30.038435,-51.206637,7,16
+uti,adulto,Hospital Santa Casa,87,63,2020-04-13,-30.030803,-51.221512,0,16
+uti,adulto,Hospital São Lucas,59,41,2020-04-13,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,29,20,2020-04-13,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,43,2020-04-13,-30.02552,-51.20842,14,16
+uti,adulto,Hospital Ernesto Dornelles,20,17,2020-04-13,-30.047509,-51.212131,4,16
+uti,adulto,Hospital Vila Nova,20,15,2020-04-13,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,10,2020-04-13,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,7,2020-04-13,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,1,2020-04-13,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,9,2020-04-13,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,10,2020-04-13,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,5,2020-04-13,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,25,2020-04-13,-30.058845,-51.228945,5,16
+uti,pediatrico,Hospital Santa Casa,37,30,2020-04-13,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,7,2020-04-13,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,10,2020-04-13,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,4,2020-04-13,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,6,2020-04-13,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,8,2020-04-13,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,3,2020-04-13,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,22,2020-04-14,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,37,2020-04-14,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,19,2020-04-14,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,13,2020-04-14,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,2,2020-04-14,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,7,2020-04-14,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-14,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,3,2020-04-14,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,10,2020-04-14,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-14,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,12,2020-04-14,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,1,2020-04-14,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,3,2020-04-14,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-14,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-14,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,2,2020-04-14,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-14,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-14,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-14,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-14,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,51,2020-04-14,-30.01587,-51.158236,6,16
+uti,adulto,HCPA,65,21,2020-04-14,-30.038435,-51.206637,6,16
+uti,adulto,Hospital Santa Casa,87,61,2020-04-14,-30.030803,-51.221512,1,16
+uti,adulto,Hospital São Lucas,59,34,2020-04-14,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,29,20,2020-04-14,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,42,2020-04-14,-30.02552,-51.20842,15,16
+uti,adulto,Hospital Ernesto Dornelles,20,13,2020-04-14,-30.047509,-51.212131,4,16
+uti,adulto,Hospital Vila Nova,20,17,2020-04-14,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,10,2020-04-14,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,8,2020-04-14,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,0,2020-04-14,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,9,2020-04-14,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,9,2020-04-14,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,5,2020-04-14,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,27,2020-04-14,-30.058845,-51.228945,5,16
+uti,pediatrico,Hospital Santa Casa,37,33,2020-04-14,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,6,2020-04-14,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,9,2020-04-14,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,4,2020-04-14,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-14,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,5,2020-04-14,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,2,2020-04-14,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,20,2020-04-15,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,38,2020-04-15,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,15,2020-04-15,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,16,2020-04-15,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,2,2020-04-15,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,15,2020-04-15,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-15,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,5,2020-04-15,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,0,2020-04-15,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,7,2020-04-15,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,6,2020-04-15,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,4,2020-04-15,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,1,2020-04-15,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-15,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-15,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,1,2020-04-15,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-15,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-15,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-15,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-04-15,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,47,2020-04-15,-30.01587,-51.158236,6,16
+uti,adulto,HCPA,82,34,2020-04-15,-30.038435,-51.206637,6,16
+uti,adulto,Hospital Santa Casa,87,70,2020-04-15,-30.030803,-51.221512,1,16
+uti,adulto,Hospital São Lucas,59,39,2020-04-15,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,43,20,2020-04-15,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,40,2020-04-15,-30.02552,-51.20842,15,16
+uti,adulto,Hospital Ernesto Dornelles,20,15,2020-04-15,-30.047509,-51.212131,4,16
+uti,adulto,Hospital Vila Nova,20,18,2020-04-15,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,11,2020-04-15,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,8,2020-04-15,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,0,2020-04-15,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,9,2020-04-15,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,10,2020-04-15,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,5,2020-04-15,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,30,2020-04-15,-30.058845,-51.228945,3,16
+uti,pediatrico,Hospital Santa Casa,37,37,2020-04-15,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-15,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,9,2020-04-15,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,3,2020-04-15,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,5,2020-04-15,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,5,2020-04-15,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,2,2020-04-15,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,21,2020-04-16,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,39,2020-04-16,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,19,2020-04-16,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,11,2020-04-16,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,3,2020-04-16,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,6,2020-04-16,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-16,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-16,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,6,2020-04-16,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,7,2020-04-16,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,9,2020-04-16,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,3,2020-04-16,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,4,2020-04-16,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-16,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-16,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,2,2020-04-16,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-16,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-16,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-16,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,4,2020-04-16,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,50,2020-04-16,-30.01587,-51.158236,5,16
+uti,adulto,HCPA,82,51,2020-04-16,-30.038435,-51.206637,6,16
+uti,adulto,Hospital Santa Casa,87,69,2020-04-16,-30.030803,-51.221512,2,16
+uti,adulto,Hospital São Lucas,59,42,2020-04-16,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,47,23,2020-04-16,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,44,2020-04-16,-30.02552,-51.20842,15,16
+uti,adulto,Hospital Ernesto Dornelles,20,13,2020-04-16,-30.047509,-51.212131,5,16
+uti,adulto,Hospital Vila Nova,20,16,2020-04-16,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,8,2020-04-16,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,10,2020-04-16,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,1,2020-04-16,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,9,2020-04-16,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,10,2020-04-16,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,7,2020-04-16,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,30,2020-04-16,-30.058845,-51.228945,3,16
+uti,pediatrico,Hospital Santa Casa,37,36,2020-04-16,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,4,2020-04-16,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,10,2020-04-16,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,4,2020-04-16,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-16,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,8,2020-04-16,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,3,2020-04-16,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,17,2020-04-17,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,32,2020-04-17,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,16,2020-04-17,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,13,2020-04-17,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,3,2020-04-17,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,8,2020-04-17,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-17,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,7,2020-04-17,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,3,2020-04-17,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,2,2020-04-17,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,8,2020-04-17,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,3,2020-04-17,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-17,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-17,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-17,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,2,2020-04-17,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-17,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-17,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-17,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-04-17,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,48,2020-04-17,-30.01587,-51.158236,6,16
+uti,adulto,HCPA,82,42,2020-04-17,-30.038435,-51.206637,6,16
+uti,adulto,Hospital Santa Casa,87,69,2020-04-17,-30.030803,-51.221512,2,16
+uti,adulto,Hospital São Lucas,59,33,2020-04-17,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-17,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,39,2020-04-17,-30.02552,-51.20842,15,16
+uti,adulto,Hospital Ernesto Dornelles,20,12,2020-04-17,-30.047509,-51.212131,5,16
+uti,adulto,Hospital Vila Nova,20,18,2020-04-17,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,8,2020-04-17,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,8,2020-04-17,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,1,2020-04-17,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,11,2020-04-17,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,8,2020-04-17,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,5,2020-04-17,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,34,2020-04-17,-30.058845,-51.228945,3,16
+uti,pediatrico,Hospital Santa Casa,57,35,2020-04-17,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-17,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,10,2020-04-17,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,5,2020-04-17,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-17,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,8,2020-04-17,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,3,2020-04-17,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,13,2020-04-18,-30.038435,-51.206637,NA,16
+emergencia,adulto,Hospital Conceição,64,30,2020-04-18,-30.01587,-51.158236,NA,16
+emergencia,adulto,Instituto de Cardiologia,21,24,2020-04-18,-30.049092,-51.20903,NA,16
+emergencia,adulto,Hospital Santa Casa,24,23,2020-04-18,-30.030803,-51.221512,NA,16
+emergencia,adulto,Hospital São Lucas,17,13,2020-04-18,-30.055122,-51.173819,NA,16
+emergencia,adulto,Hospital Restinga,18,9,2020-04-18,-30.142524,-51.128803,NA,16
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-18,-30.119308,-51.207744,NA,16
+emergencia,adulto,PA Bom Jesus,7,10,2020-04-18,-30.043194,-51.153916,NA,16
+emergencia,adulto,PA Cruzeiro do Sul,12,0,2020-04-18,-30.069603,-51.216537,NA,16
+emergencia,adulto,PA Lomba do Pinheiro,9,9,2020-04-18,-30.110731,-51.110188,NA,16
+emergencia,adulto,UPA Zona Norte,17,9,2020-04-18,-30.009546,-51.146056,NA,16
+emergencia,pediatrico,HCPA,9,4,2020-04-18,-30.038435,-51.206637,NA,16
+emergencia,pediatrico,Hospital Conceição,16,0,2020-04-18,-30.01587,-51.158236,NA,16
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-18,-30.030803,-51.221512,NA,16
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-18,-30.055122,-51.173819,NA,16
+emergencia,pediatrico,HMIPV,9,0,2020-04-18,-30.029525,-51.214865,NA,16
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-18,-30.142524,-51.128803,NA,16
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-04-18,-30.043194,-51.153916,NA,16
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-18,-30.069603,-51.216537,NA,16
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-18,-30.110731,-51.110188,NA,16
+uti,adulto,Hospital Conceição,69,60,2020-04-18,-30.01587,-51.158236,5,16
+uti,adulto,HCPA,82,37,2020-04-18,-30.038435,-51.206637,6,16
+uti,adulto,Hospital Santa Casa,87,71,2020-04-18,-30.030803,-51.221512,1,16
+uti,adulto,Hospital São Lucas,59,39,2020-04-18,-30.055122,-51.173819,1,16
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-18,-30.010102,-51.15926,0,16
+uti,adulto,Hospital Moinhos de Vento,56,39,2020-04-18,-30.02552,-51.20842,15,16
+uti,adulto,Hospital Ernesto Dornelles,20,12,2020-04-18,-30.047509,-51.212131,5,16
+uti,adulto,Hospital Vila Nova,20,18,2020-04-18,-30.119308,-51.207744,0,16
+uti,adulto,HPS,20,9,2020-04-18,-30.036874,-51.209282,0,16
+uti,adulto,HospitaL Independência,10,10,2020-04-18,-30.061051,-51.149073,0,16
+uti,adulto,Hospital Femina,4,1,2020-04-18,-30.029239,-51.206848,0,16
+uti,adulto,Hospital Divina Providência,16,11,2020-04-18,-30.084428,-51.18839,2,16
+uti,adulto,Hospital Restinga,10,10,2020-04-18,-30.142524,-51.128803,0,16
+uti,adulto,Hospital Santa Ana,10,5,2020-04-18,-30.086664,-51.20689,0,16
+uti,adulto,Hospital Mãe de Deus,50,28,2020-04-18,-30.058845,-51.228945,3,16
+uti,pediatrico,Hospital Santa Casa,37,35,2020-04-18,-30.030803,-51.221512,0,16
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-18,-30.055122,-51.173819,0,16
+uti,pediatrico,HCPA,13,9,2020-04-18,-30.038435,-51.206637,1,16
+uti,pediatrico,HPS,8,5,2020-04-18,-30.036874,-51.209282,0,16
+uti,pediatrico,Hospital Moinhos de Vento,11,4,2020-04-18,-30.02552,-51.20842,0,16
+uti,pediatrico,Hospital Conceição,18,8,2020-04-18,-30.01587,-51.158236,0,16
+uti,pediatrico,HMIPV,6,3,2020-04-18,-30.029525,-51.214865,0,16
+emergencia,adulto,HCPA,41,15,2020-04-19,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,37,2020-04-19,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,11,2020-04-19,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,17,2020-04-19,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,10,2020-04-19,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,7,2020-04-19,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-19,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-19,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,16,2020-04-19,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,0,2020-04-19,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,12,2020-04-19,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,4,2020-04-19,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-19,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-19,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,2,2020-04-19,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,2,2020-04-19,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-19,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-04-19,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-19,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-04-19,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,49,2020-04-19,-30.01587,-51.158236,5,17
+uti,adulto,HCPA,82,44,2020-04-19,-30.038435,-51.206637,5,17
+uti,adulto,Hospital Santa Casa,87,68,2020-04-19,-30.030803,-51.221512,1,17
+uti,adulto,Hospital São Lucas,59,38,2020-04-19,-30.055122,-51.173819,1,17
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-19,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,45,2020-04-19,-30.02552,-51.20842,15,17
+uti,adulto,Hospital Ernesto Dornelles,20,11,2020-04-19,-30.047509,-51.212131,5,17
+uti,adulto,Hospital Vila Nova,20,19,2020-04-19,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,10,2020-04-19,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,8,2020-04-19,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,3,2020-04-19,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,9,2020-04-19,-30.084428,-51.18839,2,17
+uti,adulto,Hospital Restinga,10,10,2020-04-19,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,5,2020-04-19,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,30,2020-04-19,-30.058845,-51.228945,3,17
+uti,pediatrico,Hospital Santa Casa,37,35,2020-04-19,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-19,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,9,2020-04-19,-30.038435,-51.206637,1,17
+uti,pediatrico,HPS,8,4,2020-04-19,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,5,2020-04-19,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,8,2020-04-19,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,4,2020-04-19,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,22,2020-04-20,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,35,2020-04-20,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,24,2020-04-20,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,16,2020-04-20,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,11,2020-04-20,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,7,2020-04-20,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-20,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,17,2020-04-20,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,11,2020-04-20,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-20,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,17,2020-04-20,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,4,2020-04-20,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,6,2020-04-20,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-20,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,3,2020-04-20,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,3,2020-04-20,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-20,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-04-20,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,3,2020-04-20,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-20,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,50,2020-04-20,-30.01587,-51.158236,5,17
+uti,adulto,HCPA,82,43,2020-04-20,-30.038435,-51.206637,4,17
+uti,adulto,Hospital Santa Casa,87,67,2020-04-20,-30.030803,-51.221512,1,17
+uti,adulto,Hospital São Lucas,59,39,2020-04-20,-30.055122,-51.173819,1,17
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-20,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,41,2020-04-20,-30.02552,-51.20842,15,17
+uti,adulto,Hospital Ernesto Dornelles,20,12,2020-04-20,-30.047509,-51.212131,3,17
+uti,adulto,Hospital Vila Nova,20,17,2020-04-20,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,12,2020-04-20,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,7,2020-04-20,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,2,2020-04-20,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,10,2020-04-20,-30.084428,-51.18839,1,17
+uti,adulto,Hospital Restinga,10,10,2020-04-20,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,9,2020-04-20,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,29,2020-04-20,-30.058845,-51.228945,3,17
+uti,pediatrico,Hospital Santa Casa,37,31,2020-04-20,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-20,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,11,2020-04-20,-30.038435,-51.206637,1,17
+uti,pediatrico,HPS,8,4,2020-04-20,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,6,2020-04-20,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,10,2020-04-20,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,4,2020-04-20,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,32,2020-04-21,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,43,2020-04-21,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,10,2020-04-21,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,16,2020-04-21,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,11,2020-04-21,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,7,2020-04-21,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-21,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,6,2020-04-21,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-21,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-21,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,13,2020-04-21,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,4,2020-04-21,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,3,2020-04-21,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-21,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,3,2020-04-21,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,1,2020-04-21,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-21,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,2,2020-04-21,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-21,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-21,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,50,2020-04-21,-30.01587,-51.158236,4,17
+uti,adulto,HCPA,82,46,2020-04-21,-30.038435,-51.206637,4,17
+uti,adulto,Hospital Santa Casa,87,71,2020-04-21,-30.030803,-51.221512,0,17
+uti,adulto,Hospital São Lucas,59,39,2020-04-21,-30.055122,-51.173819,1,17
+uti,adulto,Hospital Cristo Redentor,47,22,2020-04-21,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,46,2020-04-21,-30.02552,-51.20842,14,17
+uti,adulto,Hospital Ernesto Dornelles,20,8,2020-04-21,-30.047509,-51.212131,2,17
+uti,adulto,Hospital Vila Nova,20,16,2020-04-21,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,12,2020-04-21,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,8,2020-04-21,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,4,2020-04-21,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,12,2020-04-21,-30.084428,-51.18839,2,17
+uti,adulto,Hospital Restinga,10,9,2020-04-21,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,9,2020-04-21,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,33,2020-04-21,-30.058845,-51.228945,3,17
+uti,pediatrico,Hospital Santa Casa,37,32,2020-04-21,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-21,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,9,2020-04-21,-30.038435,-51.206637,1,17
+uti,pediatrico,HPS,8,4,2020-04-21,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,7,2020-04-21,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,10,2020-04-21,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,4,2020-04-21,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,34,2020-04-22,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,36,2020-04-22,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,19,2020-04-22,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,14,2020-04-22,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,19,2020-04-22,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,10,2020-04-22,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-22,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,6,2020-04-22,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-22,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,7,2020-04-22,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,16,2020-04-22,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,4,2020-04-22,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,1,2020-04-22,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-04-22,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,2,2020-04-22,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,2,2020-04-22,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-22,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,2,2020-04-22,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-04-22,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-22,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,51,2020-04-22,-30.01587,-51.158236,6,17
+uti,adulto,HCPA,82,37,2020-04-22,-30.038435,-51.206637,2,17
+uti,adulto,Hospital Santa Casa,87,69,2020-04-22,-30.030803,-51.221512,0,17
+uti,adulto,Hospital São Lucas,59,38,2020-04-22,-30.055122,-51.173819,1,17
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-22,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,38,2020-04-22,-30.02552,-51.20842,15,17
+uti,adulto,Hospital Ernesto Dornelles,20,9,2020-04-22,-30.047509,-51.212131,2,17
+uti,adulto,Hospital Vila Nova,20,18,2020-04-22,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,12,2020-04-22,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,9,2020-04-22,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,2,2020-04-22,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,10,2020-04-22,-30.084428,-51.18839,2,17
+uti,adulto,Hospital Restinga,10,9,2020-04-22,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,8,2020-04-22,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,36,2020-04-22,-30.058845,-51.228945,3,17
+uti,pediatrico,Hospital Santa Casa,37,31,2020-04-22,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,6,2020-04-22,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,11,2020-04-22,-30.038435,-51.206637,1,17
+uti,pediatrico,HPS,8,3,2020-04-22,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,8,2020-04-22,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,10,2020-04-22,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,4,2020-04-22,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,31,2020-04-23,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,49,2020-04-23,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,19,2020-04-23,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,14,2020-04-23,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,13,2020-04-23,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,5,2020-04-23,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,9,2020-04-23,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,6,2020-04-23,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,11,2020-04-23,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,4,2020-04-23,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,13,2020-04-23,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,1,2020-04-23,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,5,2020-04-23,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-23,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,2,2020-04-23,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,2,2020-04-23,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-23,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-23,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-23,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-23,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,57,2020-04-23,-30.01587,-51.158236,7,17
+uti,adulto,HCPA,82,44,2020-04-23,-30.038435,-51.206637,3,17
+uti,adulto,Hospital Santa Casa,87,71,2020-04-23,-30.030803,-51.221512,0,17
+uti,adulto,Hospital São Lucas,59,34,2020-04-23,-30.055122,-51.173819,2,17
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-23,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,51,2020-04-23,-30.02552,-51.20842,14,17
+uti,adulto,Hospital Ernesto Dornelles,20,13,2020-04-23,-30.047509,-51.212131,2,17
+uti,adulto,Hospital Vila Nova,20,17,2020-04-23,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,11,2020-04-23,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,10,2020-04-23,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,1,2020-04-23,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,12,2020-04-23,-30.084428,-51.18839,2,17
+uti,adulto,Hospital Restinga,10,10,2020-04-23,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,9,2020-04-23,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,33,2020-04-23,-30.058845,-51.228945,3,17
+uti,pediatrico,Hospital Santa Casa,37,33,2020-04-23,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-23,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,10,2020-04-23,-30.038435,-51.206637,0,17
+uti,pediatrico,HPS,8,2,2020-04-23,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,8,2020-04-23,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,10,2020-04-23,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,4,2020-04-23,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,28,2020-04-24,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,34,2020-04-24,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,20,2020-04-24,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,20,2020-04-24,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,20,2020-04-24,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,4,2020-04-24,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,4,2020-04-24,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-24,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,10,2020-04-24,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-04-24,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,13,2020-04-24,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,2,2020-04-24,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,1,2020-04-24,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-24,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-24,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,2,2020-04-24,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,2,2020-04-24,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-24,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-24,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-24,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,57,2020-04-24,-30.01587,-51.158236,8,17
+uti,adulto,HCPA,82,53,2020-04-24,-30.038435,-51.206637,4,17
+uti,adulto,Hospital Santa Casa,87,73,2020-04-24,-30.030803,-51.221512,0,17
+uti,adulto,Hospital São Lucas,59,42,2020-04-24,-30.055122,-51.173819,2,17
+uti,adulto,Hospital Cristo Redentor,47,22,2020-04-24,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,53,2020-04-24,-30.02552,-51.20842,13,17
+uti,adulto,Hospital Ernesto Dornelles,20,13,2020-04-24,-30.047509,-51.212131,2,17
+uti,adulto,Hospital Vila Nova,20,19,2020-04-24,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,11,2020-04-24,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,9,2020-04-24,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,1,2020-04-24,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,11,2020-04-24,-30.084428,-51.18839,3,17
+uti,adulto,Hospital Restinga,10,8,2020-04-24,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,8,2020-04-24,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,36,2020-04-24,-30.058845,-51.228945,2,17
+uti,pediatrico,Hospital Santa Casa,37,35,2020-04-24,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-24,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,9,2020-04-24,-30.038435,-51.206637,0,17
+uti,pediatrico,HPS,8,3,2020-04-24,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,8,2020-04-24,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,6,2020-04-24,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,3,2020-04-24,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,26,2020-04-25,-30.038435,-51.206637,NA,17
+emergencia,adulto,Hospital Conceição,64,38,2020-04-25,-30.01587,-51.158236,NA,17
+emergencia,adulto,Instituto de Cardiologia,21,20,2020-04-25,-30.049092,-51.20903,NA,17
+emergencia,adulto,Hospital Santa Casa,24,16,2020-04-25,-30.030803,-51.221512,NA,17
+emergencia,adulto,Hospital São Lucas,17,20,2020-04-25,-30.055122,-51.173819,NA,17
+emergencia,adulto,Hospital Restinga,18,4,2020-04-25,-30.142524,-51.128803,NA,17
+emergencia,adulto,Hospital Vila Nova,26,4,2020-04-25,-30.119308,-51.207744,NA,17
+emergencia,adulto,PA Bom Jesus,7,8,2020-04-25,-30.043194,-51.153916,NA,17
+emergencia,adulto,PA Cruzeiro do Sul,12,10,2020-04-25,-30.069603,-51.216537,NA,17
+emergencia,adulto,PA Lomba do Pinheiro,9,4,2020-04-25,-30.110731,-51.110188,NA,17
+emergencia,adulto,UPA Zona Norte,17,18,2020-04-25,-30.009546,-51.146056,NA,17
+emergencia,pediatrico,HCPA,9,4,2020-04-25,-30.038435,-51.206637,NA,17
+emergencia,pediatrico,Hospital Conceição,16,4,2020-04-25,-30.01587,-51.158236,NA,17
+emergencia,pediatrico,Hospital Santa Casa,11,4,2020-04-25,-30.030803,-51.221512,NA,17
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-25,-30.055122,-51.173819,NA,17
+emergencia,pediatrico,HMIPV,9,4,2020-04-25,-30.029525,-51.214865,NA,17
+emergencia,pediatrico,Hospital Restinga,6,2,2020-04-25,-30.142524,-51.128803,NA,17
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-25,-30.043194,-51.153916,NA,17
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-25,-30.069603,-51.216537,NA,17
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-25,-30.110731,-51.110188,NA,17
+uti,adulto,Hospital Conceição,69,57,2020-04-25,-30.01587,-51.158236,9,17
+uti,adulto,HCPA,82,53,2020-04-25,-30.038435,-51.206637,4,17
+uti,adulto,Hospital Santa Casa,87,68,2020-04-25,-30.030803,-51.221512,0,17
+uti,adulto,Hospital São Lucas,59,42,2020-04-25,-30.055122,-51.173819,2,17
+uti,adulto,Hospital Cristo Redentor,47,21,2020-04-25,-30.010102,-51.15926,0,17
+uti,adulto,Hospital Moinhos de Vento,56,53,2020-04-25,-30.02552,-51.20842,13,17
+uti,adulto,Hospital Ernesto Dornelles,20,11,2020-04-25,-30.047509,-51.212131,2,17
+uti,adulto,Hospital Vila Nova,20,18,2020-04-25,-30.119308,-51.207744,0,17
+uti,adulto,HPS,20,11,2020-04-25,-30.036874,-51.209282,0,17
+uti,adulto,HospitaL Independência,10,9,2020-04-25,-30.061051,-51.149073,0,17
+uti,adulto,Hospital Femina,4,1,2020-04-25,-30.029239,-51.206848,0,17
+uti,adulto,Hospital Divina Providência,16,11,2020-04-25,-30.084428,-51.18839,3,17
+uti,adulto,Hospital Restinga,10,8,2020-04-25,-30.142524,-51.128803,0,17
+uti,adulto,Hospital Santa Ana,10,5,2020-04-25,-30.086664,-51.20689,0,17
+uti,adulto,Hospital Mãe de Deus,50,41,2020-04-25,-30.058845,-51.228945,2,17
+uti,pediatrico,Hospital Santa Casa,37,33,2020-04-25,-30.030803,-51.221512,0,17
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-25,-30.055122,-51.173819,0,17
+uti,pediatrico,HCPA,13,10,2020-04-25,-30.038435,-51.206637,0,17
+uti,pediatrico,HPS,8,4,2020-04-25,-30.036874,-51.209282,0,17
+uti,pediatrico,Hospital Moinhos de Vento,11,9,2020-04-25,-30.02552,-51.20842,0,17
+uti,pediatrico,Hospital Conceição,18,6,2020-04-25,-30.01587,-51.158236,0,17
+uti,pediatrico,HMIPV,6,3,2020-04-25,-30.029525,-51.214865,0,17
+emergencia,adulto,HCPA,41,23,2020-04-26,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,42,2020-04-26,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,12,2020-04-26,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,17,2020-04-26,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,5,2020-04-26,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,7,2020-04-26,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,4,2020-04-26,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,7,2020-04-26,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,13,2020-04-26,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,4,2020-04-26,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,12,2020-04-26,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,4,2020-04-26,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,2,2020-04-26,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-26,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-04-26,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,2,2020-04-26,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-26,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-26,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-26,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-26,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,56,2020-04-26,-30.01587,-51.158236,7,18
+uti,adulto,HCPA,82,49,2020-04-26,-30.038435,-51.206637,4,18
+uti,adulto,Hospital Santa Casa,87,61,2020-04-26,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,37,2020-04-26,-30.055122,-51.173819,2,18
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-26,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,47,2020-04-26,-30.02552,-51.20842,11,18
+uti,adulto,Hospital Ernesto Dornelles,20,12,2020-04-26,-30.047509,-51.212131,2,18
+uti,adulto,Hospital Vila Nova,20,16,2020-04-26,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,10,2020-04-26,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,7,2020-04-26,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,1,2020-04-26,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,14,2020-04-26,-30.084428,-51.18839,3,18
+uti,adulto,Hospital Restinga,10,8,2020-04-26,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,6,2020-04-26,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,34,2020-04-26,-30.058845,-51.228945,2,18
+uti,pediatrico,Hospital Santa Casa,37,31,2020-04-26,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-26,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,10,2020-04-26,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,6,2020-04-26,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,9,2020-04-26,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,8,2020-04-26,-30.01587,-51.158236,0,18
+uti,pediatrico,HMIPV,6,3,2020-04-26,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,38,2020-04-27,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,41,2020-04-27,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,21,2020-04-27,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,17,2020-04-27,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,11,2020-04-27,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,10,2020-04-27,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,4,2020-04-27,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-27,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-04-27,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,0,2020-04-27,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,10,2020-04-27,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,1,2020-04-27,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,5,2020-04-27,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-27,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-27,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,4,2020-04-27,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-27,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-04-27,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-27,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-27,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,56,2020-04-27,-30.01587,-51.158236,7,18
+uti,adulto,HCPA,82,52,2020-04-27,-30.038435,-51.206637,4,18
+uti,adulto,Hospital Santa Casa,87,57,2020-04-27,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,36,2020-04-27,-30.055122,-51.173819,3,18
+uti,adulto,Hospital Cristo Redentor,47,24,2020-04-27,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,45,2020-04-27,-30.02552,-51.20842,12,18
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-27,-30.047509,-51.212131,2,18
+uti,adulto,Hospital Vila Nova,20,15,2020-04-27,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,9,2020-04-27,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,6,2020-04-27,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,2,2020-04-27,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,14,2020-04-27,-30.084428,-51.18839,3,18
+uti,adulto,Hospital Restinga,10,10,2020-04-27,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,7,2020-04-27,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,34,2020-04-27,-30.058845,-51.228945,2,18
+uti,pediatrico,Hospital Santa Casa,37,32,2020-04-27,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-27,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,8,2020-04-27,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,6,2020-04-27,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,11,2020-04-27,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,8,2020-04-27,-30.01587,-51.158236,0,18
+uti,pediatrico,HMIPV,6,4,2020-04-27,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,40,2020-04-28,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,32,2020-04-28,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,22,2020-04-28,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,17,2020-04-28,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,14,2020-04-28,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,10,2020-04-28,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,12,2020-04-28,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-28,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,12,2020-04-28,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,2,2020-04-28,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,13,2020-04-28,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,3,2020-04-28,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,4,2020-04-28,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-04-28,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-28,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,4,2020-04-28,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,2,2020-04-28,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,2,2020-04-28,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-28,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-28,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,62,2020-04-28,-30.01587,-51.158236,9,18
+uti,adulto,HCPA,82,47,2020-04-28,-30.038435,-51.206637,4,18
+uti,adulto,Hospital Santa Casa,87,60,2020-04-28,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,41,2020-04-28,-30.055122,-51.173819,3,18
+uti,adulto,Hospital Cristo Redentor,47,20,2020-04-28,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,49,2020-04-28,-30.02552,-51.20842,13,18
+uti,adulto,Hospital Ernesto Dornelles,20,14,2020-04-28,-30.047509,-51.212131,2,18
+uti,adulto,Hospital Vila Nova,20,18,2020-04-28,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,9,2020-04-28,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,9,2020-04-28,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,1,2020-04-28,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,11,2020-04-28,-30.084428,-51.18839,2,18
+uti,adulto,Hospital Restinga,10,10,2020-04-28,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,7,2020-04-28,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,33,2020-04-28,-30.058845,-51.228945,1,18
+uti,pediatrico,Hospital Santa Casa,37,33,2020-04-28,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-28,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,9,2020-04-28,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,6,2020-04-28,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,9,2020-04-28,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,9,2020-04-28,-30.01587,-51.158236,1,18
+uti,pediatrico,HMIPV,6,4,2020-04-28,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,44,2020-04-29,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,23,2020-04-29,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,26,2020-04-29,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,28,2020-04-29,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,4,2020-04-29,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,15,2020-04-29,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,12,2020-04-29,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,0,2020-04-29,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,13,2020-04-29,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,5,2020-04-29,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,7,2020-04-29,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,4,2020-04-29,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,6,2020-04-29,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,3,2020-04-29,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-29,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,4,2020-04-29,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,0,2020-04-29,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,4,2020-04-29,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-29,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-29,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,52,2020-04-29,-30.01587,-51.158236,6,18
+uti,adulto,HCPA,82,52,2020-04-29,-30.038435,-51.206637,4,18
+uti,adulto,Hospital Santa Casa,87,57,2020-04-29,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,39,2020-04-29,-30.055122,-51.173819,3,18
+uti,adulto,Hospital Cristo Redentor,47,19,2020-04-29,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,48,2020-04-29,-30.02552,-51.20842,13,18
+uti,adulto,Hospital Ernesto Dornelles,40,33,2020-04-29,-30.047509,-51.212131,1,18
+uti,adulto,Hospital Vila Nova,20,18,2020-04-29,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,11,2020-04-29,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,9,2020-04-29,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,0,2020-04-29,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,11,2020-04-29,-30.084428,-51.18839,2,18
+uti,adulto,Hospital Restinga,10,10,2020-04-29,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,4,2020-04-29,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,34,2020-04-29,-30.058845,-51.228945,1,18
+uti,pediatrico,Hospital Santa Casa,37,32,2020-04-29,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-29,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,10,2020-04-29,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,4,2020-04-29,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,9,2020-04-29,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,9,2020-04-29,-30.01587,-51.158236,1,18
+uti,pediatrico,HMIPV,6,3,2020-04-29,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,42,2020-04-30,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,10,2020-04-30,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,26,2020-04-30,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,18,2020-04-30,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,15,2020-04-30,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,7,2020-04-30,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,8,2020-04-30,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,12,2020-04-30,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,13,2020-04-30,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,6,2020-04-30,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,10,2020-04-30,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,4,2020-04-30,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,1,2020-04-30,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-04-30,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-04-30,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,2,2020-04-30,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,1,2020-04-30,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,3,2020-04-30,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-04-30,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-04-30,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,52,2020-04-30,-30.01587,-51.158236,6,18
+uti,adulto,HCPA,82,59,2020-04-30,-30.038435,-51.206637,3,18
+uti,adulto,Hospital Santa Casa,87,73,2020-04-30,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,43,2020-04-30,-30.055122,-51.173819,3,18
+uti,adulto,Hospital Cristo Redentor,47,19,2020-04-30,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,52,2020-04-30,-30.02552,-51.20842,13,18
+uti,adulto,Hospital Ernesto Dornelles,40,32,2020-04-30,-30.047509,-51.212131,1,18
+uti,adulto,Hospital Vila Nova,20,18,2020-04-30,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,13,2020-04-30,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,9,2020-04-30,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,0,2020-04-30,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,10,2020-04-30,-30.084428,-51.18839,1,18
+uti,adulto,Hospital Restinga,10,9,2020-04-30,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,6,2020-04-30,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,35,2020-04-30,-30.058845,-51.228945,1,18
+uti,pediatrico,Hospital Santa Casa,37,32,2020-04-30,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-04-30,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,8,2020-04-30,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,4,2020-04-30,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,8,2020-04-30,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,9,2020-04-30,-30.01587,-51.158236,0,18
+uti,pediatrico,HMIPV,6,3,2020-04-30,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,18,2020-05-01,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,9,2020-05-01,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,26,2020-05-01,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,15,2020-05-01,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,15,2020-05-01,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,16,2020-05-01,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,8,2020-05-01,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,0,2020-05-01,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,11,2020-05-01,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,0,2020-05-01,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,6,2020-05-01,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,5,2020-05-01,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,1,2020-05-01,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,3,2020-05-01,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,1,2020-05-01,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,3,2020-05-01,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-01,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-05-01,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-05-01,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-05-01,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,53,2020-05-01,-30.01587,-51.158236,7,18
+uti,adulto,HCPA,82,58,2020-05-01,-30.038435,-51.206637,8,18
+uti,adulto,Hospital Santa Casa,87,77,2020-05-01,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,43,2020-05-01,-30.055122,-51.173819,3,18
+uti,adulto,Hospital Cristo Redentor,47,26,2020-05-01,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,52,2020-05-01,-30.02552,-51.20842,11,18
+uti,adulto,Hospital Ernesto Dornelles,40,33,2020-05-01,-30.047509,-51.212131,1,18
+uti,adulto,Hospital Vila Nova,20,18,2020-05-01,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,13,2020-05-01,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,8,2020-05-01,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,0,2020-05-01,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,11,2020-05-01,-30.084428,-51.18839,1,18
+uti,adulto,Hospital Restinga,10,9,2020-05-01,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,5,2020-05-01,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,37,2020-05-01,-30.058845,-51.228945,1,18
+uti,pediatrico,Hospital Santa Casa,37,31,2020-05-01,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-01,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,9,2020-05-01,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,3,2020-05-01,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,9,2020-05-01,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,9,2020-05-01,-30.01587,-51.158236,0,18
+uti,pediatrico,HMIPV,6,3,2020-05-01,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,18,2020-05-02,-30.038435,-51.206637,NA,18
+emergencia,adulto,Hospital Conceição,64,19,2020-05-02,-30.01587,-51.158236,NA,18
+emergencia,adulto,Instituto de Cardiologia,21,17,2020-05-02,-30.049092,-51.20903,NA,18
+emergencia,adulto,Hospital Santa Casa,24,14,2020-05-02,-30.030803,-51.221512,NA,18
+emergencia,adulto,Hospital São Lucas,17,6,2020-05-02,-30.055122,-51.173819,NA,18
+emergencia,adulto,Hospital Restinga,18,4,2020-05-02,-30.142524,-51.128803,NA,18
+emergencia,adulto,Hospital Vila Nova,26,8,2020-05-02,-30.119308,-51.207744,NA,18
+emergencia,adulto,PA Bom Jesus,7,0,2020-05-02,-30.043194,-51.153916,NA,18
+emergencia,adulto,PA Cruzeiro do Sul,12,11,2020-05-02,-30.069603,-51.216537,NA,18
+emergencia,adulto,PA Lomba do Pinheiro,9,5,2020-05-02,-30.110731,-51.110188,NA,18
+emergencia,adulto,UPA Zona Norte,17,10,2020-05-02,-30.009546,-51.146056,NA,18
+emergencia,pediatrico,HCPA,9,5,2020-05-02,-30.038435,-51.206637,NA,18
+emergencia,pediatrico,Hospital Conceição,16,3,2020-05-02,-30.01587,-51.158236,NA,18
+emergencia,pediatrico,Hospital Santa Casa,11,0,2020-05-02,-30.030803,-51.221512,NA,18
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-02,-30.055122,-51.173819,NA,18
+emergencia,pediatrico,HMIPV,9,3,2020-05-02,-30.029525,-51.214865,NA,18
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-02,-30.142524,-51.128803,NA,18
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-05-02,-30.043194,-51.153916,NA,18
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-05-02,-30.069603,-51.216537,NA,18
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-05-02,-30.110731,-51.110188,NA,18
+uti,adulto,Hospital Conceição,69,53,2020-05-02,-30.01587,-51.158236,9,18
+uti,adulto,HCPA,82,60,2020-05-02,-30.038435,-51.206637,7,18
+uti,adulto,Hospital Santa Casa,87,76,2020-05-02,-30.030803,-51.221512,0,18
+uti,adulto,Hospital São Lucas,59,37,2020-05-02,-30.055122,-51.173819,2,18
+uti,adulto,Hospital Cristo Redentor,47,27,2020-05-02,-30.010102,-51.15926,0,18
+uti,adulto,Hospital Moinhos de Vento,56,51,2020-05-02,-30.02552,-51.20842,11,18
+uti,adulto,Hospital Ernesto Dornelles,40,32,2020-05-02,-30.047509,-51.212131,3,18
+uti,adulto,Hospital Vila Nova,20,18,2020-05-02,-30.119308,-51.207744,0,18
+uti,adulto,HPS,20,14,2020-05-02,-30.036874,-51.209282,0,18
+uti,adulto,HospitaL Independência,10,5,2020-05-02,-30.061051,-51.149073,0,18
+uti,adulto,Hospital Femina,4,0,2020-05-02,-30.029239,-51.206848,0,18
+uti,adulto,Hospital Divina Providência,16,11,2020-05-02,-30.084428,-51.18839,1,18
+uti,adulto,Hospital Restinga,10,9,2020-05-02,-30.142524,-51.128803,0,18
+uti,adulto,Hospital Santa Ana,10,5,2020-05-02,-30.086664,-51.20689,0,18
+uti,adulto,Hospital Mãe de Deus,50,37,2020-05-02,-30.058845,-51.228945,1,18
+uti,pediatrico,Hospital Santa Casa,37,33,2020-05-02,-30.030803,-51.221512,0,18
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-02,-30.055122,-51.173819,0,18
+uti,pediatrico,HCPA,13,10,2020-05-02,-30.038435,-51.206637,0,18
+uti,pediatrico,HPS,8,3,2020-05-02,-30.036874,-51.209282,0,18
+uti,pediatrico,Hospital Moinhos de Vento,11,7,2020-05-02,-30.02552,-51.20842,0,18
+uti,pediatrico,Hospital Conceição,18,9,2020-05-02,-30.01587,-51.158236,0,18
+uti,pediatrico,HMIPV,6,2,2020-05-02,-30.029525,-51.214865,0,18
+emergencia,adulto,HCPA,41,21,2020-05-03,-30.038435,-51.206637,NA,19
+emergencia,adulto,Hospital Conceição,64,24,2020-05-03,-30.01587,-51.158236,NA,19
+emergencia,adulto,Instituto de Cardiologia,21,12,2020-05-03,-30.049092,-51.20903,NA,19
+emergencia,adulto,Hospital Santa Casa,24,16,2020-05-03,-30.030803,-51.221512,NA,19
+emergencia,adulto,Hospital São Lucas,17,11,2020-05-03,-30.055122,-51.173819,NA,19
+emergencia,adulto,Hospital Restinga,18,9,2020-05-03,-30.142524,-51.128803,NA,19
+emergencia,adulto,Hospital Vila Nova,26,8,2020-05-03,-30.119308,-51.207744,NA,19
+emergencia,adulto,PA Bom Jesus,7,14,2020-05-03,-30.043194,-51.153916,NA,19
+emergencia,adulto,PA Cruzeiro do Sul,12,5,2020-05-03,-30.069603,-51.216537,NA,19
+emergencia,adulto,PA Lomba do Pinheiro,9,5,2020-05-03,-30.110731,-51.110188,NA,19
+emergencia,adulto,UPA Zona Norte,17,12,2020-05-03,-30.009546,-51.146056,NA,19
+emergencia,pediatrico,HCPA,9,5,2020-05-03,-30.038435,-51.206637,NA,19
+emergencia,pediatrico,Hospital Conceição,16,3,2020-05-03,-30.01587,-51.158236,NA,19
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-05-03,-30.030803,-51.221512,NA,19
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-03,-30.055122,-51.173819,NA,19
+emergencia,pediatrico,HMIPV,9,4,2020-05-03,-30.029525,-51.214865,NA,19
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-03,-30.142524,-51.128803,NA,19
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-05-03,-30.043194,-51.153916,NA,19
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-05-03,-30.069603,-51.216537,NA,19
+emergencia,pediatrico,PA Lomba do Pinheiro,4,1,2020-05-03,-30.110731,-51.110188,NA,19
+uti,adulto,Hospital Conceição,69,55,2020-05-03,-30.01587,-51.158236,10,19
+uti,adulto,HCPA,82,58,2020-05-03,-30.038435,-51.206637,8,19
+uti,adulto,Hospital Santa Casa,87,76,2020-05-03,-30.030803,-51.221512,0,19
+uti,adulto,Hospital São Lucas,59,36,2020-05-03,-30.055122,-51.173819,2,19
+uti,adulto,Hospital Cristo Redentor,47,24,2020-05-03,-30.010102,-51.15926,0,19
+uti,adulto,Hospital Moinhos de Vento,56,49,2020-05-03,-30.02552,-51.20842,10,19
+uti,adulto,Hospital Ernesto Dornelles,40,31,2020-05-03,-30.047509,-51.212131,4,19
+uti,adulto,Hospital Vila Nova,20,16,2020-05-03,-30.119308,-51.207744,0,19
+uti,adulto,HPS,20,15,2020-05-03,-30.036874,-51.209282,0,19
+uti,adulto,HospitaL Independência,10,4,2020-05-03,-30.061051,-51.149073,0,19
+uti,adulto,Hospital Femina,4,0,2020-05-03,-30.029239,-51.206848,0,19
+uti,adulto,Hospital Divina Providência,16,9,2020-05-03,-30.084428,-51.18839,1,19
+uti,adulto,Hospital Restinga,10,9,2020-05-03,-30.142524,-51.128803,0,19
+uti,adulto,Hospital Santa Ana,10,5,2020-05-03,-30.086664,-51.20689,0,19
+uti,adulto,Hospital Mãe de Deus,50,32,2020-05-03,-30.058845,-51.228945,1,19
+uti,pediatrico,Hospital Santa Casa,37,34,2020-05-03,-30.030803,-51.221512,0,19
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-03,-30.055122,-51.173819,0,19
+uti,pediatrico,HCPA,13,11,2020-05-03,-30.038435,-51.206637,0,19
+uti,pediatrico,HPS,8,3,2020-05-03,-30.036874,-51.209282,0,19
+uti,pediatrico,Hospital Moinhos de Vento,11,8,2020-05-03,-30.02552,-51.20842,0,19
+uti,pediatrico,Hospital Conceição,18,7,2020-05-03,-30.01587,-51.158236,0,19
+uti,pediatrico,HMIPV,6,2,2020-05-03,-30.029525,-51.214865,0,19
+emergencia,adulto,HCPA,41,33,2020-05-04,-30.038435,-51.206637,NA,19
+emergencia,adulto,Hospital Conceição,64,29,2020-05-04,-30.01587,-51.158236,NA,19
+emergencia,adulto,Instituto de Cardiologia,21,23,2020-05-04,-30.049092,-51.20903,NA,19
+emergencia,adulto,Hospital Santa Casa,24,18,2020-05-04,-30.030803,-51.221512,NA,19
+emergencia,adulto,Hospital São Lucas,17,11,2020-05-04,-30.055122,-51.173819,NA,19
+emergencia,adulto,Hospital Restinga,18,7,2020-05-04,-30.142524,-51.128803,NA,19
+emergencia,adulto,Hospital Vila Nova,26,8,2020-05-04,-30.119308,-51.207744,NA,19
+emergencia,adulto,PA Bom Jesus,7,0,2020-05-04,-30.043194,-51.153916,NA,19
+emergencia,adulto,PA Cruzeiro do Sul,12,4,2020-05-04,-30.069603,-51.216537,NA,19
+emergencia,adulto,PA Lomba do Pinheiro,9,7,2020-05-04,-30.110731,-51.110188,NA,19
+emergencia,adulto,UPA Zona Norte,17,13,2020-05-04,-30.009546,-51.146056,NA,19
+emergencia,pediatrico,HCPA,9,2,2020-05-04,-30.038435,-51.206637,NA,19
+emergencia,pediatrico,Hospital Conceição,16,5,2020-05-04,-30.01587,-51.158236,NA,19
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-05-04,-30.030803,-51.221512,NA,19
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-04,-30.055122,-51.173819,NA,19
+emergencia,pediatrico,HMIPV,9,5,2020-05-04,-30.029525,-51.214865,NA,19
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-04,-30.142524,-51.128803,NA,19
+emergencia,pediatrico,PA Bom Jesus,5,2,2020-05-04,-30.043194,-51.153916,NA,19
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-05-04,-30.069603,-51.216537,NA,19
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-05-04,-30.110731,-51.110188,NA,19
+uti,adulto,Hospital Conceição,69,51,2020-05-04,-30.01587,-51.158236,10,19
+uti,adulto,HCPA,92,55,2020-05-04,-30.038435,-51.206637,9,19
+uti,adulto,Hospital Santa Casa,87,73,2020-05-04,-30.030803,-51.221512,0,19
+uti,adulto,Hospital São Lucas,59,35,2020-05-04,-30.055122,-51.173819,4,19
+uti,adulto,Hospital Cristo Redentor,47,22,2020-05-04,-30.010102,-51.15926,0,19
+uti,adulto,Hospital Moinhos de Vento,56,41,2020-05-04,-30.02552,-51.20842,9,19
+uti,adulto,Hospital Ernesto Dornelles,40,33,2020-05-04,-30.047509,-51.212131,4,19
+uti,adulto,Hospital Vila Nova,20,17,2020-05-04,-30.119308,-51.207744,0,19
+uti,adulto,HPS,20,15,2020-05-04,-30.036874,-51.209282,0,19
+uti,adulto,HospitaL Independência,10,6,2020-05-04,-30.061051,-51.149073,0,19
+uti,adulto,Hospital Femina,4,1,2020-05-04,-30.029239,-51.206848,0,19
+uti,adulto,Hospital Divina Providência,16,10,2020-05-04,-30.084428,-51.18839,1,19
+uti,adulto,Hospital Restinga,10,8,2020-05-04,-30.142524,-51.128803,0,19
+uti,adulto,Hospital Santa Ana,10,6,2020-05-04,-30.086664,-51.20689,0,19
+uti,adulto,Hospital Mãe de Deus,50,32,2020-05-04,-30.058845,-51.228945,1,19
+uti,pediatrico,Hospital Santa Casa,37,31,2020-05-04,-30.030803,-51.221512,0,19
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-04,-30.055122,-51.173819,0,19
+uti,pediatrico,HCPA,13,11,2020-05-04,-30.038435,-51.206637,0,19
+uti,pediatrico,HPS,8,3,2020-05-04,-30.036874,-51.209282,0,19
+uti,pediatrico,Hospital Moinhos de Vento,11,8,2020-05-04,-30.02552,-51.20842,0,19
+uti,pediatrico,Hospital Conceição,18,8,2020-05-04,-30.01587,-51.158236,0,19
+uti,pediatrico,HMIPV,6,2,2020-05-04,-30.029525,-51.214865,0,19
+emergencia,adulto,HCPA,41,33,2020-05-05,-30.038435,-51.206637,NA,19
+emergencia,adulto,Hospital Conceição,64,17,2020-05-05,-30.01587,-51.158236,NA,19
+emergencia,adulto,Instituto de Cardiologia,21,16,2020-05-05,-30.049092,-51.20903,NA,19
+emergencia,adulto,Hospital Santa Casa,24,17,2020-05-05,-30.030803,-51.221512,NA,19
+emergencia,adulto,Hospital São Lucas,17,5,2020-05-05,-30.055122,-51.173819,NA,19
+emergencia,adulto,Hospital Restinga,18,7,2020-05-05,-30.142524,-51.128803,NA,19
+emergencia,adulto,Hospital Vila Nova,26,8,2020-05-05,-30.119308,-51.207744,NA,19
+emergencia,adulto,PA Bom Jesus,7,10,2020-05-05,-30.043194,-51.153916,NA,19
+emergencia,adulto,PA Cruzeiro do Sul,12,2,2020-05-05,-30.069603,-51.216537,NA,19
+emergencia,adulto,PA Lomba do Pinheiro,9,2,2020-05-05,-30.110731,-51.110188,NA,19
+emergencia,adulto,UPA Zona Norte,17,13,2020-05-05,-30.009546,-51.146056,NA,19
+emergencia,pediatrico,HCPA,9,2,2020-05-05,-30.038435,-51.206637,NA,19
+emergencia,pediatrico,Hospital Conceição,16,5,2020-05-05,-30.01587,-51.158236,NA,19
+emergencia,pediatrico,Hospital Santa Casa,11,3,2020-05-05,-30.030803,-51.221512,NA,19
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-05,-30.055122,-51.173819,NA,19
+emergencia,pediatrico,HMIPV,9,1,2020-05-05,-30.029525,-51.214865,NA,19
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-05,-30.142524,-51.128803,NA,19
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-05-05,-30.043194,-51.153916,NA,19
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-05-05,-30.069603,-51.216537,NA,19
+emergencia,pediatrico,PA Lomba do Pinheiro,4,10,2020-05-05,-30.110731,-51.110188,NA,19
+uti,adulto,Hospital Conceição,69,57,2020-05-05,-30.01587,-51.158236,12,19
+uti,adulto,HCPA,92,56,2020-05-05,-30.038435,-51.206637,4,19
+uti,adulto,Hospital Santa Casa,87,69,2020-05-05,-30.030803,-51.221512,0,19
+uti,adulto,Hospital São Lucas,59,39,2020-05-05,-30.055122,-51.173819,4,19
+uti,adulto,Hospital Cristo Redentor,47,25,2020-05-05,-30.010102,-51.15926,0,19
+uti,adulto,Hospital Moinhos de Vento,56,42,2020-05-05,-30.02552,-51.20842,7,19
+uti,adulto,Hospital Ernesto Dornelles,40,30,2020-05-05,-30.047509,-51.212131,1,19
+uti,adulto,Hospital Vila Nova,20,17,2020-05-05,-30.119308,-51.207744,0,19
+uti,adulto,HPS,20,16,2020-05-05,-30.036874,-51.209282,0,19
+uti,adulto,HospitaL Independência,10,8,2020-05-05,-30.061051,-51.149073,0,19
+uti,adulto,Hospital Femina,4,3,2020-05-05,-30.029239,-51.206848,0,19
+uti,adulto,Hospital Divina Providência,16,10,2020-05-05,-30.084428,-51.18839,1,19
+uti,adulto,Hospital Restinga,10,9,2020-05-05,-30.142524,-51.128803,0,19
+uti,adulto,Hospital Santa Ana,10,6,2020-05-05,-30.086664,-51.20689,0,19
+uti,adulto,Hospital Mãe de Deus,60,27,2020-05-05,-30.058845,-51.228945,0,19
+uti,adulto,Hospital Porto Alegre,7,5,2020-05-05,-30.04475,-51.21856,1,19
+uti,pediatrico,Hospital Santa Casa,37,31,2020-05-05,-30.030803,-51.221512,0,19
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-05,-30.055122,-51.173819,0,19
+uti,pediatrico,HCPA,13,12,2020-05-05,-30.038435,-51.206637,0,19
+uti,pediatrico,HPS,8,3,2020-05-05,-30.036874,-51.209282,0,19
+uti,pediatrico,Hospital Moinhos de Vento,11,7,2020-05-05,-30.02552,-51.20842,0,19
+uti,pediatrico,Hospital Conceição,18,7,2020-05-05,-30.01587,-51.158236,0,19
+uti,pediatrico,HMIPV,6,2,2020-05-05,-30.029525,-51.214865,0,19
+emergencia,adulto,HCPA,41,39,2020-05-06,-30.038435,-51.206637,NA,19
+emergencia,adulto,Hospital Conceição,64,16,2020-05-06,-30.01587,-51.158236,NA,19
+emergencia,adulto,Instituto de Cardiologia,21,16,2020-05-06,-30.049092,-51.20903,NA,19
+emergencia,adulto,Hospital Santa Casa,24,19,2020-05-06,-30.030803,-51.221512,NA,19
+emergencia,adulto,Hospital São Lucas,17,12,2020-05-06,-30.055122,-51.173819,NA,19
+emergencia,adulto,Hospital Restinga,18,6,2020-05-06,-30.142524,-51.128803,NA,19
+emergencia,adulto,Hospital Vila Nova,26,8,2020-05-06,-30.119308,-51.207744,NA,19
+emergencia,adulto,PA Bom Jesus,7,7,2020-05-06,-30.043194,-51.153916,NA,19
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-05-06,-30.069603,-51.216537,NA,19
+emergencia,adulto,PA Lomba do Pinheiro,9,3,2020-05-06,-30.110731,-51.110188,NA,19
+emergencia,adulto,UPA Zona Norte,17,3,2020-05-06,-30.009546,-51.146056,NA,19
+emergencia,pediatrico,HCPA,9,4,2020-05-06,-30.038435,-51.206637,NA,19
+emergencia,pediatrico,Hospital Conceição,16,1,2020-05-06,-30.01587,-51.158236,NA,19
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-05-06,-30.030803,-51.221512,NA,19
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-06,-30.055122,-51.173819,NA,19
+emergencia,pediatrico,HMIPV,9,1,2020-05-06,-30.029525,-51.214865,NA,19
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-06,-30.142524,-51.128803,NA,19
+emergencia,pediatrico,PA Bom Jesus,5,1,2020-05-06,-30.043194,-51.153916,NA,19
+emergencia,pediatrico,PA Cruzeiro do Sul,9,0,2020-05-06,-30.069603,-51.216537,NA,19
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-05-06,-30.110731,-51.110188,NA,19
+uti,adulto,Hospital Conceição,69,60,2020-05-06,-30.01587,-51.158236,11,19
+uti,adulto,HCPA,92,58,2020-05-06,-30.038435,-51.206637,6,19
+uti,adulto,Hospital Santa Casa,87,76,2020-05-06,-30.030803,-51.221512,0,19
+uti,adulto,Hospital São Lucas,59,42,2020-05-06,-30.055122,-51.173819,3,19
+uti,adulto,Hospital Cristo Redentor,47,26,2020-05-06,-30.010102,-51.15926,0,19
+uti,adulto,Hospital Moinhos de Vento,56,39,2020-05-06,-30.02552,-51.20842,9,19
+uti,adulto,Hospital Ernesto Dornelles,40,33,2020-05-06,-30.047509,-51.212131,6,19
+uti,adulto,Hospital Vila Nova,20,13,2020-05-06,-30.119308,-51.207744,0,19
+uti,adulto,HPS,20,13,2020-05-06,-30.036874,-51.209282,0,19
+uti,adulto,HospitaL Independência,10,10,2020-05-06,-30.061051,-51.149073,0,19
+uti,adulto,Hospital Femina,4,2,2020-05-06,-30.029239,-51.206848,0,19
+uti,adulto,Hospital Divina Providência,16,13,2020-05-06,-30.084428,-51.18839,1,19
+uti,adulto,Hospital Restinga,10,7,2020-05-06,-30.142524,-51.128803,0,19
+uti,adulto,Hospital Santa Ana,10,7,2020-05-06,-30.086664,-51.20689,0,19
+uti,adulto,Hospital Mãe de Deus,60,33,2020-05-06,-30.058845,-51.228945,1,19
+uti,adulto,Hospital Porto Alegre,7,5,2020-05-06,-30.04475,-51.21856,1,19
+uti,pediatrico,Hospital Santa Casa,37,33,2020-05-06,-30.030803,-51.221512,0,19
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-06,-30.055122,-51.173819,0,19
+uti,pediatrico,HCPA,13,11,2020-05-06,-30.038435,-51.206637,0,19
+uti,pediatrico,HPS,8,2,2020-05-06,-30.036874,-51.209282,0,19
+uti,pediatrico,Hospital Moinhos de Vento,11,10,2020-05-06,-30.02552,-51.20842,0,19
+uti,pediatrico,Hospital Conceição,18,9,2020-05-06,-30.01587,-51.158236,0,19
+uti,pediatrico,HMIPV,6,2,2020-05-06,-30.029525,-51.214865,0,19
+emergencia,adulto,HCPA,41,46,2020-05-07,-30.038435,-51.206637,NA,19
+emergencia,adulto,Hospital Conceição,64,14,2020-05-07,-30.01587,-51.158236,NA,19
+emergencia,adulto,Instituto de Cardiologia,21,20,2020-05-07,-30.049092,-51.20903,NA,19
+emergencia,adulto,Hospital Santa Casa,24,29,2020-05-07,-30.030803,-51.221512,NA,19
+emergencia,adulto,Hospital São Lucas,17,9,2020-05-07,-30.055122,-51.173819,NA,19
+emergencia,adulto,Hospital Restinga,18,10,2020-05-07,-30.142524,-51.128803,NA,19
+emergencia,adulto,Hospital Vila Nova,26,9,2020-05-07,-30.119308,-51.207744,NA,19
+emergencia,adulto,PA Bom Jesus,7,0,2020-05-07,-30.043194,-51.153916,NA,19
+emergencia,adulto,PA Cruzeiro do Sul,12,7,2020-05-07,-30.069603,-51.216537,NA,19
+emergencia,adulto,PA Lomba do Pinheiro,9,5,2020-05-07,-30.110731,-51.110188,NA,19
+emergencia,adulto,UPA Zona Norte,17,12,2020-05-07,-30.009546,-51.146056,NA,19
+emergencia,pediatrico,HCPA,9,4,2020-05-07,-30.038435,-51.206637,NA,19
+emergencia,pediatrico,Hospital Conceição,16,5,2020-05-07,-30.01587,-51.158236,NA,19
+emergencia,pediatrico,Hospital Santa Casa,11,1,2020-05-07,-30.030803,-51.221512,NA,19
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-07,-30.055122,-51.173819,NA,19
+emergencia,pediatrico,HMIPV,9,1,2020-05-07,-30.029525,-51.214865,NA,19
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-07,-30.142524,-51.128803,NA,19
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-05-07,-30.043194,-51.153916,NA,19
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-05-07,-30.069603,-51.216537,NA,19
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-05-07,-30.110731,-51.110188,NA,19
+uti,adulto,Hospital Conceição,69,55,2020-05-07,-30.01587,-51.158236,11,19
+uti,adulto,HCPA,92,60,2020-05-07,-30.038435,-51.206637,9,19
+uti,adulto,Hospital Santa Casa,87,70,2020-05-07,-30.030803,-51.221512,0,19
+uti,adulto,Hospital São Lucas,59,41,2020-05-07,-30.055122,-51.173819,3,19
+uti,adulto,Hospital Cristo Redentor,47,28,2020-05-07,-30.010102,-51.15926,0,19
+uti,adulto,Hospital Moinhos de Vento,56,41,2020-05-07,-30.02552,-51.20842,8,19
+uti,adulto,Hospital Ernesto Dornelles,40,28,2020-05-07,-30.047509,-51.212131,5,19
+uti,adulto,Hospital Vila Nova,20,13,2020-05-07,-30.119308,-51.207744,0,19
+uti,adulto,HPS,20,11,2020-05-07,-30.036874,-51.209282,0,19
+uti,adulto,HospitaL Independência,10,10,2020-05-07,-30.061051,-51.149073,0,19
+uti,adulto,Hospital Femina,4,3,2020-05-07,-30.029239,-51.206848,0,19
+uti,adulto,Hospital Divina Providência,16,13,2020-05-07,-30.084428,-51.18839,1,19
+uti,adulto,Hospital Restinga,10,9,2020-05-07,-30.142524,-51.128803,0,19
+uti,adulto,Hospital Santa Ana,10,6,2020-05-07,-30.086664,-51.20689,0,19
+uti,adulto,Hospital Mãe de Deus,60,30,2020-05-07,-30.058845,-51.228945,1,19
+uti,adulto,Hospital Porto Alegre,7,5,2020-05-07,-30.04475,-51.21856,1,19
+uti,pediatrico,Hospital Santa Casa,37,35,2020-05-07,-30.030803,-51.221512,0,19
+uti,pediatrico,Hospital São Lucas,12,5,2020-05-07,-30.055122,-51.173819,0,19
+uti,pediatrico,HCPA,13,10,2020-05-07,-30.038435,-51.206637,0,19
+uti,pediatrico,HPS,8,2,2020-05-07,-30.036874,-51.209282,0,19
+uti,pediatrico,Hospital Moinhos de Vento,11,11,2020-05-07,-30.02552,-51.20842,0,19
+uti,pediatrico,Hospital Conceição,18,10,2020-05-07,-30.01587,-51.158236,0,19
+uti,pediatrico,HMIPV,6,2,2020-05-07,-30.029525,-51.214865,0,19
+emergencia,adulto,HCPA,41,39,2020-05-08,-30.038435,-51.206637,NA,19
+emergencia,adulto,Hospital Conceição,64,14,2020-05-08,-30.01587,-51.158236,NA,19
+emergencia,adulto,Instituto de Cardiologia,21,23,2020-05-08,-30.049092,-51.20903,NA,19
+emergencia,adulto,Hospital Santa Casa,24,24,2020-05-08,-30.030803,-51.221512,NA,19
+emergencia,adulto,Hospital São Lucas,17,13,2020-05-08,-30.055122,-51.173819,NA,19
+emergencia,adulto,Hospital Restinga,18,5,2020-05-08,-30.142524,-51.128803,NA,19
+emergencia,adulto,Hospital Vila Nova,26,9,2020-05-08,-30.119308,-51.207744,NA,19
+emergencia,adulto,PA Bom Jesus,7,0,2020-05-08,-30.043194,-51.153916,NA,19
+emergencia,adulto,PA Cruzeiro do Sul,12,10,2020-05-08,-30.069603,-51.216537,NA,19
+emergencia,adulto,PA Lomba do Pinheiro,9,8,2020-05-08,-30.110731,-51.110188,NA,19
+emergencia,adulto,UPA Zona Norte,17,12,2020-05-08,-30.009546,-51.146056,NA,19
+emergencia,pediatrico,HCPA,9,4,2020-05-08,-30.038435,-51.206637,NA,19
+emergencia,pediatrico,Hospital Conceição,16,0,2020-05-08,-30.01587,-51.158236,NA,19
+emergencia,pediatrico,Hospital Santa Casa,11,2,2020-05-08,-30.030803,-51.221512,NA,19
+emergencia,pediatrico,Hospital São Lucas,4,0,2020-05-08,-30.055122,-51.173819,NA,19
+emergencia,pediatrico,HMIPV,8,1,2020-05-08,-30.029525,-51.214865,NA,19
+emergencia,pediatrico,Hospital Restinga,6,0,2020-05-08,-30.142524,-51.128803,NA,19
+emergencia,pediatrico,PA Bom Jesus,5,0,2020-05-08,-30.043194,-51.153916,NA,19
+emergencia,pediatrico,PA Cruzeiro do Sul,9,1,2020-05-08,-30.069603,-51.216537,NA,19
+emergencia,pediatrico,PA Lomba do Pinheiro,4,0,2020-05-08,-30.110731,-51.110188,NA,19
+uti,adulto,Hospital Conceição,69,51,2020-05-08,-30.01587,-51.158236,11,19
+uti,adulto,HCPA,92,58,2020-05-08,-30.038435,-51.206637,9,19
+uti,adulto,Hospital Santa Casa,87,64,2020-05-08,-30.030803,-51.221512,0,19
+uti,adulto,Hospital São Lucas,59,45,2020-05-08,-30.055122,-51.173819,3,19
+uti,adulto,Hospital Cristo Redentor,47,28,2020-05-08,-30.010102,-51.15926,0,19
+uti,adulto,Hospital Moinhos de Vento,56,46,2020-05-08,-30.02552,-51.20842,8,19
+uti,adulto,Hospital Ernesto Dornelles,40,30,2020-05-08,-30.047509,-51.212131,5,19
+uti,adulto,Hospital Vila Nova,20,15,2020-05-08,-30.119308,-51.207744,0,19
+uti,adulto,HPS,20,11,2020-05-08,-30.036874,-51.209282,0,19
+uti,adulto,HospitaL Independência,10,8,2020-05-08,-30.061051,-51.149073,0,19
+uti,adulto,Hospital Femina,4,1,2020-05-08,-30.029239,-51.206848,0,19
+uti,adulto,Hospital Divina Providência,16,13,2020-05-08,-30.084428,-51.18839,1,19
+uti,adulto,Hospital Restinga,10,9,2020-05-08,-30.142524,-51.128803,0,19
+uti,adulto,Hospital Santa Ana,10,8,2020-05-08,-30.086664,-51.20689,0,19
+uti,adulto,Hospital Mãe de Deus,60,37,2020-05-08,-30.058845,-51.228945,0,19
+uti,adulto,Hospital Porto Alegre,7,7,2020-05-08,-30.04475,-51.21856,3,19
+uti,pediatrico,Hospital Santa Casa,37,34,2020-05-08,-30.030803,-51.221512,0,19
+uti,pediatrico,Hospital São Lucas,37,34,2020-05-08,-30.055122,-51.173819,0,19
+uti,pediatrico,HCPA,13,9,2020-05-08,-30.038435,-51.206637,0,19
+uti,pediatrico,HPS,8,1,2020-05-08,-30.036874,-51.209282,0,19
+uti,pediatrico,Hospital Moinhos de Vento,11,11,2020-05-08,-30.02552,-51.20842,0,19
+uti,pediatrico,Hospital Conceição,18,10,2020-05-08,-30.01587,-51.158236,0,19
+uti,pediatrico,HMIPV,12,2,2020-05-08,-30.029525,-51.214865,0,19

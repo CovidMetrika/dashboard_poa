@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586138316092.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3959905957",
+    "id" : "76D60692",
+    "lastKnownWriteTime" : 1586055988,
+    "last_content_update" : 1586055988,
+    "path" : "C:/Users/mhbar/Google Drive/gustavo_bolsista_NAU/covid19_poa/criando_banco_leitos.R",
+    "project_path" : "criando_banco_leitos.R",
+    "properties" : {
+        "cursorPosition" : "8,13",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
