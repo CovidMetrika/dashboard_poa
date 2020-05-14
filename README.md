@@ -10,7 +10,7 @@
 
 [1]: http://www.twitter.com/CMetrika
 
-<img src="../flp/www/logoCM.png" width="300">
+<img src="https://github.com/CovidMetrika/dashboard_poa/blob/master/www/logoCM.png" width="300">
 
 ## O repositório
 
@@ -35,4 +35,4 @@ Interessados em colaborar podem enviar e-mail para citton.padilha@ufrgs.br
 
 Nos siga em [![alt text][1.1]][1]
 
-<img src="https://github.com/CovidMetrika/dashboard_poa/blob/master/www/Ufrgs.png" width="100"> <img src="../flp/images/ppgepi.png" width="170"> <img src="../flp/images/ime.png" width="170">
+<img src="https://github.com/CovidMetrika/dashboard_poa/blob/master/www/Ufrgs.png" width="100"> <img src="https://github.com/CovidMetrika/dashboard_poa/blob/master/www/ppgepi.png" width="170"> <img src="https://github.com/CovidMetrika/dashboard_poa/blob/master/www/ime.png" width="170">
