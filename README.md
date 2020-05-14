@@ -31,7 +31,7 @@ O grupo __covidMetrika__ é composto por estudantes e professores do __Departame
 
 ## Contatos
 
-Interessados em colaborar podem enviar e-mail para citton.padilha@ufrgs.br
+Qualquer dúvida ou sugestão nos contate pelo email: covidmetrika@gmail.com
 
 Nos siga em [![alt text][1.1]][1]
 
