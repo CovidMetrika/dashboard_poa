@@ -25,7 +25,7 @@ library(shinyEffects)
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/leitos_poa_13_05.csv") 
+leitos <- read_csv("bancos/leitos/leitos_poa_14_05.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
@@ -565,6 +565,18 @@ ui <- dashboardPagePlus(
       tabItem("sobre",
               fluidPage(
                 
+                setZoom(id = "covidMetrika",class = "small-box"),
+                setZoom(id = "git_covidMetrika",class = "small-box"),
+                
+                column(
+                  width = 6,
+                  valueBoxOutput("covidMetrika",width = 12)
+                ),
+                column(
+                  width = 6,
+                  valueBoxOutput("git_covidMetrika", width = 12)
+                ),
+                
                 setShadow(class = "box"), # aplicando efeito de sombra nas boxes do grupo
               
                 widgetUserBox(
@@ -584,7 +596,7 @@ ui <- dashboardPagePlus(
                   type = 2,
                   width = 4,
                   src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/gabriel.jpg?raw=true',
-                  color = "yellow",
+                  color = "green",
                   "Contato: gabrielholmersaul@gmail.com",
                   footer_padding = F
                 )
@@ -607,7 +619,7 @@ ui <- dashboardPagePlus(
                   type = 2,
                   width = 4,
                   src =  'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/juliana.jpeg?raw=true',
-                  color = "yellow",
+                  color = "green",
                   "Contato: julianass.estatistica@gmail.com",
                   footer_padding = F
                 ),
@@ -630,7 +642,7 @@ ui <- dashboardPagePlus(
                   type = 2,
                   width = 4,
                   src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/rodrigo.jpg?raw=true',
-                  color = "yellow",
+                  color = "green",
                   "Contato: citton.padilha@ufrgs.br",
                   footer_padding = F
                 ), 
@@ -1650,6 +1662,30 @@ server <- function(input, output) {
              color = "aqua", 
              width = 12,
              href = "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    )
+    
+  })
+  
+  output$covidMetrika <- renderValueBox({
+    
+    valueBox("Site covidMetrika", 
+             subtitle = div("Aplicativo desenvolvido pelo grupo covidMetrika",br(),"Confira aqui nosso site para ver nossos outros projetos!"), 
+             icon = icon("external-link-alt"), 
+             color = "yellow", 
+             width = 12,
+             href = "https://www.ufrgs.br/covidmetrika/"
+    )
+    
+  })
+  
+  output$git_covidMetrika <- renderValueBox({
+    
+    valueBox("Repositório covidMetrika", 
+             subtitle = div("Confira aqui nosso repositório no GitHub!",br(),"Contato: covidmetrika@gmail.com"), 
+             icon = icon("github"), 
+             color = "yellow", 
+             width = 12,
+             href = "https://github.com/CovidMetrika/dashboard_poa"
     )
     
   })
