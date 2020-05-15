@@ -191,8 +191,8 @@ ui <- dashboardPagePlus(
   ),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Covid-19-POA", tabName = "casos_poa"),
       menuItem("Leitos - Adultos", tabName = "leitos_adulto"),
+      menuItem("Covid-19-POA", tabName = "casos_poa"),
       menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
       menuItem("Fonte de dados", tabName = "fonte"),
       menuItem("CovidMetrika", tabName = "sobre")
@@ -627,18 +627,18 @@ ui <- dashboardPagePlus(
                 
                 widgetUserBox(
                   title = tags$b("Márcia Helena Barbian"),
-                  subtitle = "Professora do departamento de Estatística da UFRGS",
+                  subtitle = "Professora do Departamento de Estatística da UFRGS",
                   type = 2,
                   width = 4,
                   src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/marcia.png?raw=true',
                   color = "green",
-                  "Contato: mhbarbian@gmail.com", 
+                  "Contato: mhbarbian@ufrgs.br", 
                   footer_padding = F
                 ), 
                 
                 widgetUserBox(
                   title = tags$b("Rodrigo Citton P. dos Reis"),
-                  subtitle = "Professor do departamento de Estatística da UFRGS",
+                  subtitle = "Professor do Departamento de Estatística da UFRGS",
                   type = 2,
                   width = 4,
                   src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/rodrigo.jpg?raw=true',
