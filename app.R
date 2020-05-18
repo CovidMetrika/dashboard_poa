@@ -23,6 +23,8 @@ library(scales)
 library(lubridate)
 library(shinyEffects)
 
+source("criando_banco_covid_2.0.R")
+
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
 leitos <- read_csv("bancos/leitos/leitos_poa_17_05.csv") 
@@ -192,7 +194,7 @@ ui <- dashboardPagePlus(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Leitos - Adultos", tabName = "leitos_adulto"),
-      menuItem("Covid-19-POA", tabName = "casos_poa"),
+      menuItem("Covid-19 - POA", tabName = "casos_poa"),
       menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
       menuItem("Fonte de dados", tabName = "fonte"),
       menuItem("CovidMetrika", tabName = "sobre")
@@ -207,99 +209,42 @@ ui <- dashboardPagePlus(
                 fluidRow(
                   column(
                     width = 6,
-                    h1("Casos de COVID-19 entre residentes de Porto Alegre"),
-                    dateRangeInput(
-                      "datas",
-                      label = "Defina o intervalo de datas",
-                      start = min(dados$data, na.rm = T),
-                      end = max(dados$data, na.rm = T),
-                      min = min(dados$data, na.rm = T),
-                      max = max(dados$data, na.rm = T),
-                      format = "dd/mm/yyyy",
-                      language = "pt-BR",
-                      separator = " até ",
-                      width = "700px"
-                    ),
-                    tags$img(src="ufrgs_logo.png", height = 75, width = 95),tags$img(src="logo_ime2.png", height = 75, width = 300)
+                    h1("Casos de COVID-19 notificados em Porto Alegre"),
+                    h5("Infelizmente não possuímos mais os dados de casos de COVID-19 em Porto Alegre por fonte notificadora, 
+                       mas para não ficarmos desatualizados incluímos os dados gerais da cidade")
                   ),
                   column(
                     width = 6,
-                    selectizeInput("fonte",
-                                   label = "Digite as fontes notificadoras(por default todas estão já incluidas)",
-                                   choices = levels(as.factor(dados$fonte)),
-                                   selected = levels(as.factor(dados$fonte)),
-                                   multiple = T,
-                                   width = "900px"
-                    )
+                    tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400),
                   )
                 ),
+                
+                # reescrevendo as cores default para as que eu quero nas boxes de óbitos cartório
+                tags$style(".small-box.bg-lime { background-color: #757474 !important; color: #FFFFFF !important; }"),
+                
                 fluidRow(
                   valueBoxOutput("box_conf", width = 3),
-                  valueBoxOutput("box_ativ", width = 3),
-                  valueBoxOutput("box_mort", width = 3),
-                  valueBoxOutput("box_recu", width = 3)
-                ),
-                textOutput("texto"),
-                column(
-                  width = 7,
-                  mainPanel(
-                    leafletOutput("mapa_poa", height = "700px"),
-                    HTML("<br><br><br>"), # para dar um espaço entre os gráficos
-                    width = 12
-                  )
-                ),
-                column(
-                  width = 5,
-                  box(
-                    title = "Número de casos confirmados por fonte notificadora",
-                    background = "green",
-                    plotlyOutput("barras_fonte", height = "700px"),
-                    width = 12
-                  )
+                  valueBoxOutput("box_inci", width = 3),
+                  valueBoxOutput("box_obit", width = 3),
+                  valueBoxOutput("box_leta", width = 3),
+                  h3("Selecione a variável de interesse"),
+                  radioButtons("var_covid",
+                               label = NULL,
+                               choices = list("Confirmados" = "confirmed","Confirmados por 100mil hab." = "confirmed_per_100k_inhabitants","Óbitos" = "deaths","Letalidade" = "death_rate"),
+                               selected = "confirmed",
+                               inline = T)
                 ),
                 fluidRow(
-                  column(
-                    width = 5,
-                    box(
-                      title = "Número de casos por faixa etária",
-                      background = "green",
-                      plotlyOutput("barras_faixa_etaria", height = "500px"),
-                      width = 12
-                    )
-                  ),
-                  column(
-                    width = 7,
-                    tabBox(id = "tab_serie",
-                           width = 12,
-                           title = "Número de casos novos e acumulados",
-                           tabPanel("Diário",
-                                    plotlyOutput("barras_dia", height = 500)
-                           ),
-                           tabPanel("Semana Epidemiológica",
-                                    plotlyOutput("barras_sem", height = 500)
-                           )
-                           
-                    )
-                  )
-                ),
-                fluidRow(
-                  column(
-                    width = 6,
-                    box(
-                      title = "Número de casos por sexo",
-                      background = "green",
-                      plotlyOutput("barras_sexo", height = "500px"),
-                      width = 12
-                    )
-                  ),
-                  column(
-                    width = 6,
-                    box(
-                      title = "Número de casos por faixa etária e sexo",
-                      background = "green",
-                      plotlyOutput("barras_faixa_sexo", height = "500px"),
-                      width = 12
-                    )
+                  tabBox(id = "tab_serie",
+                         width = 12,
+                         title = "Número de casos novos e acumulados",
+                         tabPanel("Diário",
+                                  plotlyOutput("barras_dia", height = 500)
+                         ),
+                         tabPanel("Semana Epidemiológica",
+                                  plotlyOutput("barras_sem", height = 500)
+                         )
+                         
                   )
                 )
               )
@@ -668,59 +613,50 @@ server <- function(input, output) {
   
   # caixa de confirmados
   output$box_conf <- renderValueBox({
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte)
-    
-    sem_fonte <- nrow(filter(dados, is.na(fonte)))
-    sem_data <- nrow(filter(dados, is.na(data)))
-    
-    total <- nrow(aux) + sem_fonte + sem_data
-    
+    aux <- dados_covid_poa %>%
+      filter(is_last)
+
     valueBox(
-      total,
-      "Número de casos confirmados",
+      aux$confirmed,
+      "Casos confirmados",
       icon = icon("notes-medical"),
       color = "red" 
     )
   })
-  # caixa ativos
-  output$box_ativ <- renderValueBox({
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte)
-    
-    total <- nrow(aux)
-    
-    sem_fonte <- nrow(filter(dados, is.na(fonte)))
-    
-    ativos <- ifelse(total+sem_fonte-18-412 < 0,0,total+sem_fonte-18-412)
+  # caixa incidência
+  output$box_inci <- renderValueBox({
+    aux <- dados_covid_poa %>%
+      filter(is_last)
 
     valueBox(
-      ativos,
-      "Número de casos ativos",
-      icon = icon("first-aid"),
-      color = "red" 
+      round(aux$confirmed_per_100k_inhabitants,2),
+      "Casos confirmados por 100 mil habitantes",
+      icon = icon("ambulance"),
+      color = "orange" 
     )
   })
   # caixa de mortes
-  output$box_mort <- renderValueBox({
-    mortes <- 18
+  output$box_obit <- renderValueBox({
+    aux <- dados_covid_poa %>%
+      filter(is_last)
+    
     valueBox(
-      mortes,
-      "Número de mortes",
+      aux$deaths,
+      "Óbitos",
       icon = icon("heartbeat"),
-      color = "purple"
+      color = "lime"
     )
   })
-  # caixas de recuperados
-  output$box_recu <- renderValueBox({
-    recuperados <- 412
+  # caixas de letalidade
+  output$box_leta <- renderValueBox({
+    aux <- dados_covid_poa %>%
+      filter(is_last)
+    
     valueBox(
-      recuperados,
-      "Número de casos recuperados",
+      paste0(round(aux$death_rate*100,2),"%"),
+      "Letalidade",
       icon = icon("heart"),
-      color = "green"
+      color = "purple"
     )
     
   })
@@ -840,45 +776,63 @@ server <- function(input, output) {
   
   output$barras_dia <- renderPlotly({
     
-    n_days <- input$datas[2]-input$datas[1]
-    dias <- input$datas[1]+days(0:n_days)
+    var <- rlang::sym(input$var_covid)
     
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte) %>%
-      group_by(data) %>%
-      summarise(novos = n())
+    aux <- dados_covid_poa %>%
+      arrange(date)
     
-    aux2 <- tibble(data = dias[!(dias %in% aux$data)],
-                   novos = 0)
-    
-    aux <- bind_rows(aux,aux2) %>%
-      arrange(data)
-    
-    ordem <- as.character(format(aux$data, "%d-%m"))
-    
-    aux$acumulado <- c(aux$novos[1],rep(0,n_days))
-    
-    for (i in 2:nrow(aux)) {
-      aux$acumulado[i] <- aux$acumulado[i-1]+aux$novos[i]
+    if(input$var_covid == "confirmed") {
+      cor <- "#dd4b39"
+      texto <- "Casos confirmados"
+    } else if(input$var_covid == "confirmed_per_100k_inhabitants") {
+      cor <- "#ff851b"
+      texto <- "Confirmados por 100k habitantes"
+    } else if(input$var_covid == "deaths") {
+      cor <- "#757474"
+      texto <- "Óbitos"
+    } else {
+      cor <- "#605ca8"
+      texto <- "Letalidade"
     }
     
-    aux$novos <- as.numeric(aux$novos)
+    ordem <- as.character(format(aux$date, "%d-%m"))
+    
+    aux$date <- as.character(format(aux$date, "%d-%m"))
+    
+    if(input$var_covid %in% c("confirmed","deaths")) {
+      
+      aux <- as.data.frame(aux)
+      
+      aux$novos <- c(aux[1,input$var_covid],rep(NA,nrow(aux)-1))
+      for(i in 2:nrow(aux)) {
+        aux$novos[i] <- aux[i,input$var_covid]-aux[i-1,input$var_covid]
+      }
+      
+      p <- ggplot(aux) +
+        geom_line(aes(x = date, y = !!var, group = 1), color = cor, linetype = 'dotted') +
+        geom_point(aes(x = date, y = !!var), color = cor) + 
+        geom_col(data = aux, mapping = aes(x = date, y = novos), fill = cor) +
+        scale_x_discrete(limits = ordem) +
+        labs(x = "Dia", y = texto) +
+        theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5)) +
+        theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+              panel.grid.major = element_blank())
+      
+    } else {
+      
+      p <- ggplot(aux) +
+        geom_line(aes(x = date, y = !!var, group = 1), color = cor, linetype = 'dotted') +
+        geom_point(aes(x = date, y = !!var), color = cor) + 
+        scale_x_discrete(limits = ordem) +
+        labs(x = "Dia", y = texto) +
+        theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5)) +
+        theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+              panel.grid.major = element_blank())
+      
+    }
+    
+    ggplotly(p) 
 
-    aux$data <- as.character(format(aux$data, "%d-%m"))
-    
-    p <- ggplot(aux) +
-      geom_line(aes(x = data, y = acumulado, group = 1)) +
-      geom_point(aes(x = data, y = acumulado), size=2) +
-      geom_col(aes(x = data, y = novos), fill = "#d95f02") +
-      geom_text(aes(x = data, y = novos, label = novos)) +
-      scale_x_discrete(limits = ordem) +
-      labs(x = "Dia", y = "Número de casos em POA") +
-      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
-    
-    ggplotly(p) %>%
-      style(textposition = "top")
-    
   })
   
   
@@ -887,38 +841,70 @@ server <- function(input, output) {
   
   output$barras_sem <- renderPlotly({
     
-    n_days <- input$datas[2]-input$datas[1]
-    dias <- input$datas[1]+days(0:n_days)
+    var <- rlang::sym(input$var_covid)
     
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte) %>%
-      group_by(semana_epidemiologica) %>%
-      summarise(novos = n())
-    
-    ordem <- as.character(aux$semana_epidemiologica)
-
-    aux$acumulado <- c(aux$novos[1],rep(0,nrow(aux)-1))
-    
-    for (i in 2:nrow(aux)) {
-      aux$acumulado[i] <- aux$acumulado[i-1]+aux$novos[i]
+    if(input$var_covid == "confirmed") {
+      cor <- "#dd4b39"
+      texto <- "Casos confirmados"
+    } else if(input$var_covid == "confirmed_per_100k_inhabitants") {
+      cor <- "#ff851b"
+      texto <- "Confirmados por 100k habitantes"
+    } else if(input$var_covid == "deaths") {
+      cor <- "#757474"
+      texto <- "Óbitos"
+    } else {
+      cor <- "#605ca8"
+      texto <- "Letalidade"
     }
     
-    aux$novos <- as.numeric(aux$novos)
+    pop_poa <- dados_covid_poa$estimated_population_2019[1]
+    
+    aux <- dados_covid_poa %>%
+      group_by(semana_epidemiologica) %>%
+      filter(date == max(date)) %>%
+      ungroup() %>%
+      group_by(semana_epidemiologica) %>%
+      summarise(confirmed = sum(confirmed), deaths = sum(deaths), confirmed_per_100k_inhabitants = sum(confirmed)*100000/pop_poa,
+                death_rate = sum(deaths)/sum(confirmed)) %>%
+      arrange(semana_epidemiologica)
+    
+    ordem <- as.character(aux$semana_epidemiologica)
     
     aux$semana_epidemiologica <- as.character(aux$semana_epidemiologica)
-
-    p <- ggplot(aux) +
-      geom_line(aes(x = semana_epidemiologica, y = acumulado, group = 1)) +
-      geom_point(aes(x = semana_epidemiologica, y = acumulado), size=2) +
-      geom_col(aes(x = semana_epidemiologica, y = novos), fill = "#d95f02") +
-      geom_text(aes(x = semana_epidemiologica, y = novos, label = novos)) +
-      scale_x_discrete(limits = ordem) +
-      labs(x = "Semana Epidemiológica", y = "Número de casos em POA") +
-      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
     
-    ggplotly(p) %>%
-      style(textposition = "top")
+    if(input$var_covid %in% c("confirmed","deaths")) {
+      
+      aux$novos <- c(as.data.frame(aux)[1,input$var_covid],rep(NA,nrow(aux)-1))
+      for(i in 2:nrow(aux)) {
+        aux$novos[i] <- as.data.frame(aux)[i,input$var_covid]-as.data.frame(aux)[i-1,input$var_covid]
+      }
+      
+      p <- ggplot(aux) +
+        geom_line(aes(x = semana_epidemiologica, y = !!var, group = 1), color = cor, linetype = 'dotted') +
+        geom_point(aes(x = semana_epidemiologica, y = !!var), color = cor) + 
+        geom_col(aes(x = semana_epidemiologica, y = novos), fill = cor) +
+        scale_x_discrete(limits = ordem) +
+        labs(x = "Semana Epidemiológica", y = texto) +
+        theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5)) +
+        theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+              panel.grid.major = element_blank())
+      
+    } else {
+      
+      
+      p <- ggplot(aux) +
+        geom_line(aes(x = semana_epidemiologica, y = !!var, group = 1), color = cor, linetype = 'dotted') +
+        geom_point(aes(x = semana_epidemiologica, y = !!var), color = cor) + 
+        scale_x_discrete(limits = ordem) +
+        labs(x = "Semana Epidemiológica", y = texto) +
+        theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5)) +
+        theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+              panel.grid.major = element_blank())
+      
+    }
+    
+    
+    ggplotly(p) 
     
   })
   
