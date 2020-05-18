@@ -25,7 +25,7 @@ library(shinyEffects)
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/leitos_poa_16_05.csv") 
+leitos <- read_csv("bancos/leitos/leitos_poa_17_05.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
