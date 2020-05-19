@@ -194,24 +194,24 @@ ui <- dashboardPagePlus(
   dashboardSidebar(
     sidebarMenu(
       menuItem("Leitos - Adultos", tabName = "leitos_adulto"),
-      menuItem("Covid-19 - POA", tabName = "casos_poa"),
+      menuItem("Covid-19 - Prefeitura", tabName = "casos_pref"),
+      menuItem("Covid-19 - SES", tabName = "casos_ses"),
       menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
       menuItem("Fonte de dados", tabName = "fonte"),
       menuItem("CovidMetrika", tabName = "sobre")
     ),
-    width = 150
+    width = 180
   ),
   
   dashboardBody(
     tabItems(
-      tabItem("casos_poa",
+      tabItem("casos_ses",
               fluidPage(
                 fluidRow(
                   column(
                     width = 6,
                     h1("Casos de COVID-19 notificados em Porto Alegre"),
-                    h5("Infelizmente não possuímos mais os dados de casos de COVID-19 em Porto Alegre por fonte notificadora, 
-                       mas para não ficarmos desatualizados incluímos os dados gerais da cidade")
+                    h4("Dados provenientes da SES-RS, atualizados diariamente, os dados presentes aqui diferem dos da prefeitura")
                   ),
                   column(
                     width = 6,
@@ -226,7 +226,9 @@ ui <- dashboardPagePlus(
                   valueBoxOutput("box_conf", width = 3),
                   valueBoxOutput("box_inci", width = 3),
                   valueBoxOutput("box_obit", width = 3),
-                  valueBoxOutput("box_leta", width = 3),
+                  valueBoxOutput("box_leta", width = 3)
+                ),
+                fluidRow(
                   h3("Selecione a variável de interesse"),
                   radioButtons("var_covid",
                                label = NULL,
@@ -248,6 +250,109 @@ ui <- dashboardPagePlus(
                   )
                 )
               )
+      ),
+      tabItem("casos_pref",
+              fluidPage(
+                fluidRow(
+                  column(
+                    width = 6,
+                    h1("Casos de COVID-19 entre residentes de Porto Alegre"),
+                    h4("Dados provenientes da Prefeitura de POA, está desatualizado pois a tabela bruta dos dados parou de ser disponibilizada desde 12/05/2020, para os dados atualizados vá a aba Covid-19 - SES"),
+                    dateRangeInput(
+                      "datas",
+                      label = "Defina o intervalo de datas",
+                      start = min(dados$data, na.rm = T),
+                      end = max(dados$data, na.rm = T),
+                      min = min(dados$data, na.rm = T),
+                      max = max(dados$data, na.rm = T),
+                      format = "dd/mm/yyyy",
+                      language = "pt-BR",
+                      separator = " até ",
+                      width = "700px"
+                    ),
+                    tags$img(src="ufrgs_logo.png", height = 75, width = 95),tags$img(src="logo_ime2.png", height = 75, width = 300)
+                  ),
+                  column(
+                    width = 6,
+                    selectizeInput("fonte",
+                                   label = "Digite as fontes notificadoras(por default todas estão já incluidas)",
+                                   choices = levels(as.factor(dados$fonte)),
+                                   selected = levels(as.factor(dados$fonte)),
+                                   multiple = T,
+                                   width = "900px"
+                    )
+                )
+              ),
+              fluidRow(
+                valueBoxOutput("box_confi", width = 3),
+                valueBoxOutput("box_ativo", width = 3),
+                valueBoxOutput("box_morte", width = 3),
+                valueBoxOutput("box_recup", width = 3)
+              ),
+              textOutput("texto"),
+              column(
+                width = 7,
+                mainPanel(
+                  leafletOutput("mapa_poa", height = "700px"),
+                  HTML("<br><br><br>"), # para dar um espaço entre os gráficos
+                  width = 12
+                )
+              ),
+              column(
+                width = 5,
+                box(
+                  title = "Número de casos confirmados por fonte notificadora",
+                  background = "green",
+                  plotlyOutput("barras_fonte", height = "700px"),
+                  width = 12
+                )
+              ),
+              fluidRow(
+                column(
+                  width = 5,
+                  box(
+                    title = "Número de casos por faixa etária",
+                    background = "green",
+                    plotlyOutput("barras_faixa_etaria", height = "500px"),
+                    width = 12
+                  )
+                ),
+                column(
+                  width = 7,
+                  tabBox(id = "tab_serie",
+                         width = 12,
+                         title = "Número de casos novos e acumulados",
+                         tabPanel("Diário",
+                                  plotlyOutput("barras_dia_pref", height = 500)
+                         ),
+                         tabPanel("Semana Epidemiológica",
+                                  plotlyOutput("barras_sem_pref", height = 500)
+                         )
+                         
+                  )
+                )
+              ),
+              fluidRow(
+                column(
+                  width = 6,
+                  box(
+                    title = "Número de casos por sexo",
+                    background = "green",
+                    plotlyOutput("barras_sexo", height = "500px"),
+                    width = 12
+                  )
+                ),
+                column(
+                  width = 6,
+                  box(
+                    title = "Número de casos por faixa etária e sexo",
+                    background = "green",
+                    plotlyOutput("barras_faixa_sexo", height = "500px"),
+                    width = 12
+                  )
+                )
+              )
+            )
       ),
       tabItem("leitos_adulto",
               fluidPage(
@@ -606,7 +711,7 @@ ui <- dashboardPagePlus(
 server <- function(input, output) {
   
   #############################
-  ###### ABA CASOS COVID ######
+  ####### ABA COVID SES #######
   #############################
   
   # caixas com numeros gerais
@@ -660,119 +765,6 @@ server <- function(input, output) {
     )
     
   })
-  
-  output$texto <- renderText({
-    
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte)
-    
-    casos_sem_mapa <- aux %>%
-      filter(is.na(lat)) 
-    
-    paste("Houve", nrow(casos_sem_mapa), "casos que não foram introduzidos ao mapa,
-          por não termos informações do local de notificação")
-    
-  })
-  
-  ## gráfico de barras faixa etária e sexo
-  #
-  output$barras_faixa_sexo <- renderPlotly({
-    
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte) %>%
-      filter(!(is.na(faixa_etaria) | is.na(sexo))) %>%
-      group_by(faixa_etaria,sexo) %>%
-      summarise(casos = n())
-    
-    p <- ggplot(aux, aes(x = faixa_etaria, fill = sexo, y = casos)) +
-      geom_col() +
-      geom_text(aes(label = casos), position = position_stack()) +
-      labs(x = "Faixa Etária", y = "Casos", fill = "Sexo") +
-      scale_fill_brewer(palette = "Dark2")
-    
-    ggplotly(p) %>%
-      style(textposition = "top")
-    
-  })
-  
-  ## Gráfico de barras casos por sexo
-  #
-  
-  output$barras_sexo <- renderPlotly({
-    
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte) %>%
-      filter(!is.na(sexo)) %>%
-      group_by(sexo) %>%
-      summarise(casos = n())
-    
-    p <- ggplot(aux, aes(x = sexo, fill = sexo, y = casos)) +
-      geom_col() +
-      geom_text(aes(label = casos)) +
-      scale_fill_brewer(palette = "Dark2") +
-      labs(x="Sexo", fill = "Sexo", y = "Casos")
-    
-    ggplotly(p) %>%
-      style(textposition = "top")
-    
-    
-  })
-  
-  ## Gráfico de barras casos por faixa etária
-  #
-  
-  output$barras_faixa_etaria <- renderPlotly({
-    
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte) %>%
-      filter(!is.na(faixa_etaria)) %>%
-      group_by(faixa_etaria) %>%
-      summarise(casos = n())
-    
-    p <- ggplot(aux, aes(x = faixa_etaria, y = casos)) +
-      geom_col(fill = "#1b9e77") +
-      geom_text(aes(label = casos)) +
-      coord_flip() +
-      labs(x = "Faixa Etária", y = "Casos")
-    
-    ggplotly(p) %>%
-      style(textposition = "middleright")
-    
-    
-  })
-  
-  ## Gráfico de barras casos por unidade notificadora
-  
-  output$barras_fonte <- renderPlotly({
-    
-    aux <- dados %>%
-      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
-      filter(fonte %in% input$fonte) %>%
-      group_by(fonte) %>%
-      summarise(total = n()) %>%
-      arrange(total)
-      
-    ordem <- aux$fonte
-    
-    p <- ggplot(aux, aes(x = fonte, y = total)) +
-      geom_col(fill = "#1b9e77") +
-      geom_text(aes(label = total)) +
-      scale_y_continuous(limits = c(0, max(aux$total)+10))+
-      labs(x = "Fonte Notificadora", y = "Número de casos") +
-      scale_x_discrete(limits = ordem) +
-      coord_flip()
-    
-    ggplotly(p) %>%
-      style(textposition = "middleright")
-    
-  })
-  
-  ## Gráfico do número de casos por dia
-  #
   
   output$barras_dia <- renderPlotly({
     
@@ -908,6 +900,269 @@ server <- function(input, output) {
     
   })
   
+ 
+  #############################
+  ####### ABA COVID PREF ######
+  #############################
+  
+  # caixas com numeros gerais
+  
+  # caixa de confirmados
+  output$box_confi <- renderValueBox({
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte)
+    
+    sem_fonte <- nrow(filter(dados, is.na(fonte)))
+    sem_data <- nrow(filter(dados, is.na(data)))
+    
+    total <- nrow(aux) + sem_fonte + sem_data
+    
+    valueBox(
+      total,
+      "Número de casos confirmados",
+      icon = icon("notes-medical"),
+      color = "red" 
+    )
+  })
+  # caixa ativos
+  output$box_ativo <- renderValueBox({
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte)
+    
+    total <- nrow(aux)
+    
+    sem_fonte <- nrow(filter(dados, is.na(fonte)))
+    
+    ativos <- ifelse(total+sem_fonte-18-412 < 0,0,total+sem_fonte-18-412)
+    
+    valueBox(
+      ativos,
+      "Número de casos ativos",
+      icon = icon("first-aid"),
+      color = "red" 
+    )
+  })
+  # caixa de mortes
+  output$box_morte <- renderValueBox({
+    mortes <- 18
+    valueBox(
+      mortes,
+      "Número de mortes",
+      icon = icon("heartbeat"),
+      color = "purple"
+    )
+  })
+  # caixas de recuperados
+  output$box_recup <- renderValueBox({
+    recuperados <- 412
+    valueBox(
+      recuperados,
+      "Número de casos recuperados",
+      icon = icon("heart"),
+      color = "green"
+    )
+    
+  })
+  
+  output$texto <- renderText({
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte)
+    
+    casos_sem_mapa <- aux %>%
+      filter(is.na(lat)) 
+    
+    paste("Houve", nrow(casos_sem_mapa), "casos que não foram introduzidos ao mapa,
+          por não termos informações do local de notificação")
+    
+  })
+  
+  ## gráfico de barras faixa etária e sexo
+  #
+  output$barras_faixa_sexo <- renderPlotly({
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte) %>%
+      filter(!(is.na(faixa_etaria) | is.na(sexo))) %>%
+      group_by(faixa_etaria,sexo) %>%
+      summarise(casos = n())
+    
+    p <- ggplot(aux, aes(x = faixa_etaria, fill = sexo, y = casos)) +
+      geom_col() +
+      geom_text(aes(label = casos), position = position_stack()) +
+      labs(x = "Faixa Etária", y = "Casos", fill = "Sexo") +
+      scale_fill_brewer(palette = "Dark2")
+    
+    ggplotly(p) %>%
+      style(textposition = "top")
+    
+  })
+  
+  ## Gráfico de barras casos por sexo
+  #
+  
+  output$barras_sexo <- renderPlotly({
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte) %>%
+      filter(!is.na(sexo)) %>%
+      group_by(sexo) %>%
+      summarise(casos = n())
+    
+    p <- ggplot(aux, aes(x = sexo, fill = sexo, y = casos)) +
+      geom_col() +
+      geom_text(aes(label = casos)) +
+      scale_fill_brewer(palette = "Dark2") +
+      labs(x="Sexo", fill = "Sexo", y = "Casos")
+    
+    ggplotly(p) %>%
+      style(textposition = "top")
+    
+    
+  })
+  
+  ## Gráfico de barras casos por faixa etária
+  #
+  
+  output$barras_faixa_etaria <- renderPlotly({
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte) %>%
+      filter(!is.na(faixa_etaria)) %>%
+      group_by(faixa_etaria) %>%
+      summarise(casos = n())
+    
+    p <- ggplot(aux, aes(x = faixa_etaria, y = casos)) +
+      geom_col(fill = "#1b9e77") +
+      geom_text(aes(label = casos)) +
+      coord_flip() +
+      labs(x = "Faixa Etária", y = "Casos")
+    
+    ggplotly(p) %>%
+      style(textposition = "middleright")
+    
+    
+  })
+  
+  ## Gráfico de barras casos por unidade notificadora
+  
+  output$barras_fonte <- renderPlotly({
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte) %>%
+      group_by(fonte) %>%
+      summarise(total = n()) %>%
+      arrange(total)
+    
+    ordem <- aux$fonte
+    
+    p <- ggplot(aux, aes(x = fonte, y = total)) +
+      geom_col(fill = "#1b9e77") +
+      geom_text(aes(label = total)) +
+      scale_y_continuous(limits = c(0, max(aux$total)+10))+
+      labs(x = "Fonte Notificadora", y = "Número de casos") +
+      scale_x_discrete(limits = ordem) +
+      coord_flip()
+    
+    ggplotly(p) %>%
+      style(textposition = "middleright")
+    
+  })
+  
+  ## Gráfico do número de casos por dia
+  #
+  
+  output$barras_dia_pref <- renderPlotly({
+    
+    n_days <- input$datas[2]-input$datas[1]
+    dias <- input$datas[1]+days(0:n_days)
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte) %>%
+      group_by(data) %>%
+      summarise(novos = n())
+    
+    aux2 <- tibble(data = dias[!(dias %in% aux$data)],
+                   novos = 0)
+    
+    aux <- bind_rows(aux,aux2) %>%
+      arrange(data)
+    
+    ordem <- as.character(format(aux$data, "%d-%m"))
+    
+    aux$acumulado <- c(aux$novos[1],rep(0,n_days))
+    
+    for (i in 2:nrow(aux)) {
+      aux$acumulado[i] <- aux$acumulado[i-1]+aux$novos[i]
+    }
+    
+    aux$novos <- as.numeric(aux$novos)
+    
+    aux$data <- as.character(format(aux$data, "%d-%m"))
+    
+    p <- ggplot(aux) +
+      geom_line(aes(x = data, y = acumulado, group = 1)) +
+      geom_point(aes(x = data, y = acumulado), size=2) +
+      geom_col(aes(x = data, y = novos), fill = "#d95f02") +
+      geom_text(aes(x = data, y = novos, label = novos)) +
+      scale_x_discrete(limits = ordem) +
+      labs(x = "Dia", y = "Número de casos em POA") +
+      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
+    
+    ggplotly(p) %>%
+      style(textposition = "top")
+    
+  })
+  
+  
+  ## Gráfico do número de casos por semana epidemiológica
+  #
+  
+  output$barras_sem_pref <- renderPlotly({
+    
+    n_days <- input$datas[2]-input$datas[1]
+    dias <- input$datas[1]+days(0:n_days)
+    
+    aux <- dados %>%
+      filter(data >= input$datas[1] & data <= input$datas[2]) %>%
+      filter(fonte %in% input$fonte) %>%
+      group_by(semana_epidemiologica) %>%
+      summarise(novos = n())
+    
+    ordem <- as.character(aux$semana_epidemiologica)
+    
+    aux$acumulado <- c(aux$novos[1],rep(0,nrow(aux)-1))
+    
+    for (i in 2:nrow(aux)) {
+      aux$acumulado[i] <- aux$acumulado[i-1]+aux$novos[i]
+    }
+    
+    aux$novos <- as.numeric(aux$novos)
+    
+    aux$semana_epidemiologica <- as.character(aux$semana_epidemiologica)
+    
+    p <- ggplot(aux) +
+      geom_line(aes(x = semana_epidemiologica, y = acumulado, group = 1)) +
+      geom_point(aes(x = semana_epidemiologica, y = acumulado), size=2) +
+      geom_col(aes(x = semana_epidemiologica, y = novos), fill = "#d95f02") +
+      geom_text(aes(x = semana_epidemiologica, y = novos, label = novos)) +
+      scale_x_discrete(limits = ordem) +
+      labs(x = "Semana Epidemiológica", y = "Número de casos em POA") +
+      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
+    
+    ggplotly(p) %>%
+      style(textposition = "top")
+    
+  })
+  
   ## mapa_poa
   #
   
@@ -931,9 +1186,7 @@ server <- function(input, output) {
                        labelOptions = labelOptions(interactive = T, textsize = "15px"))
     
   })
-  
-  
-  
+    
   ###############################
   ###### ABA LEITOS_ADULTO ######
   ###############################
