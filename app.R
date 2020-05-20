@@ -195,7 +195,7 @@ ui <- dashboardPagePlus(
     sidebarMenu(
       menuItem("Leitos - Adultos", tabName = "leitos_adulto"),
       menuItem("Covid-19 - Prefeitura", tabName = "casos_pref"),
-      menuItem("Covid-19 - SES", tabName = "casos_ses"),
+      menuItem("Covid-19 -  Estado", tabName = "casos_ses"),
       menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
       menuItem("Fonte de dados", tabName = "fonte"),
       menuItem("CovidMetrika", tabName = "sobre")
