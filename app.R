@@ -211,7 +211,7 @@ ui <- dashboardPagePlus(
                   column(
                     width = 6,
                     h1("Casos de COVID-19 notificados em Porto Alegre"),
-                    h4("Dados provenientes da SES-RS, atualizados diariamente, os dados presentes aqui diferem dos da prefeitura")
+                    h4("Dados provenientes da Secretaria de Saúde do RS, atualizados diariamente, os dados presentes aqui diferem dos da prefeitura")
                   ),
                   column(
                     width = 6,
@@ -257,7 +257,10 @@ ui <- dashboardPagePlus(
                   column(
                     width = 6,
                     h1("Casos de COVID-19 entre residentes de Porto Alegre"),
-                    h4("Dados provenientes da Prefeitura de POA, está desatualizado pois a tabela bruta dos dados parou de ser disponibilizada desde 12/05/2020, para os dados atualizados vá a aba Covid-19 - SES"),
+                    h4("Os boletins epidemiológicos disponibilizados pela Prefeitura de POA 
+                    NÀO SÃO MAIS ATUALIZADOS COM ESSAS INFORMAÇÕES DESDE O DIA 12/05/2020, 
+                       para os dados atualizados sobre o número de casos em Porto Alegre vá para 
+                       a aba Covid-19 - Estado."),
                     dateRangeInput(
                       "datas",
                       label = "Defina o intervalo de datas",
