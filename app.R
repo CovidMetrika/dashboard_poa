@@ -207,6 +207,11 @@ ui <- dashboardPagePlus(
     tabItems(
       tabItem("casos_ses",
               fluidPage(
+                
+                # incluindo o script do google analytics para acompanhamento de dados
+                
+                tags$head(includeHTML(("google_analytics.html"))),
+                
                 fluidRow(
                   column(
                     width = 6,
