@@ -22,6 +22,7 @@ library(plotly)
 library(scales)
 library(lubridate)
 library(shinyEffects)
+library(shinyalert)
 
 source("criando_banco_covid_2.0.R")
 
@@ -211,6 +212,10 @@ ui <- dashboardPagePlus(
                 # incluindo o script do google analytics para acompanhamento de dados
                 
                 tags$head(includeHTML(("google_analytics.html"))),
+                
+                # para a mensagem de popup
+                
+                useShinyalert(),
                 
                 fluidRow(
                   column(
@@ -717,6 +722,9 @@ ui <- dashboardPagePlus(
 
 
 server <- function(input, output) {
+  
+  shinyalert("Olá", "Caso você esteja acessando o dashboard pelo celular, sugerimos que o coloque na posição horizontal para uma melhor visualização dos gráficos!", type = "info")
+  
   
   #############################
   ####### ABA COVID SES #######
