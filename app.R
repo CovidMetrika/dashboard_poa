@@ -28,7 +28,7 @@ source("criando_banco_covid_2.0.R")
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/leitos_poa_31_05.csv") 
+leitos <- read_csv("bancos/leitos/leitos_poa_01_06.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
