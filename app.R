@@ -639,6 +639,14 @@ ui <- dashboardPagePlus(
                   width = 6,
                   valueBoxOutput("git_covidMetrika", width = 12)
                 ),
+                column(
+                  width = 6,
+                  valueBoxOutput("dashboard_poa",width = 12)
+                ),
+                column(
+                  width = 6,
+                  valueBoxOutput("dashboard_br", width = 12)
+                ),
                 
                 setShadow(class = "box"), # aplicando efeito de sombra nas boxes do grupo
               
@@ -1941,6 +1949,30 @@ server <- function(input, output) {
              color = "yellow", 
              width = 12,
              href = "https://github.com/CovidMetrika/dashboard_poa"
+    )
+    
+  })
+  
+  output$dashboard_poa <- renderValueBox({
+    
+    valueBox("Dashboard RS", 
+             subtitle = div("Confira aqui o nosso outro painel de dados com foco no Rio Grande do Sul, informando os casos de COVID-19 e a situação dos leitos de UTI"), 
+             icon = icon("columns"), 
+             color = "yellow", 
+             width = 12,
+             href = "https://mhbarbian.shinyapps.io/covid19_rs/"
+    )
+    
+  })
+  
+  output$dashboard_br <- renderValueBox({
+    
+    valueBox("Dashboard Brasil", 
+             subtitle = div("Confira aqui o nosso outro painel de dados com foco no Brasil e seus estados"), 
+             icon = icon("columns"), 
+             color = "yellow", 
+             width = 12,
+             href = "https://mhbarbian.shinyapps.io/CovidMetrika/"
     )
     
   })
