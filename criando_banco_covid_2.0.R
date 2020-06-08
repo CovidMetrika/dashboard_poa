@@ -1,32 +1,64 @@
 # novo metodo de dados covid 
-# pegando dados do brasil.io
-
-# lendo dados brasil.io
+# pegando dados da SES-RS
 
 library(tidyverse)
+library(httr)
+library(lubridate)
 
-dados_brasil_io <- NULL
-dados_brasil_io <- read_csv("https://brasil.io/dataset/covid19/caso?format=csv")
+# lendo dados da SES-RS
 
-if(is.null(dados_brasil_io)) {
-  dados_brasil_io <- read_csv("bancos/covid/brasil.io_reserva.csv")
+dados_ses <- NULL
+dados_ses <- try(read_csv2("http://ti.saude.rs.gov.br/covid19/download", 
+                           locale = readr::locale(encoding = "latin1")))
+
+
+path <- "http://ti.saude.rs.gov.br/covid19/download"
+request <- GET(url = path)
+
+if(request$status_code == 404) {
+  dados_ses <- read_csv("bancos/covid/ses_reserva.csv")
 } else {
-  write_csv(dados_brasil_io,"bancos/covid/brasil.io_reserva.csv")
+  write_csv(dados_ses,"bancos/covid/ses_reserva.csv")
 }
 
-dados_covid_poa <- dados_brasil_io %>%
-  mutate(date = as.Date(date)) %>%
-  filter(state == "RS") %>%
-  mutate(municipio = str_to_title(city)) %>%
+names(dados_ses) <- c("codigo_ibge_6_digitos","municipio","codigo_regiao_covid","regiao_covid",
+                      "sexo","faixa_etaria","tipo_teste",
+                      "data_confirmacao","data_sintomas","data_evolucao","evolucao","hospitalizacao",
+                      "sintoma_febre","sintoma_tosse",
+                      "sintoma_garganta","sintoma_dispneia","sintomas_outros","comorbidades")
+
+dados_covid_poa <- dados_ses %>%
+  mutate(data_confirmacao = as_date(data_confirmacao, format = "%d/%m/%y"),
+         data_sintomas = as_date(data_sintomas, format = "%d/%m/%y"),
+         data_evolucao = as_date(data_evolucao, format = "%d/%m/%y"),
+         municipio = str_to_title(municipio))
+
+# arrumando os 3 municipios com inconssistências nos nomes
+
+dados_covid_poa[dados_covid_poa$municipio=="Westfalia","municipio"] <- "Westfália"
+dados_covid_poa[dados_covid_poa$municipio=="Vespasiano Correa","municipio"] <- "Vespasiano Corrêa"
+dados_covid_poa[dados_covid_poa$municipio=="Santana Do Livramento","municipio"] <- "Sant'ana Do Livramento"
+
+# pegando o código ibge de 7 dígitos pelo nome do municipio
+
+dados_covid_poa <- dados_covid_poa %>%
   filter(municipio == "Porto Alegre") %>%
-  select(date,confirmed,deaths,is_last,confirmed_per_100k_inhabitants,death_rate,place_type,estimated_population_2019)
+  mutate(populacao_estimada = 1483771) %>%
+  select(-c(codigo_ibge_6_digitos,codigo_regiao_covid,regiao_covid))
 
 # adicionando semana epidemiologica
 
-semana_epidemio <- read_csv("bancos/semana_epidemio_dia.csv")
+semana <- read_csv("bancos/semana_epidemio_dia.csv")
 
 dados_covid_poa <- dados_covid_poa %>%
-  left_join(semana_epidemio, by = c("date" = "dia"))
+  left_join(semana, by = c("data_confirmacao" = "dia")) %>%
+  mutate(semana_epidemiologica_confirmacao = semana_epidemiologica) %>%
+  select(-semana_epidemiologica) %>%
+  left_join(semana, by = c("data_sintomas" = "dia")) %>%
+  mutate(semana_epidemiologica_sintomas = semana_epidemiologica) %>%
+  select(-semana_epidemiologica) %>%
+  left_join(semana, by = c("data_evolucao" = "dia")) %>%
+  mutate(semana_epidemiologica_evolucao = semana_epidemiologica) %>%
+  select(-semana_epidemiologica)
 
-rm(dados_brasil_io, semana_epidemio)
-
+rm(list=setdiff(ls(),c("dados_covid_poa")))

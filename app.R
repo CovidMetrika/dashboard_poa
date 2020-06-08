@@ -28,7 +28,7 @@ source("criando_banco_covid_2.0.R")
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/leitos_poa_07_06.csv") 
+leitos <- read_csv("bancos/leitos/leitos_poa_08_06.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
@@ -206,61 +206,55 @@ ui <- dashboardPagePlus(
   
   dashboardBody(
     tabItems(
-      tabItem("casos_ses",
-              fluidPage(
-                
-                # incluindo o script do google analytics para acompanhamento de dados
-                
-                tags$head(includeHTML(("google_analytics.html"))),
-                
-                # para a mensagem de popup
-                
-                useShinyalert(),
-                
-                fluidRow(
-                  column(
-                    width = 6,
-                    h1("Casos de COVID-19 notificados em Porto Alegre"),
-                    h4("Dados provenientes da Secretaria de Saúde do RS, atualizados diariamente, os dados presentes aqui diferem dos da prefeitura")
-                  ),
-                  column(
-                    width = 6,
-                    tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400),
-                  )
-                ),
-                
-                # reescrevendo as cores default para as que eu quero nas boxes de óbitos cartório
-                tags$style(".small-box.bg-lime { background-color: #757474 !important; color: #FFFFFF !important; }"),
-                
-                fluidRow(
-                  valueBoxOutput("box_conf", width = 3),
-                  valueBoxOutput("box_inci", width = 3),
-                  valueBoxOutput("box_obit", width = 3),
-                  valueBoxOutput("box_leta", width = 3)
-                ),
-                fluidRow(
-                  h3("Selecione a variável de interesse"),
-                  radioButtons("var_covid",
-                               label = NULL,
-                               choices = list("Confirmados" = "confirmed","Confirmados por 100mil hab." = "confirmed_per_100k_inhabitants","Óbitos" = "deaths","Letalidade" = "death_rate"),
-                               selected = "confirmed",
-                               inline = T)
-                ),
-                fluidRow(
-                  tabBox(id = "tab_serie",
-                         width = 12,
-                         title = "Número de casos novos e acumulados",
-                         tabPanel("Diário",
-                                  plotlyOutput("barras_dia", height = 500)
-                         ),
-                         tabPanel("Semana Epidemiológica",
-                                  plotlyOutput("barras_sem", height = 500)
-                         )
-                         
-                  )
-                )
-              )
-      ),
+      tabItem("casos_ses", "Em manutenção"),
+      #         fluidPage(
+      #           
+      #           
+      #           
+      #           fluidRow(
+      #             column(
+      #               width = 6,
+      #               h1("Casos de COVID-19 notificados em Porto Alegre"),
+      #               h4("Dados provenientes da Secretaria de Saúde do RS, atualizados diariamente, os dados presentes aqui diferem dos da prefeitura")
+      #             ),
+      #             column(
+      #               width = 6,
+      #               tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400),
+      #             )
+      #           ),
+      #           
+      #           # reescrevendo as cores default para as que eu quero nas boxes de óbitos cartório
+      #           tags$style(".small-box.bg-lime { background-color: #757474 !important; color: #FFFFFF !important; }"),
+      #           
+      #           fluidRow(
+      #             valueBoxOutput("box_conf", width = 3),
+      #             valueBoxOutput("box_inci", width = 3),
+      #             valueBoxOutput("box_obit", width = 3),
+      #             valueBoxOutput("box_leta", width = 3)
+      #           ),
+      #           fluidRow(
+      #             h3("Selecione a variável de interesse"),
+      #             radioButtons("var_covid",
+      #                          label = NULL,
+      #                          choices = list("Confirmados" = "confirmed","Confirmados por 100mil hab." = "confirmed_per_100k_inhabitants","Óbitos" = "deaths","Letalidade" = "death_rate"),
+      #                          selected = "confirmed",
+      #                          inline = T)
+      #           ),
+      #           fluidRow(
+      #             tabBox(id = "tab_serie",
+      #                    width = 12,
+      #                    title = "Número de casos novos e acumulados",
+      #                    tabPanel("Diário",
+      #                             plotlyOutput("barras_dia", height = 500)
+      #                    ),
+      #                    tabPanel("Semana Epidemiológica",
+      #                             plotlyOutput("barras_sem", height = 500)
+      #                    )
+      #                    
+      #             )
+      #           )
+      #         )
+      # ),
       tabItem("casos_pref",
               fluidPage(
                 fluidRow(
@@ -368,6 +362,15 @@ ui <- dashboardPagePlus(
             )
       ),
       tabItem("leitos_adulto",
+              
+              # incluindo o script do google analytics para acompanhamento de dados
+              
+              tags$head(includeHTML(("google_analytics.html"))),
+              
+              # para a mensagem de popup
+              
+              useShinyalert(),
+              
               fluidPage(
                 fluidRow(
                   column(
