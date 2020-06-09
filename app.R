@@ -1088,12 +1088,9 @@ server <- function(input, output) {
         select(-semana_epidemiologica_sintomas)
       
       
-      n_week_neg <- max(negativos$semana_epidemiologica_confirmacao)-min(negativos$semana_epidemiologica_confirmacao)
-      week_neg <- min(negativos$semana_epidemiologica_confirmacao):(min(negativos$semana_epidemiologica_confirmacao)+n_week_neg)
-      
-      n_week_acomp <- max(acomp$semana_epidemiologica_confirmacao)-min(acomp$semana_epidemiologica_confirmacao)
-      week_acomp <- min(acomp$semana_epidemiologica_confirmacao):(min(acomp$semana_epidemiologica_confirmacao)+n_week_acomp)
-      
+      n_weeks <- max(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)-min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)
+      weeks <- min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao):(min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)+n_weeks)
+ 
     }
     
     if(input$var_covid != "acompanhamento") {
@@ -1146,13 +1143,13 @@ server <- function(input, output) {
       
     } else {
       
-      negativos2 <- tibble(semana_epidemiologica_confirmacao = week_neg[!(week_neg %in% negativos$semana_epidemiologica_confirmacao)],
+      negativos2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% negativos$semana_epidemiologica_confirmacao)],
                            negativos = 0)
       
       negativos <- bind_rows(negativos,negativos2) %>%
         arrange(semana_epidemiologica_confirmacao)
       
-      acomp2 <- tibble(semana_epidemiologica_confirmacao = week_acomp[!(week_acomp %in% acomp$semana_epidemiologica_confirmacao)],
+      acomp2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% acomp$semana_epidemiologica_confirmacao)],
                        frequencia = 0)
       
       acomp <- bind_rows(acomp,acomp2) %>%
@@ -1161,7 +1158,7 @@ server <- function(input, output) {
         mutate(negativos = ifelse(is.na(negativos),0,negativos)) %>%
         mutate(frequencia = frequencia-negativos)
       
-      acomp$acumulado <- c(acomp$frequencia[1],rep(0,n_week_acomp))
+      acomp$acumulado <- c(acomp$frequencia[1],rep(0,n_weeks))
       
       label_x <- "Semana epidemiológica de início dos sintomas"
       caption_x <- "*Dados referentes à data de início dos sintomas, portanto dados mais antigos são frequentemente adicionados"
