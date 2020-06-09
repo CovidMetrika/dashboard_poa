@@ -46,6 +46,10 @@ dados_covid_poa <- dados_covid_poa %>%
   mutate(populacao_estimada = 1483771) %>%
   select(-c(codigo_ibge_6_digitos,codigo_regiao_covid,regiao_covid))
 
+dados_covid_poa <- dados_covid_poa %>%
+  mutate(data_evolucao = ifelse(evolucao == "CURA", ifelse(is.na(data_evolucao),data_sintomas+days(14),data_evolucao),data_evolucao)) %>%
+  mutate(data_evolucao = as_date(data_evolucao))
+
 # adicionando semana epidemiologica
 
 semana <- read_csv("bancos/semana_epidemio_dia.csv")
