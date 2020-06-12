@@ -25,7 +25,7 @@ library(shinyEffects)
 library(shinyalert)
 library(shinyBS)
 
-source("criando_banco_covid_2.0.R")
+#source("criando_banco_covid_2.0.R")
 
 opcoes <- list(
   "confirmados" = list("cor" = "#dd4b39", "paleta" = "Reds", "texto" = "Confirmados"),
@@ -1812,7 +1812,7 @@ server <- function(input, output) {
       labs(x = "Dia", y = "Número de leitos") +
       scale_fill_manual(values = cores_uti_emergencia) +
       scale_color_manual(values = cores_uti_emergencia) +
-      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
+      theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5))
     
     my_plot <- ggplotly(p)
     
@@ -1851,7 +1851,7 @@ server <- function(input, output) {
       #scale_fill_brewer(palette = "Dark2") +
       #scale_color_brewer(palette = "Dark2") +
       labs(x = "Dia", y = "Número de leitos") +
-      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
+      theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5))
     
     my_plot <- ggplotly(p)
     
@@ -1886,7 +1886,7 @@ server <- function(input, output) {
       scale_x_discrete(limits = ordem) +
       scale_y_continuous(limits = c(0, max(aux$leitos_covid)+5))+
       labs(x = "Dia", y = "Número de leitos com pacientes de covid-19") +
-      theme(axis.text.x = element_text(angle=45,size=8, vjust = 0.5))
+      theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5))
     
     ggplotly(p)
     
