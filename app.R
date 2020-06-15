@@ -385,6 +385,9 @@ ui <- dashboardPagePlus(
                 fluidRow(
                   column(
                     width = 6,
+                    h3("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
+                       https://mhbarbian.shinyapps.io/covid19_rs"),
+                    HTML("<br/><br/><br/>"),
                     dateInput(
                       "data_adulto",
                       label = "Defina a data de atualização(por default está selecionada a última disponível)",
@@ -411,7 +414,7 @@ ui <- dashboardPagePlus(
                     checkboxGroupInput("tipo_adulto",
                                        label = NULL,
                                        choices = list("UTI" = "uti", "EMERGÊNCIA" = "emergencia"),
-                                       selected = c("uti","emergencia")
+                                       selected = c("uti")
                     )
                   )
                 ),
