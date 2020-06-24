@@ -38,7 +38,7 @@ opcoes <- list(
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/leitos_poa_23_06.csv") 
+leitos <- read_csv("bancos/leitos/leitos_poa_24_06.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
@@ -820,7 +820,7 @@ server <- function(input, output) {
   # caixa de recuperados
   output$box_recu <- renderValueBox({
     aux <- dados_covid_poa %>%
-      filter(evolucao == "CURA")
+      filter(evolucao == "RECUPERADO")
     
     recuperados <- nrow(aux)
     
@@ -886,7 +886,7 @@ server <- function(input, output) {
     } else if(input$var_covid %in% c("obitos","mortalidade","recuperados")){
       aux <- dados_covid_poa %>%
         mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
-               recuperados = ifelse(evolucao == "CURA", 1, 0)) %>% 
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
         group_by(data_evolucao) %>%
         summarise(obitos = sum(obitos, na.rm = T), mortalidade = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
                   recuperados = sum(recuperados, na.rm = T)) %>%
@@ -903,7 +903,7 @@ server <- function(input, output) {
       aux <- dados_covid_poa %>%
         mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
                acompanhamento = ifelse(is.na(evolucao), 0, 1),
-               recuperados = ifelse(evolucao == "CURA", 1, 0))
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0))
       negativos <- aux %>%
         group_by(data_evolucao) %>%
         filter(!is.na(data_evolucao)) %>%
@@ -1062,7 +1062,7 @@ server <- function(input, output) {
     } else if(input$var_covid %in% c("obitos","mortalidade","recuperados")){
       aux <- dados_covid_poa %>%
         mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
-               recuperados = ifelse(evolucao == "CURA", 1, 0)) %>% 
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
         group_by(semana_epidemiologica_evolucao) %>%
         summarise(obitos = sum(obitos, na.rm = T), mortalidade = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
                   recuperados = sum(recuperados, na.rm = T)) %>%
@@ -1080,7 +1080,7 @@ server <- function(input, output) {
       aux <- dados_covid_poa %>%
         mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
                acompanhamento = ifelse(is.na(evolucao), 0, 1),
-               recuperados = ifelse(evolucao == "CURA", 1, 0))
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0))
       negativos <- aux %>%
         group_by(semana_epidemiologica_evolucao) %>%
         filter(!is.na(semana_epidemiologica_evolucao)) %>%
