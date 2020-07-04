@@ -38,7 +38,7 @@ opcoes <- list(
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/leitos_poa_03_07.csv") 
+leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_04_07.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
