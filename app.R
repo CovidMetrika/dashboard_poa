@@ -25,7 +25,7 @@ library(shinyEffects)
 library(shinyalert)
 library(shinyBS)
 
-source("criando_banco_covid_2.0.R")
+#source("criando_banco_covid_2.0.R")
 
 opcoes <- list(
   "confirmados" = list("cor" = "#dd4b39", "paleta" = "Reds", "texto" = "Confirmados"),
@@ -874,6 +874,8 @@ server <- function(input, output) {
     
     var <- rlang::sym(input$var_covid)
 
+    var= 
+    
     if(input$var_covid %in% c("confirmados","incidencia")) {
       aux <- dados_covid_poa %>%
         group_by(data_confirmacao) %>%

@@ -32,7 +32,7 @@ names(dados_ses) <- c("codigo_ibge_6_digitos","municipio","codigo_regiao_covid",
                       "data_confirmacao","data_sintomas","data_evolucao","evolucao","hospitalizacao",
                       "sintoma_febre","sintoma_tosse",
                       "sintoma_garganta","sintoma_dispneia","sintomas_outros","comorbidades",
-                      "data_inclusao_obito","data_evolucao_estimada","raca_cor")
+                      "data_inclusao_obito","data_evolucao_estimada","raca_cor", "nao_sei_o_que_e")
 
 dados_covid_poa <- dados_ses %>%
   mutate(data_confirmacao = as_date(data_confirmacao, format = "%d/%m/%y"),
