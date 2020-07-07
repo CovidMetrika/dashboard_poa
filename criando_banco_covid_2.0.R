@@ -21,15 +21,15 @@ if(request$status_code == 404) {
   write_csv(dados_ses,"bancos/covid/ses_reserva.csv")
 }
 
-names(dados_ses) <- c("codigo_ibge_6_digitos","municipio","codigo_regiao_covid","regiao_covid",
+names(dados_ses)[1:22] <- c("codigo_ibge_6_digitos","municipio","codigo_regiao_covid","regiao_covid",
                       "sexo","faixa_etaria","tipo_teste",
                       "data_confirmacao","data_sintomas","data_evolucao","evolucao","hospitalizacao",
                       "sintoma_febre","sintoma_tosse",
                       "sintoma_garganta","sintoma_dispneia","sintomas_outros","comorbidades",
-                      "data_inclusao_obito","data_evolucao_estimada","raca_cor", "nao_sei_o_que_e")
+                      "data_inclusao_obito","data_evolucao_estimada","raca_cor", "profissional_de_saude")
 
 dados_covid_poa <- dados_ses %>%
-  mutate(data_confirmacao2 = as_date(data_confirmacao, format = "%d/%m/%y"),
+  mutate(data_confirmacao = as_date(data_confirmacao, format = "%d/%m/%y"),
          data_sintomas = as_date(data_sintomas, format = "%d/%m/%y"),
          data_evolucao = as_date(data_evolucao, format = "%d/%m/%y"),
          municipio = str_to_title(municipio))

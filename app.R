@@ -25,7 +25,7 @@ library(shinyEffects)
 library(shinyalert)
 library(shinyBS)
 
-#source("criando_banco_covid_2.0.R")
+source("criando_banco_covid_2.0.R")
 
 opcoes <- list(
   "confirmados" = list("cor" = "#dd4b39", "paleta" = "Reds", "texto" = "Confirmados"),
