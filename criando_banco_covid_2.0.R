@@ -1,9 +1,6 @@
 # novo metodo de dados covid 
 # pegando dados da SES-RS
 
-library(tidyverse)
-library(httr)
-library(lubridate)
 
 # lendo dados da SES-RS
 
@@ -21,12 +18,13 @@ if(request$status_code == 404) {
   write_csv(dados_ses,"bancos/covid/ses_reserva.csv")
 }
 
-names(dados_ses)[1:22] <- c("codigo_ibge_6_digitos","municipio","codigo_regiao_covid","regiao_covid",
+names(dados_ses)[1:23] <- c("codigo_ibge_6_digitos","municipio","codigo_regiao_covid","regiao_covid",
                       "sexo","faixa_etaria","tipo_teste",
                       "data_confirmacao","data_sintomas","data_evolucao","evolucao","hospitalizacao",
                       "sintoma_febre","sintoma_tosse",
                       "sintoma_garganta","sintoma_dispneia","sintomas_outros","comorbidades",
-                      "data_inclusao_obito","data_evolucao_estimada","raca_cor", "profissional_de_saude")
+                      "data_inclusao_obito","data_evolucao_estimada","raca_cor", "profissional_de_saude",
+                      "bairro")
 
 dados_covid_poa <- dados_ses %>%
   mutate(data_confirmacao = as_date(data_confirmacao, format = "%d/%m/%y"),
@@ -66,5 +64,154 @@ dados_covid_poa <- dados_covid_poa %>%
   mutate(semana_epidemiologica_evolucao = semana_epidemiologica) %>%
   select(-semana_epidemiologica)
 
-rm(list=setdiff(ls(),c("dados_covid_poa")))
+
+
+# arrumando a variável de bairro
+
+# pegando shapefile com os bairro de poa da prefeitura
+
+shp_poa <- sf::st_read("bancos/shapefile_bairros_poa/Bairros_LC12112_16.shp", quiet = TRUE) %>%
+  mutate(NOME = as.character(NOME)) %>%
+  mutate(NOME = ifelse(NOME == "VILA  ASSUNÇÃO","VILA ASSUNÇÃO", NOME))
+
+# para visualizar os bairros melhor
+
+a <- tibble(estado = sort(unique(dados_covid_poa$bairro)))
+
+b <- tibble(shp = levels(shp_poa$NOME))
+
+# View(a)
+# View(b)
+
+# pegando banco com vetor de labels dos bairros que vou trocar o nome para ter compatibilidade
+# com o nome dos bairros no shapefile
+
+labels_para_troca <- read_csv("bancos/vetor_nomes_bairros.csv")
+
+# apenas rode os 2 comandos abaixos comentados caso queira atualizar os nomes dos bairros
+
+# temp <- tibble(labels = levels(factor(dados_covid_poa$bairro)))
+# 
+# write_csv(temp,"bancos/vetor_nomes_bairros.csv")
+
+labels_novo <- c("ABERTA DOS MORROS","ABERTA DOS MORROS","AGRONOMIA","MORRO SANTANA","MORRO SANTANA","MORRO SANTANA",
+                 "TERESÓPOLIS","MORRO SANTANA",NA,"ANCHIETA",NA,"CEL. APARICIO BORGES","ARQUIPÉLAGO","VILA ASSUNÇÃO",
+                 "VILA ASSUNÇÃO","AUXILIADORA","AZENHA","BELA VISTA","BELÉM NOVO","BELÉM NOVO","BELÉM VELHO",NA,NA,
+                 "BOA VISTA","BOA VISTA DO SUL","BOM FIM","BOM JESUS","BOM FIM",NA,NA,NA,"CIDADE BAIXA","CENTRO HISTÓRICO",
+                 "CAMAQUÃ","CAMAQUÃ","CAMPO NOVO",NA,"CASCATA","CASCATA","CAVALHADA","CAVALHADA","CEL. APARICIO BORGES",
+                 "CEL. APARICIO BORGES","CENTRO HISTÓRICO","CENTRO HISTÓRICO","CENTRO HISTÓRICO","CENTRO HISTÓRICO","CENTRO HISTÓRICO",
+                 "CHÁCARA DAS PEDRAS","CHÁCARA DAS PEDRAS","CHÁCARA DAS PEDRAS","CHÁCARA DAS PEDRAS","CHAPÉU DO SOL",
+                 "CIDADE BAIXA","CIDADE BAIXA","CAVALHADA",NA,"CEL. APARICIO BORGES","CEL. APARICIO BORGES","CEL. APARICIO BORGES",
+                 "CEL. APARICIO BORGES","COSTA E SILVA","CRISTAL","CRISTO REDENTOR",NA,"ESPÍRITO SANTO",NA,"LOMBA DO PINHEIRO",
+                 "EXTREMA",NA,"FARRAPOS","FARROUPILHA","FARROUPILHA",NA,"FLORESTA","FLORESTA","GLÓRIA","GLÓRIA","GUARUJÁ",
+                 "GUARUJÁ","HIGIENÓPOLIS","HIGIENÓPOLIS","HIGIENÓPOLIS","HIGIENÓPOLIS","HÍPICA","HÍPICA","HUMAITÁ","HUMAITÁ",
+                 NA,"ARQUIPÉLAGO","INDEPENDÊNCIA","INDEPENDÊNCIA","PARTENON","IPANEMA","JARDIM ITU","JARDIM FLORESTA",
+                 "JARDIM LEOPOLDINA","JARDIM BOTÂNICO","JARDIM BOTÂNICO","JARDIM CARVALHO","JARDIM CARVALHO","CASCATA",
+                 "JARDIM CARVALHO","JARDIM DO SALSO","JARDIM DO SALSO","JARDIM LEOPOLDINA","JARDIM EUROPA","JARDIM FLORESTA",
+                 NA,NA,"JARDIM ISABEL","JARDIM ITU","JARDIM SABARÁ","JARDIM SABARÁ","JARDIM SABARÁ","JARDIM SABARÁ",
+                 "JARDIM SABARÁ","JARDIM LEOPOLDINA","JARDIM LINDÓIA","JARDIM LINDÓIA",NA,NA,"JARDIM SABARÁ","JARDIM SÃO PEDRO",
+                 "JARDIM SÃO PEDRO",NA,"JARDIM BOTÂNICO","JARDIM CARVALHO","CASCATA","JARDIM ITU","JARDIM ITU","JARDIM LEOPOLDINA",
+                 NA,"JARDIM SABARÁ","JARDIM DO SALSO","JARDIM SÃO PEDRO","LAGEADO","LAMI","LOMBA DO PINHEIRO",NA,"MENINO DEUS",
+                 NA,NA,"MÁRIO QUINTANA","MÁRIO QUINTANA",NA,"MEDIANEIRA","MENINO DEUS","MOINHOS DE VENTO","MOINHOS DE VENTO",
+                 "MOINHOS DE VENTO","MONTSERRAT","MONTSERRAT","MONTSERRAT","MONTSERRAT","MONTSERRAT","SANTA TEREZA",
+                 "MORRO SANTANA",NA,NA,"NAVEGANTES","INDEPENDÊNCIA","NONOAI","NONOAI",NA,NA,"CENTRO HISTÓRICO",NA,
+                 "RUBEM BERTA","RUBEM BERTA","SÃO SEBASTIÃO","PARQUE SANTA FÉ","SÃO SEBASTIÃO","PARTENON","PASSO DA AREIA",
+                 "PASSO DA AREIA","PASSO DA AREIA",NA,"PASSO DA AREIA","PASSO DAS PEDRAS","PASSO DAS PEDRAS","PASSO DAS PEDRAS",
+                 "PASSO DAS PEDRAS",NA,"PEDRA REDONDA","PETRÓPOLIS","PETRÓPOLIS","PETRÓPOLIS","MEDIANEIRA","PONTA GROSSA",
+                 NA,"RUBEM BERTA","SÃO SEBASTIÃO","PRAIA DE BELAS","MORRO SANTANA","MORRO SANTANA","MÁRIO QUINTANA","RUBEM BERTA",
+                 "RIO BRANCO","RESTINGA","RESTINGA","RESTINGA","RIO BRANCO","RUBEM BERTA","RUBEM BERTA","RUBEM BERTA","SANTA CECÍLIA",
+                 "SANTA MARIA GORETTI","SANTA MARIA GORETTI","SANTA ROSA DE LIMA","SANTA ROSA DE LIMA","SANTA TEREZA",
+                 "SANTA TEREZA","SANTA TEREZA","SANTA TEREZA","SANTANA","SANTO ANTÔNIO","SANTO ANTÔNIO",NA,"SÃO CAETANO",
+                 "SÃO GERALDO","SÃO GERALDO","SÃO JOÃO","SÃO JOÃO","VILA SÃO JOSÉ","VILA SÃO JOSÉ",NA,NA,"SÃO SEBASTIÃO",
+                 "SÃO SEBASTIÃO","SARANDI",NA,NA,"SERRARIA",NA,"SANTA ROSA DE LIMA","SANTA TEREZA","SANTA TEREZA",
+                 NA,"SANTO ANTÔNIO",NA,"TERESÓPOLIS","TERESÓPOLIS","TERESÓPOLIS","TERESÓPOLIS",NA,"TRÊS FIGUEIRAS",
+                 "TRÊS FIGUEIRAS","TRISTEZA","TRISTEZA","VILA NOVA",NA,"VILA ASSUNÇÃO","VILA ASSUNÇÃO",NA,NA,"VILA CONCEIÇÃO",
+                 "FARRAPOS","VILA IPIRANGA","VILA JARDIM","VILA JOÃO PESSOA","VILA JOÃO PESSOA",NA,"VILA NOVA",NA,
+                 "VILA SÃO JOSÉ","VILA IPIRANGA","VILA ASSUNÇÃO","VILA JARDIM","VILA JOÃO PESSOA",NA)
+
+# View(cbind(labels_para_troca$labels,labels_novo))
+
+dados_covid_poa <- dados_covid_poa %>%
+  mutate(
+    bairro = plyr::mapvalues(
+      bairro, 
+      from = labels_para_troca$labels,
+      to = labels_novo))
+
+# pegando dados da população de cada bairro
+
+pop_bairros <- read_csv("bancos/populacao_bairros.csv") %>%
+  mutate(populacao_bairro = 1483771/1409351*populacao) %>% # adicionando um multiplicador de correção dos dados de 2010 para a estimativa de 2019
+  select(-populacao)
+
+dados_covid_poa <- dados_covid_poa %>%
+  left_join(pop_bairros, by = c("bairro")) 
+  
+
+
+# banco para o join com shp
+
+dados_covid_poa_join <- dados_covid_poa %>%
+  mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
+         acompanhamento = ifelse(evolucao == "EM ACOMPANHAMENTO", 1, 0),
+         recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
+  filter(!is.na(bairro)) %>%
+  group_by(bairro) %>%
+  summarise(confirmados = n(), confirmados_taxa = n()*100000/first(populacao_bairro),
+            obitos = sum(obitos, na.rm = T), obitos_taxa = sum(obitos, na.rm = T)*100000/first(populacao_bairro), 
+            acompanhamento = sum(acompanhamento, na.rm = T), acompanhamento_taxa  = sum(acompanhamento, na.rm = T)*100000/first(populacao_bairro),
+            recuperados = sum(recuperados, na.rm = T), recuperados_taxa = sum(recuperados, na.rm = T)*100000/first(populacao_bairro)) %>%
+  ungroup()
+
+mapa_poa <- shp_poa %>%
+  left_join(dados_covid_poa_join, by = c("NOME" = "bairro"))
+
+mapa_poa <- sf::st_transform(mapa_poa, "+proj=longlat +datum=WGS84")
+
+
+# 
+# teste2 <- teste %>%
+#   group_by(bairro_novo) %>%
+#   dplyr::summarise(n = n())
+# 
+# teste3 <- shp_poa %>%
+#   left_join(teste2, by = c("NOME" = "bairro_novo"))
+# 
+# y_quantidade <- teste3$n
+# 
+# variavel <- teste3$NOME
+# 
+# intervalos <- classInt::classIntervals(var = y_quantidade, n = 7, style = "fisher")
+# 
+# intervalos[["brks"]][1:2] <- c(0,1)
+# 
+# pal <- colorBin(palette="Reds", domain = y_quantidade, bins = intervalos[["brks"]])
+# 
+# 
+# 
+# 
+# leaflet(teste3) %>%
+#   addTiles(urlTemplate = "http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", attribution = 'Google') %>%
+#   addPolygons(fillColor = ~pal(y_quantidade), 
+#               weight = 1.5,
+#               opacity = 0.7,
+#               fillOpacity = 0.7,
+#               color = "gray",
+#               highlight = highlightOptions(
+#                 weight = 5,
+#                 color = "#666",
+#                 fillOpacity = 0.7,
+#                 bringToFront = TRUE),
+#               label = sprintf("%s - %s", variavel, y_quantidade),
+#               labelOptions = labelOptions(
+#                 style = list("font-weight" = "normal", padding = "6px 11px"),
+#                 textsize = "15px",
+#                 direction = "auto"))
+
+
+
+
+
+rm(list=setdiff(ls(),c("dados_covid_poa","mapa_poa")))
+
 
