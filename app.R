@@ -25,6 +25,8 @@ library(shinyEffects)
 library(shinyalert)
 library(shinyBS)
 
+options(OutDec= ",")
+
 source("criando_banco_covid_2.0.R", encoding = "UTF-8")
 source("my_ui.R", encoding = "UTF-8")
 source("my_server.R", encoding = "UTF-8")

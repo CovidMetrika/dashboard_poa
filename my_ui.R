@@ -166,7 +166,7 @@ ui <- dashboardPagePlus(
     sidebarMenu(
       menuItem("Leitos - Adultos", tabName = "leitos_adulto"),
       #menuItem("Covid-19 - Prefeitura", tabName = "casos_pref"),
-      menuItem("Covid-19 -  Estado", tabName = "casos_ses"),
+      menuItem("Casos por bairro", tabName = "casos_ses"),
       menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
       menuItem("Fonte de dados", tabName = "fonte"),
       menuItem("CovidMetrika", tabName = "sobre")
@@ -182,11 +182,14 @@ ui <- dashboardPagePlus(
                   fluidRow(
                     column(
                       width = 4,
-                      h1("COVID-19 Porto Alegre")
+                      h1("Distribuição dos casos de COVID-19 na cidade de Porto Alegre"),
+                      h5("Fonte de dados: Secretaria de Saúde do Estado do Rio Grande do Sul"),
                     ),
                     column(
-                      tags$img(src = "logos.png", 
-                               width = "100%"),
+                      
+                      tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400),
+                      #tags$img(src = "logos.png", 
+                      #         width = "100%"),
                       width = 8
                     )
                   )

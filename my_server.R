@@ -149,7 +149,7 @@ server <- function(input, output) {
                     color = "#666",
                     fillOpacity = 0.7,
                     bringToFront = TRUE),
-                  label = sprintf("%s - %s", variavel, y_quantidade),
+                  label = sprintf("%s - %s", variavel, round(y_quantidade,3)),
                   labelOptions = labelOptions(
                     style = list("font-weight" = "normal", padding = "6px 11px"),
                     textsize = "15px",
