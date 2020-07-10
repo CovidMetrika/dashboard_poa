@@ -25,7 +25,9 @@ library(shinyEffects)
 library(shinyalert)
 library(shinyBS)
 
-options(OutDec= ",")
+#options(OutDec= ",")
+# infelizmente esse comando causa um erro nas barras de progresso
+# enquanto não se arranjar solução vou deixar comentado o comando
 
 source("criando_banco_covid_2.0.R", encoding = "UTF-8")
 source("my_ui.R", encoding = "UTF-8")

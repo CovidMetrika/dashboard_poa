@@ -148,7 +148,6 @@ dados_covid_poa <- dados_covid_poa %>%
   left_join(pop_bairros, by = c("bairro")) 
   
 
-
 # banco para o join com shp
 
 dados_covid_poa_join <- dados_covid_poa %>%
@@ -167,48 +166,6 @@ mapa_poa <- shp_poa %>%
   left_join(dados_covid_poa_join, by = c("NOME" = "bairro"))
 
 mapa_poa <- sf::st_transform(mapa_poa, "+proj=longlat +datum=WGS84")
-
-
-# 
-# teste2 <- teste %>%
-#   group_by(bairro_novo) %>%
-#   dplyr::summarise(n = n())
-# 
-# teste3 <- shp_poa %>%
-#   left_join(teste2, by = c("NOME" = "bairro_novo"))
-# 
-# y_quantidade <- teste3$n
-# 
-# variavel <- teste3$NOME
-# 
-# intervalos <- classInt::classIntervals(var = y_quantidade, n = 7, style = "fisher")
-# 
-# intervalos[["brks"]][1:2] <- c(0,1)
-# 
-# pal <- colorBin(palette="Reds", domain = y_quantidade, bins = intervalos[["brks"]])
-# 
-# 
-# 
-# 
-# leaflet(teste3) %>%
-#   addTiles(urlTemplate = "http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", attribution = 'Google') %>%
-#   addPolygons(fillColor = ~pal(y_quantidade), 
-#               weight = 1.5,
-#               opacity = 0.7,
-#               fillOpacity = 0.7,
-#               color = "gray",
-#               highlight = highlightOptions(
-#                 weight = 5,
-#                 color = "#666",
-#                 fillOpacity = 0.7,
-#                 bringToFront = TRUE),
-#               label = sprintf("%s - %s", variavel, y_quantidade),
-#               labelOptions = labelOptions(
-#                 style = list("font-weight" = "normal", padding = "6px 11px"),
-#                 textsize = "15px",
-#                 direction = "auto"))
-
-
 
 
 
