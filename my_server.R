@@ -1521,10 +1521,10 @@ server <- function(input, output) {
     
     valueBox(
       value = "COVID-19",
-      subtitle = "Prefeitura de Porto Alegre",
+      subtitle = "Secretaria Estadual de Saúde do RS",
       icon = icon("viruses"),
       color = "aqua",
-      href = "https://prefeitura.poa.br/coronavirus",
+      href = "http://ti.saude.rs.gov.br/covid19/",
       width = 12
     )
     
