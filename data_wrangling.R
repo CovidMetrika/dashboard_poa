@@ -48,7 +48,7 @@ dados_covid_poa <- dados_covid_poa %>%
   select(-c(codigo_ibge_6_digitos,codigo_regiao_covid,regiao_covid))
 
 dados_covid_poa <- dados_covid_poa %>%
-  mutate(data_evolucao = ifelse(evolucao == "RECUPERADO", ifelse(is.na(data_evolucao),data_sintomas+days(14),data_evolucao),data_evolucao)) %>%
+  mutate(data_evolucao = ifelse(evolucao == "RECUPERADO", ifelse(hospitalizacao == "NAO", ifelse(is.na(data_evolucao),ifelse(data_sintomas+days(14)<Sys.Date(),data_sintomas+days(14),NA),data_evolucao),data_evolucao),data_evolucao)) %>%
   mutate(data_evolucao = as_date(data_evolucao))
 
 # adicionando semana epidemiologica
