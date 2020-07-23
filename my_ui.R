@@ -381,7 +381,7 @@ ui <- dashboardPagePlus(
                     HTML("<br/><br/><br/>"),
                     dateInput(
                       "data_adulto",
-                      label = "Defina a data de atualização(por default está selecionada a última disponível)",
+                      label = "Defina a data de atualização(o default é a última data disponível)",
                       value = max(adultos$data_atualizacao, na.rm = T),
                       min = min(adultos$data_atualizacao, na.rm = T),
                       max = max(adultos$data_atualizacao, na.rm = T),
