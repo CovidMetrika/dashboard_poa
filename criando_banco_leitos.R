@@ -76,7 +76,7 @@ uti_adulto <- tibble(local = c("instituto_de_cardiologia","hospital_de_clinicas_
                                "hospital_porto_alegre","hospital_cristo_redentor","hospital_vila_nova",
                                "hospital_de_pronto_socorro","hospital_independencia","hospital_femina",
                                "hospital_restinga_extremo_sul","hospital_santa_ana"),
-                     leitos = c(37,160,75,62,143,59,60,40,28,14,39,20,20,10,6,16,10),
+                     leitos = c(37,160,75,65,143,59,60,40,29,18,39,20,20,10,6,16,10),
                      internados = c(30,145,71,65,118,49,55,37,25,15,39,18,17,9,2,17,7),
                      covid = c(2,86,36,37,67,23,26,18,12,8,0,4,0,0,1,8,0),
                      data_atualizacao = rep(dia_atualizacao,17))
