@@ -113,11 +113,11 @@ caixinha_hospital <- function(var1,var2,var3) {
     filter(local == var3) %>%
     filter(data_atualizacao %in% antigo_dia)
   
-  porcentagem <- sum(aux$internados)/sum(aux$leitos)
+  porcentagem <- sum(aux$internados)/sum(aux$leitos_total)
   
   status <- ifelse(porcentagem < 0.5, "primary",
                    ifelse(porcentagem < 0.75, "warning", "danger"))
-  dia_anterior <- sum(aux2$internados)/sum(aux2$leitos)
+  dia_anterior <- sum(aux2$internados)/sum(aux2$leitos_total)
   numero_diff <- sum(aux$internados)-sum(aux2$internados)
   porcentagem_diff <- porcentagem-dia_anterior
   icone <- ifelse(porcentagem_diff < 0, "fa fa-caret-down", "fa fa-caret-up")
@@ -181,16 +181,15 @@ ui <- dashboardPagePlus(
                 titlePanel(
                   fluidRow(
                     column(
-                      width = 4,
+                      width = 6,
                       h1("Distribuição dos casos de COVID-19 na cidade de Porto Alegre"),
-                      h5("Fonte de dados: Secretaria de Saúde do Estado do Rio Grande do Sul"),
+                      #h5("Fonte de dados: Secretaria de Saúde do Estado do Rio Grande do Sul"),
                     ),
                     column(
-                      
-                      tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400),
-                      #tags$img(src = "logos.png", 
-                      #         width = "100%"),
-                      width = 8
+                      #tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400),
+                      tags$img(src = "logos.png", 
+                               width = "100%"),
+                      width = 6
                     )
                   )
                 ),
@@ -376,9 +375,11 @@ ui <- dashboardPagePlus(
                 fluidRow(
                   column(
                     width = 6,
-                    h3("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
-                       https://mhbarbian.shinyapps.io/covid19_rs"),
-                    HTML("<br/><br/><br/>"),
+                    tags$img(src = "logos.png", 
+                             width = "100%"),
+                    #h3("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
+                    #   https://mhbarbian.shinyapps.io/covid19_rs"),
+                    br(),
                     dateInput(
                       "data_adulto",
                       label = "Defina a data de atualização(o default é a última data disponível)",
@@ -389,7 +390,13 @@ ui <- dashboardPagePlus(
                       language = "pt-BR", 
                       width = "700px"
                     ),
-                    tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400)
+                    h3("Selecione a variável de interesse"),
+                    radioButtons("var_leitos",
+                                 label = NULL,
+                                 choices = list("Leitos totais" = "leitos_total","Leitos disponíveis" = "leitos_disponiveis","Lotação" = "lotacao", "Leitos ocupados COVID-19" = "leitos_covid"),
+                                 selected = "leitos_disponiveis",
+                                 inline = T)
+                    #tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400)
                   ),
                   column(
                     width = 6,
@@ -400,7 +407,7 @@ ui <- dashboardPagePlus(
                                    multiple = T,
                                    width = "900px"
                     ),
-                    h3("Escolha se os gráficos devem conter leitos de UTI e/ou emergência"),
+                    h4("Escolha se os gráficos devem conter leitos de UTI e/ou emergência"),
                     br(),
                     checkboxGroupInput("tipo_adulto",
                                        label = NULL,
@@ -416,7 +423,6 @@ ui <- dashboardPagePlus(
                   valueBoxOutput("box_covid_adulto", width = 3)
                   
                 ),
-                h3("Mapa com leitos adultos DISPONÍVEIS em Porto Alegre"),
                 column(
                   width = 7,
                   mainPanel(
@@ -428,7 +434,6 @@ ui <- dashboardPagePlus(
                 column(
                   width = 5,
                   box(
-                    title = "Número de leitos DISPONÍVEIS por hospital",
                     background = "green",
                     plotlyOutput("barras_hosp_adulto", height = "700px"),
                     width = 12
@@ -437,44 +442,42 @@ ui <- dashboardPagePlus(
                 fluidRow(
                   column(
                     width = 6,
-                    box(
-                      title = "Número de leitos de UTI OCUPADOS com pacientes de covid-19 dado o dia",
-                      background = "red",
-                      plotlyOutput("barras_covid_adulto", height = "500px"),
-                      width = 12
+                    tabBox(
+                      id = "tab_ocup",
+                      title = "Quantidade de Leitos de UTI OCUPADOS ao longo do tempo",
+                      width = 12,
+                      tabPanel("Diário",
+                               plotlyOutput("serie_leitos_ocup_dia", height = 500)),
+                      tabPanel("Semana Epidemiológica",
+                               plotlyOutput("serie_leitos_ocup_sem", height = 500))
                     )
                   ),
                   column(
                     width = 6,
-                    box(
-                      title = "Número de leitos totais e OCUPADOS por dia",
-                      background = "red",
-                      plotlyOutput("linhas_serie_adulto2", height = "500px"),
-                      width = 12
+                    tabBox(
+                      id = "tab_disp",
+                      title = "Quantidade de Leitos de UTI DISPONÍVEIS ao longo do tempo",
+                      width = 12,
+                      tabPanel("Diário",
+                               plotlyOutput("serie_leitos_disp_dia", height = 500)),
+                      tabPanel("Semana Epidemiológica",
+                               plotlyOutput("serie_leitos_disp_sem", height = 500))
+                    )
+                  ),
+                  column(
+                    width = 12,
+                    tabBox(
+                      id = "tab_covid",
+                      title = "Quantidade de Leitos de UTI OCUPADOS com pacientes com covid-19 ao longo do tempo",
+                      width = 12,
+                      tabPanel("Diário",
+                               plotlyOutput("serie_leitos_covid_dia", height = 500)),
+                      tabPanel("Semana Epidemiológica",
+                               plotlyOutput("serie_leitos_covid_sem", height = 500))
                     )
                   )
-                ),    
+                ),
                 fluidRow(
-                  column(
-                    width = 6,
-                    box(
-                      title = "Número de leitos totais e DISPONÍVEIS dado o dia",
-                      background = "green",
-                      plotlyOutput("linhas_serie_adulto", height = "500px"),
-                      width = 12
-                    )
-                  ),
-                  column(
-                    width = 6,
-                    box(
-                      title = "Número de leitos de UTI com pacientes de covid-19 por hospital",
-                      background = "red",
-                      plotlyOutput("barras_hosp_covid", height = "500px"),
-                      width = 12
-                    ),
-                    
-                  ),
-                  
                   h4("A seguir temos as caixas de cada hospital individualizadas, onde os números coloridos indicam a variação com
                      relação ao dia anterior"),
                   uiOutput("conceicao_adulto"),
