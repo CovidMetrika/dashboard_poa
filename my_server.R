@@ -21,7 +21,7 @@ opcoes_leitos <- list(
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_16_08.csv") 
+leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_17_08.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
@@ -1329,7 +1329,7 @@ server <- function(input, output) {
                 `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       group_by(semana_epidemiologica) %>%
       summarise(`Leitos com covid` = mean(`Leitos com covid`, na.rm = T), 
-                `Total leitos` = mean(`Total leitos`, na.rm = T), lotacao = mean(`Leitos disponíveis`, na.rm = T)/mean(`Total leitos`, na.rm = T)) %>%
+                `Total leitos` = mean(`Total leitos`, na.rm = T)) %>%
       arrange(semana_epidemiologica)
     
     ordem <- as.character(unique(aux$semana_epidemiologica))
