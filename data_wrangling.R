@@ -143,7 +143,7 @@ dados_covid_poa <- dados_covid_poa %>%
 # pegando dados da população de cada bairro
 
 pop_bairros <- read_csv("bancos/populacao_bairros.csv") %>%
-  mutate(populacao_bairro = 1483771/1409351*populacao) %>% # adicionando um multiplicador de correção dos dados de 2010 para a estimativa de 2019
+  mutate(populacao_bairro = round(1483771/1409351*populacao,0)) %>% # adicionando um multiplicador de correção dos dados de 2010 para a estimativa de 2019
   select(-populacao)
 
 dados_covid_poa <- dados_covid_poa %>%
