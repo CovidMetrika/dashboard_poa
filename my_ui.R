@@ -250,8 +250,39 @@ ui <- dashboardPagePlus(
                 fluidRow(
                   column(
                     width = 12,
-                    uiOutput("ui_serie_covid")
+                    tabBox(id = "tab_covid",
+                           width = 12,
+                           title = NULL,
+                           tabPanel("Diário",
+                                    plotlyOutput("serie_covid_dia", height = 500)
+                           ),
+                           tabPanel("Semana Epidemiológica",
+                                    plotlyOutput("serie_covid_sem", height = 500)
+                           )
+                    )
+                  ),
+                  column(
+                    width = 12,
+                    selectizeInput(
+                      "filtro_serie_covid",
+                      width = "100%",
+                      label = "Selecione os bairros para a série histórica abaixo",
+                      choices = sort(unique(dados_covid_poa$bairro)),
+                      selected = sort(unique(dados_covid_poa$bairro)),
+                      multiple = T
+                    ),
+                    tabBox(id = "tab_bairro_covid",
+                           width = 12,
+                           title = NULL,
+                           tabPanel("Diário",
+                                    plotlyOutput("serie_bairro_covid_dia", height = 500)
+                           ),
+                           tabPanel("Semana Epidemiológica",
+                                    plotlyOutput("serie_bairro_covid_sem", height = 500)
+                           )
+                    )
                   )
+                    
                 )
               )
       ),  

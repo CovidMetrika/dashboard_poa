@@ -207,34 +207,6 @@ server <- function(input, output) {
     
   })
   
-  #############
-  # ui_serie_covid
-  
-  output$ui_serie_covid <- renderUI({
-    
-    tabBox(id = "tab_covid",
-           width = 12,
-           title = NULL,
-           tabPanel("Diário",
-                    plotlyOutput("serie_covid_dia", height = 500)
-           ),
-           tabPanel("Semana Epidemiológica",
-                    plotlyOutput("serie_covid_sem", height = 500)
-           ),
-           tabPanel("Filtro",
-                    selectInput(
-                      "filtro_serie_covid",
-                      label = "Selecione os bairros para a série histórica",
-                      choices = sort(unique(dados_covid_poa$bairro)),
-                      selected = sort(unique(dados_covid_poa$bairro)),
-                      multiple = T
-                    )
-           )
-           
-    )
-    
-  })
-  
   ############
   # serie_covid_dia
   
@@ -244,8 +216,7 @@ server <- function(input, output) {
     
     var <- rlang::sym(str_c(input$var_covid,input$tipo_covid))
     
-    aux <- dados_covid_poa %>%
-      filter(bairro %in% input$filtro_serie_covid)
+    aux <- dados_covid_poa
 
     if(input$var_covid %in% c("confirmados","confirmados_taxa")) {
       aux <- aux %>%
@@ -428,9 +399,7 @@ server <- function(input, output) {
     
     var <- rlang::sym(str_c(input$var_covid,input$tipo_covid))
     
-    aux <- dados_covid_poa %>%
-      filter(bairro %in% input$filtro_serie_covid)
-    
+    aux <- dados_covid_poa
     
     if(input$var_covid %in% c("confirmados","confirmados_taxa")) {
       aux <- aux %>%
@@ -474,7 +443,7 @@ server <- function(input, output) {
       
       acomp <- aux %>%
         group_by(semana_epidemiologica_sintomas) %>%
-        summarise(acompanhamento = sum(acompanhamento, na.rm = T), acompanhamento_taxa = sum(acompanhamento, na.rm = T)*100000/first(populacao_estimada)) %>%
+        summarise(acompanhamento = sum(acompanhamento, na.rm = T), acompanhamento_taxa = sum(acompanhamento, na.rm = T)*100000/first(popui_serie_coulacao_estimada)) %>%
         mutate(frequencia = !!rlang::sym(str_c("acompanhamento",input$tipo_covid))) %>%
         mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_sintomas) %>%
         select(-semana_epidemiologica_sintomas)
@@ -605,179 +574,378 @@ server <- function(input, output) {
     
     p
     
-    # #input <- list(var_covid = "acompanhamento", agrup_covid = "municipio", filtro_covid = unique(dados_covid_poa$regiao_covid), filtro_serie_covid ="Todos selecionados")
-    # 
-    # var <- rlang::sym(input$var_covid)
-    # 
-    # 
-    # if(input$var_covid %in% c("confirmados","incidencia")) {
-    #   aux <- dados_covid_poa %>%
-    #     group_by(semana_epidemiologica_confirmacao) %>%
-    #     summarise(confirmados = n(), incidencia = n()*100000/first(populacao_estimada)) %>%
-    #     mutate(frequencia = !!var) %>%
-    #     arrange(semana_epidemiologica_confirmacao)
-    #   
-    #   n_weeks <- max(aux$semana_epidemiologica_confirmacao)-min(aux$semana_epidemiologica_confirmacao)
-    #   weeks <- min(aux$semana_epidemiologica_confirmacao):(min(aux$semana_epidemiologica_confirmacao)+n_weeks)
-    # } else if(input$var_covid %in% c("obitos","mortalidade","recuperados")){
-    #   aux <- dados_covid_poa %>%
-    #     mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
-    #            recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
-    #     group_by(semana_epidemiologica_evolucao) %>%
-    #     summarise(obitos = sum(obitos, na.rm = T), mortalidade = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
-    #               recuperados = sum(recuperados, na.rm = T)) %>%
-    #     filter(!is.na(semana_epidemiologica_evolucao)) %>%
-    #     mutate(frequencia = !!var) %>%
-    #     ungroup() %>%
-    #     mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_evolucao) %>%
-    #     select(-semana_epidemiologica_evolucao) %>%
-    #     arrange(semana_epidemiologica_confirmacao)
-    #   
-    #   n_weeks <- max(aux$semana_epidemiologica_confirmacao)-min(aux$semana_epidemiologica_confirmacao)
-    #   weeks <- min(aux$semana_epidemiologica_confirmacao):(min(aux$semana_epidemiologica_confirmacao)+n_weeks)
-    # } else {
-    #   
-    #   aux <- dados_covid_poa %>%
-    #     mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
-    #            acompanhamento = ifelse(is.na(evolucao), 0, 1),
-    #            recuperados = ifelse(evolucao == "RECUPERADO", 1, 0))
-    #   negativos <- aux %>%
-    #     group_by(semana_epidemiologica_evolucao) %>%
-    #     filter(!is.na(semana_epidemiologica_evolucao)) %>%
-    #     summarise(negativos = sum(obitos,na.rm = T)+sum(recuperados, na.rm =T)) %>%
-    #     mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_evolucao) %>%
-    #     select(-semana_epidemiologica_evolucao)
-    #   
-    #   acomp <- aux %>%
-    #     group_by(semana_epidemiologica_sintomas) %>%
-    #     summarise(acompanhamento = sum(acompanhamento, na.rm = T)) %>%
-    #     mutate(frequencia = acompanhamento) %>%
-    #     mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_sintomas) %>%
-    #     select(-semana_epidemiologica_sintomas)
-    #   
-    #   
-    #   n_weeks <- max(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)-min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)
-    #   weeks <- min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao):(min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)+n_weeks)
-    #   
-    # }
-    # 
-    # if(input$var_covid != "acompanhamento") {
-    #   
-    #   aux2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% aux$semana_epidemiologica_confirmacao)],
-    #                  frequencia = 0)
-    #   
-    #   aux <- bind_rows(aux,aux2) %>%
-    #     arrange(semana_epidemiologica_confirmacao)
-    #   
-    #   aux$acumulado <- c(aux$frequencia[1],rep(0,n_weeks))
-    #   
-    #   for (i in 2:nrow(aux)) {
-    #     aux$acumulado[i] <- aux$acumulado[i-1]+aux$frequencia[i]
-    #   }
-    #   
-    #   label_x <- "Semana epidemiológica de confirmação"
-    #   caption_x <- "*Dados referentes à data de 'confirmação', e não 'notificação', portanto dados antigos são frequentemente adicionados"
-    #   y_caption <- 0.99
-    #   
-    #   ordem <- as.character(aux$semana_epidemiologica_confirmacao)
-    #   
-    #   aux$semana_epidemiologica_confirmacao <- as.character(aux$semana_epidemiologica_confirmacao)
-    #   
-    #   p <- ggplotly(ggplot(aux) +
-    #                   geom_line(aes(x = semana_epidemiologica_confirmacao, y = acumulado, group = 1, color = "Acumulado"), linetype = 'dotted') +
-    #                   geom_point(aes(x = semana_epidemiologica_confirmacao, y = acumulado, color = "Acumulado")) + 
-    #                   geom_col(aes(x = semana_epidemiologica_confirmacao, y = frequencia, fill = "Frequência")) +
-    #                   scale_x_discrete(limits = ordem) +
-    #                   scale_color_manual(values = list("Acumulado" = opcoes[[input$var_covid]][["cor"]])) +
-    #                   scale_fill_manual(values = list("Frequência" = opcoes[[input$var_covid]][["cor"]])) +
-    #                   labs(x = label_x, y = opcoes[[input$var_covid]][["texto"]], colour = NULL, fill = NULL) +
-    #                   theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5)) +
-    #                   theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
-    #                         panel.grid.major = element_blank(),
-    #                         legend.position=c(0.05, 0.95),
-    #                         legend.key = element_blank())) %>%
-    #     layout(legend = list(
-    #       orientation = "v",
-    #       x = 0.01,
-    #       y = 0.95
-    #     ),
-    #     annotations = list(
-    #       list(x = 0.001, y = y_caption, text = caption_x, 
-    #            showarrow = F, xref='paper', yref='paper', 
-    #            xanchor='left', yanchor='auto', xshift=0, yshift=0,
-    #            font=list(size=10, color="gray"))
-    #     )
-    #     )
-    #   
-    # } else {
-    #   
-    #   negativos2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% negativos$semana_epidemiologica_confirmacao)],
-    #                        negativos = 0)
-    #   
-    #   negativos <- bind_rows(negativos,negativos2) %>%
-    #     arrange(semana_epidemiologica_confirmacao)
-    #   
-    #   acomp2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% acomp$semana_epidemiologica_confirmacao)],
-    #                    frequencia = 0)
-    #   
-    #   acomp <- bind_rows(acomp,acomp2) %>%
-    #     arrange(semana_epidemiologica_confirmacao) %>%
-    #     left_join(negativos, by = "semana_epidemiologica_confirmacao") %>%
-    #     mutate(negativos = ifelse(is.na(negativos),0,negativos)) %>%
-    #     mutate(frequencia = frequencia-negativos)
-    #   
-    #   acomp$acumulado <- c(acomp$frequencia[1],rep(0,n_weeks))
-    #   
-    #   label_x <- "Semana epidemiológica de início dos sintomas"
-    #   caption_x <- "*Dados referentes à data de início dos sintomas, portanto dados mais antigos são frequentemente adicionados"
-    #   y_caption <- 0.99
-    #   
-    #   for (i in 2:nrow(acomp)) {
-    #     acomp$acumulado[i] <- acomp$acumulado[i-1]+acomp$frequencia[i]
-    #   }
-    #   
-    #   aux <- acomp %>%
-    #     mutate(acumulado = ifelse(acumulado < 0, 0, acumulado))
-    #   
-    #   ordem <- as.character(aux$semana_epidemiologica_confirmacao)
-    #   
-    #   aux$semana_epidemiologica_confirmacao <- as.character(aux$semana_epidemiologica_confirmacao)
-    #   
-    #   p <- ggplotly(ggplot(aux) +
-    #                   geom_line(aes(x = semana_epidemiologica_confirmacao, y = acumulado, group = 1, color = "Em acompanhamento"), linetype = 'dotted') +
-    #                   geom_point(aes(x = semana_epidemiologica_confirmacao, y = acumulado, color = "Em acompanhamento")) + 
-    #                   geom_col(aes(x = semana_epidemiologica_confirmacao, y = frequencia, fill = "Frequência")) +
-    #                   scale_x_discrete(limits = ordem) +
-    #                   scale_color_manual(values = list("Em acompanhamento" = opcoes[[input$var_covid]][["cor"]])) +
-    #                   scale_fill_manual(values = list("Frequência" = opcoes[[input$var_covid]][["cor"]])) +
-    #                   labs(x = label_x, y = opcoes[[input$var_covid]][["texto"]], colour = NULL, fill = NULL) +
-    #                   theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5)) +
-    #                   theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
-    #                         panel.grid.major = element_blank(),
-    #                         legend.position=c(0.05, 0.95),
-    #                         legend.key = element_blank())) %>%
-    #     layout(legend = list(
-    #       orientation = "v",
-    #       x = 0.01,
-    #       y = 0.95
-    #     ),
-    #     annotations = list(
-    #       list(x = 0.001, y = y_caption, text = caption_x, 
-    #            showarrow = F, xref='paper', yref='paper', 
-    #            xanchor='left', yanchor='auto', xshift=0, yshift=0,
-    #            font=list(size=10, color="gray"))
-    #     )
-    #     )
-    #   
-    # }
-    # 
-    # for (i in 1:length(p$x$data)){
-    #   if (!is.null(p$x$data[[i]]$name)){
-    #     p$x$data[[i]]$name =  gsub("\\(","",str_split(p$x$data[[i]]$name,",")[[1]][1])
-    #   }
-    # }
-    # 
-    # p
+  })
+  
+  ############
+  # serie_bairro_covid_dia
+  
+  output$serie_bairro_covid_dia <- renderPlotly({
+    
+    #input <- list(var_covid = "acompanhamento", agrup_covid = "municipio", tipo_covid = "",filtro_geral = unique(dados_covid_rs$regiao_covid), filtro_serie_covid ="Todos selecionados")
+    
+    var <- rlang::sym(str_c(input$var_covid,input$tipo_covid))
+    
+    aux <- dados_covid_poa %>%
+      filter(bairro %in% input$filtro_serie_covid)
+    
+    if(input$var_covid %in% c("confirmados","confirmados_taxa")) {
+      aux <- aux %>%
+        group_by(data_confirmacao) %>%
+        summarise(confirmados = n(), confirmados_taxa = n()*100000/first(populacao_estimada)) %>%
+        mutate(frequencia = !!var) %>%
+        arrange(data_confirmacao)
+      
+      n_days <- max(aux$data_confirmacao)-min(aux$data_confirmacao)
+      dias <- min(aux$data_confirmacao)+days(0:n_days)
+    } else if(input$var_covid %in% c("obitos","obitos_taxa","recuperados","recuperados_taxa")){
+      aux <- aux %>%
+        mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
+        group_by(data_evolucao) %>%
+        summarise(obitos = sum(obitos, na.rm = T), obitos_taxa = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
+                  recuperados = sum(recuperados, na.rm = T), recuperados_taxa = sum(recuperados, na.rm = T)*100000/first(populacao_estimada)) %>%
+        filter(!is.na(data_evolucao)) %>%
+        mutate(frequencia = !!var) %>%
+        ungroup() %>%
+        mutate(data_confirmacao = data_evolucao) %>%
+        select(-data_evolucao) %>%
+        arrange(data_confirmacao)
+      
+      n_days <- max(aux$data_confirmacao)-min(aux$data_confirmacao)
+      dias <- min(aux$data_confirmacao)+days(0:n_days)
+    } else {
+      aux <- aux %>%
+        mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
+               acompanhamento = ifelse(is.na(evolucao), 0, 1),
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0))
+      negativos <- aux %>%
+        group_by(data_evolucao) %>%
+        filter(!is.na(data_evolucao)) %>%
+        summarise(obitos = sum(obitos, na.rm = T), obitos_taxa = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
+                  recuperados = sum(recuperados, na.rm = T), recuperados_taxa = sum(recuperados, na.rm = T)*100000/first(populacao_estimada)) %>%
+        mutate(negativos = !!rlang::sym(str_c("recuperados",input$tipo_covid))+!!rlang::sym(str_c("obitos",input$tipo_covid))) %>%
+        mutate(data_confirmacao = data_evolucao) %>%
+        select(-data_evolucao)
+      
+      acomp <- aux %>%
+        group_by(data_sintomas) %>%
+        summarise(acompanhamento = sum(acompanhamento, na.rm = T), acompanhamento_taxa = sum(acompanhamento, na.rm = T)*100000/first(populacao_estimada)) %>%
+        mutate(frequencia = !!rlang::sym(str_c("acompanhamento",input$tipo_covid))) %>%
+        mutate(data_confirmacao = data_sintomas) %>%
+        select(-data_sintomas)
+      
+      
+      n_days <- max(negativos$data_confirmacao,acomp$data_confirmacao)-min(negativos$data_confirmacao,acomp$data_confirmacao)
+      dias <- min(negativos$data_confirmacao,acomp$data_confirmacao)+days(0:n_days)
+      
+    }
+    
+    if(input$var_covid != "acompanhamento") {
+      aux2 <- tibble(data_confirmacao = dias[!(dias %in% aux$data_confirmacao)],
+                     frequencia = 0)
+      
+      aux <- bind_rows(aux,aux2) %>%
+        arrange(data_confirmacao)
+      
+      aux$acumulado <- c(aux$frequencia[1],rep(0,n_days))
+      
+      label_x <- "Dia de confirmação"
+      caption_x <- "*Dados referentes à data de 'confirmação', e não 'notificação', portanto dados antigos são frequentemente adicionados"
+      y_caption <- 0.99
+      
+      for (i in 2:nrow(aux)) {
+        aux$acumulado[i] <- aux$acumulado[i-1]+aux$frequencia[i]
+      }
+      
+      # ordem <- as.character(format(aux$data_confirmacao, "%d-%b"))
+      # 
+      # aux$data_confirmacao <- as.character(format(aux$data_confirmacao, "%d-%b"))
+      
+      p <- ggplotly(ggplot(aux) +
+                      geom_line(aes(x = data_confirmacao, y = acumulado, group = 1, color = "Acumulado"), linetype = 'dotted') +
+                      geom_point(aes(x = data_confirmacao, y = acumulado, color = "Acumulado")) + 
+                      geom_col(aes(x = data_confirmacao, y = frequencia, fill = "Frequência")) +
+                      scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+                      scale_color_manual(values = list("Acumulado" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
+                      #theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5)) +
+                      theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+                            panel.grid.major = element_blank(),
+                            legend.position=c(0.05, 0.95),
+                            legend.key = element_blank())) %>%
+        layout(legend = list(
+          orientation = "v",
+          x = 0.01,
+          y = 0.95
+        ),
+        annotations = list(
+          list(x = 0.001, y = y_caption, text = caption_x, 
+               showarrow = F, xref='paper', yref='paper', 
+               xanchor='left', yanchor='auto', xshift=0, yshift=0,
+               font=list(size=10, color="gray"))
+        )
+        )
+      
+    } else {
+      negativos2 <- tibble(data_confirmacao = dias[!(dias %in% negativos$data_confirmacao)],
+                           negativos = 0)
+      
+      negativos <- bind_rows(negativos,negativos2) %>%
+        arrange(data_confirmacao)
+      
+      acomp2 <- tibble(data_confirmacao = dias[!(dias %in% acomp$data_confirmacao)],
+                       frequencia = 0)
+      
+      acomp <- bind_rows(acomp,acomp2) %>%
+        arrange(data_confirmacao) %>%
+        left_join(negativos, by = "data_confirmacao") %>%
+        mutate(negativos = ifelse(is.na(negativos),0,negativos)) %>%
+        mutate(frequencia = frequencia-negativos)
+      
+      acomp$acumulado <- c(acomp$frequencia[1],rep(0,n_days))
+      
+      label_x <- "Dia de início dos sintomas"
+      caption_x <- "*Dados referentes à data de início dos sintomas, portanto dados mais antigos são frequentemente adicionados"
+      y_caption <- 0.99
+      
+      for (i in 2:nrow(acomp)) {
+        acomp$acumulado[i] <- acomp$acumulado[i-1]+acomp$frequencia[i]
+      }
+      
+      aux <- acomp %>%
+        mutate(acumulado = ifelse(acumulado < 0, 0, acumulado))
+      
+      # ordem <- as.character(format(aux$data_confirmacao, "%d-%b"))
+      # 
+      # aux$data_confirmacao <- as.character(format(aux$data_confirmacao, "%d-%b"))
+      
+      p <- ggplotly(ggplot(aux) +
+                      geom_line(aes(x = data_confirmacao, y = acumulado, group = 1, color = "Em acompanhamento"), linetype = 'dotted') +
+                      geom_point(aes(x = data_confirmacao, y = acumulado, color = "Em acompanhamento")) + 
+                      geom_col(aes(x = data_confirmacao, y = frequencia, fill = "Frequência")) +
+                      scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+                      scale_color_manual(values = list("Em acompanhamento" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
+                      # theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5)) +
+                      theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+                            panel.grid.major = element_blank(),
+                            legend.position=c(0.05, 0.95),
+                            legend.key = element_blank())) %>%
+        layout(legend = list(
+          orientation = "v",
+          x = 0.01,
+          y = 0.95
+        ),
+        annotations = list(
+          list(x = 0.001, y = y_caption, text = caption_x, 
+               showarrow = F, xref='paper', yref='paper', 
+               xanchor='left', yanchor='auto', xshift=0, yshift=0,
+               font=list(size=10, color="gray"))
+        )
+        )
+    }
+    
+    
+    
+    for (i in 1:length(p$x$data)){
+      if (!is.null(p$x$data[[i]]$name)){
+        p$x$data[[i]]$name =  gsub("\\(","",str_split(p$x$data[[i]]$name,",")[[1]][1])
+      }
+    }
+    
+    p
+    
+  })
+  
+  
+  ############
+  # serie_covid_bairro_semana
+  
+  output$serie_bairro_covid_sem <- renderPlotly({
+    
+    #input <- list(var_covid = "acompanhamento", agrup_covid = "municipio", tipo_covid = "",filtro_geral = unique(dados_covid_rs$regiao_covid), filtro_serie_covid ="Todos selecionados")
+    
+    var <- rlang::sym(str_c(input$var_covid,input$tipo_covid))
+    
+    aux <- dados_covid_poa %>%
+      filter(bairro %in% input$filtro_serie_covid)
+    
+    
+    if(input$var_covid %in% c("confirmados","confirmados_taxa")) {
+      aux <- aux %>%
+        group_by(semana_epidemiologica_confirmacao) %>%
+        summarise(confirmados = n(), confirmados_taxa = n()*100000/first(populacao_estimada)) %>%
+        mutate(frequencia = !!var) %>%
+        arrange(semana_epidemiologica_confirmacao)
+      
+      n_weeks <- max(aux$semana_epidemiologica_confirmacao)-min(aux$semana_epidemiologica_confirmacao)
+      weeks <- min(aux$semana_epidemiologica_confirmacao):(min(aux$semana_epidemiologica_confirmacao)+n_weeks)
+    } else if(input$var_covid %in% c("obitos","obitos_taxa","recuperados","recuperados_taxa")){
+      aux <- aux %>%
+        mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
+        group_by(semana_epidemiologica_evolucao) %>%
+        summarise(obitos = sum(obitos, na.rm = T), obitos_taxa = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
+                  recuperados = sum(recuperados, na.rm = T), recuperados_taxa = sum(recuperados, na.rm = T)*100000/first(populacao_estimada)) %>%
+        filter(!is.na(semana_epidemiologica_evolucao)) %>%
+        mutate(frequencia = !!var) %>%
+        ungroup() %>%
+        mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_evolucao) %>%
+        select(-semana_epidemiologica_evolucao) %>%
+        arrange(semana_epidemiologica_confirmacao)
+      
+      n_weeks <- max(aux$semana_epidemiologica_confirmacao)-min(aux$semana_epidemiologica_confirmacao)
+      weeks <- min(aux$semana_epidemiologica_confirmacao):(min(aux$semana_epidemiologica_confirmacao)+n_weeks)
+    } else {
+      
+      aux <- aux %>%
+        mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
+               acompanhamento = ifelse(is.na(evolucao), 0, 1),
+               recuperados = ifelse(evolucao == "RECUPERADO", 1, 0))
+      negativos <- aux %>%
+        group_by(semana_epidemiologica_evolucao) %>%
+        filter(!is.na(semana_epidemiologica_evolucao)) %>%
+        summarise(obitos = sum(obitos, na.rm = T), obitos_taxa = sum(obitos, na.rm = T)*100000/first(populacao_estimada),
+                  recuperados = sum(recuperados, na.rm = T), recuperados_taxa = sum(recuperados, na.rm = T)*100000/first(populacao_estimada)) %>%
+        mutate(negativos = !!rlang::sym(str_c("recuperados",input$tipo_covid))+!!rlang::sym(str_c("obitos",input$tipo_covid))) %>%
+        mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_evolucao) %>%
+        select(-semana_epidemiologica_evolucao)
+      
+      acomp <- aux %>%
+        group_by(semana_epidemiologica_sintomas) %>%
+        summarise(acompanhamento = sum(acompanhamento, na.rm = T), acompanhamento_taxa = sum(acompanhamento, na.rm = T)*100000/first(popui_serie_coulacao_estimada)) %>%
+        mutate(frequencia = !!rlang::sym(str_c("acompanhamento",input$tipo_covid))) %>%
+        mutate(semana_epidemiologica_confirmacao = semana_epidemiologica_sintomas) %>%
+        select(-semana_epidemiologica_sintomas)
+      
+      
+      n_weeks <- max(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)-min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)
+      weeks <- min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao):(min(negativos$semana_epidemiologica_confirmacao,acomp$semana_epidemiologica_confirmacao)+n_weeks)
+      
+    }
+    
+    if(input$var_covid != "acompanhamento") {
+      
+      aux2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% aux$semana_epidemiologica_confirmacao)],
+                     frequencia = 0)
+      
+      aux <- bind_rows(aux,aux2) %>%
+        arrange(semana_epidemiologica_confirmacao)
+      
+      aux$acumulado <- c(aux$frequencia[1],rep(0,n_weeks))
+      
+      for (i in 2:nrow(aux)) {
+        aux$acumulado[i] <- aux$acumulado[i-1]+aux$frequencia[i]
+      }
+      
+      label_x <- "Semana epidemiológica de confirmação"
+      caption_x <- "*Dados referentes à data de 'confirmação', e não 'notificação', portanto dados antigos são frequentemente adicionados"
+      y_caption <- 0.99
+      
+      ordem <- as.character(aux$semana_epidemiologica_confirmacao)
+      
+      aux$semana_epidemiologica_confirmacao <- as.character(aux$semana_epidemiologica_confirmacao)
+      
+      p <- ggplotly(ggplot(aux) +
+                      geom_line(aes(x = semana_epidemiologica_confirmacao, y = acumulado, group = 1, color = "Acumulado"), linetype = 'dotted') +
+                      geom_point(aes(x = semana_epidemiologica_confirmacao, y = acumulado, color = "Acumulado")) + 
+                      geom_col(aes(x = semana_epidemiologica_confirmacao, y = frequencia, fill = "Frequência")) +
+                      scale_x_discrete(limits = ordem) +
+                      scale_color_manual(values = list("Acumulado" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
+                      theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5)) +
+                      theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+                            panel.grid.major = element_blank(),
+                            legend.position=c(0.05, 0.95),
+                            legend.key = element_blank())) %>%
+        layout(legend = list(
+          orientation = "v",
+          x = 0.01,
+          y = 0.95
+        ),
+        annotations = list(
+          list(x = 0.001, y = y_caption, text = caption_x, 
+               showarrow = F, xref='paper', yref='paper', 
+               xanchor='left', yanchor='auto', xshift=0, yshift=0,
+               font=list(size=10, color="gray"))
+        )
+        )
+      
+    } else {
+      
+      negativos2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% negativos$semana_epidemiologica_confirmacao)],
+                           negativos = 0)
+      
+      negativos <- bind_rows(negativos,negativos2) %>%
+        arrange(semana_epidemiologica_confirmacao)
+      
+      acomp2 <- tibble(semana_epidemiologica_confirmacao = weeks[!(weeks %in% acomp$semana_epidemiologica_confirmacao)],
+                       frequencia = 0)
+      
+      acomp <- bind_rows(acomp,acomp2) %>%
+        arrange(semana_epidemiologica_confirmacao) %>%
+        left_join(negativos, by = "semana_epidemiologica_confirmacao") %>%
+        mutate(negativos = ifelse(is.na(negativos),0,negativos)) %>%
+        mutate(frequencia = frequencia-negativos)
+      
+      acomp$acumulado <- c(acomp$frequencia[1],rep(0,n_weeks))
+      
+      label_x <- "Semana epidemiológica de início dos sintomas"
+      caption_x <- "*Dados referentes à data de início dos sintomas, portanto dados mais antigos são frequentemente adicionados"
+      y_caption <- 0.99
+      
+      for (i in 2:nrow(acomp)) {
+        acomp$acumulado[i] <- acomp$acumulado[i-1]+acomp$frequencia[i]
+      }
+      
+      aux <- acomp %>%
+        mutate(acumulado = ifelse(acumulado < 0, 0, acumulado))
+      
+      ordem <- as.character(aux$semana_epidemiologica_confirmacao)
+      
+      aux$semana_epidemiologica_confirmacao <- as.character(aux$semana_epidemiologica_confirmacao)
+      
+      p <- ggplotly(ggplot(aux) +
+                      geom_line(aes(x = semana_epidemiologica_confirmacao, y = acumulado, group = 1, color = "Em acompanhamento"), linetype = 'dotted') +
+                      geom_point(aes(x = semana_epidemiologica_confirmacao, y = acumulado, color = "Em acompanhamento")) + 
+                      geom_col(aes(x = semana_epidemiologica_confirmacao, y = frequencia, fill = "Frequência")) +
+                      scale_x_discrete(limits = ordem) +
+                      scale_color_manual(values = list("Em acompanhamento" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
+                      labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
+                      theme(axis.text.x = element_text(angle=90,size=8, vjust = 0.5)) +
+                      theme(plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+                            panel.grid.major = element_blank(),
+                            legend.position=c(0.05, 0.95),
+                            legend.key = element_blank())) %>%
+        layout(legend = list(
+          orientation = "v",
+          x = 0.01,
+          y = 0.95
+        ),
+        annotations = list(
+          list(x = 0.001, y = y_caption, text = caption_x, 
+               showarrow = F, xref='paper', yref='paper', 
+               xanchor='left', yanchor='auto', xshift=0, yshift=0,
+               font=list(size=10, color="gray"))
+        )
+        )
+      
+    }
+    
+    
+    
+    for (i in 1:length(p$x$data)){
+      if (!is.null(p$x$data[[i]]$name)){
+        p$x$data[[i]]$name =  gsub("\\(","",str_split(p$x$data[[i]]$name,",")[[1]][1])
+      }
+    }
+    
+    p
+    
   })
   
   
