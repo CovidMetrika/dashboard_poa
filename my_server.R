@@ -186,7 +186,7 @@ server <- function(input, output) {
     outra_var7 <- sym(text_tooltip[7])
     
     
-    p <- dados_covid_poa %>%
+    p_figura <- dados_covid_poa %>%
       mutate(obitos = ifelse(evolucao == "OBITO", 1, 0),
              acompanhamento = ifelse(evolucao == "EM ACOMPANHAMENTO", 1, 0),
              recuperados = ifelse(evolucao == "RECUPERADO", 1, 0)) %>% 
@@ -197,7 +197,12 @@ server <- function(input, output) {
                 recuperados = sum(recuperados, na.rm = T), recuperados_taxa = sum(recuperados, na.rm = T)*100000/first(populacao_bairro),
                 populacao = first(populacao_bairro)) %>%
       arrange(desc(!!var)) %>%
-      slice_head(n = 25) %>%
+      slice_head(n = 25) 
+      
+    p_figura$bairro[1] = "Bairro não notificado"
+   # names(p_figura)[1]="teste"
+    
+    p=  p_figura %>%
       ggplot(aes(x = reorder(bairro, !!var), y = !!var, text = paste(bairro,paste0(str_c(input$var_covid,input$tipo_covid)," ",round(!!var,0)),paste0(text_tooltip[1]," ",round(!!outra_var,0)),paste0(text_tooltip[2]," ",round(!!outra_var2,0)),paste0(text_tooltip[3]," ",round(!!outra_var3,0)),paste0(text_tooltip[4]," ",round(!!outra_var4,0)),paste0(text_tooltip[5]," ",round(!!outra_var5,0)),paste0(text_tooltip[6]," ",round(!!outra_var6,0)),paste0(text_tooltip[7]," ",round(!!outra_var7,0)),paste0("populacao ",!!sym("populacao")),sep = "\n"))) +
       geom_col(fill = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]]) +
       labs(x = "Bairro", y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]]) +
