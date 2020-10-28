@@ -263,6 +263,7 @@ ui <- dashboardPagePlus(
                   ),
                   column(
                     width = 12,
+                    h3("Números de casos por bairro"),
                     selectizeInput(
                       "filtro_serie_covid",
                       width = "100%",
@@ -408,8 +409,8 @@ ui <- dashboardPagePlus(
                     width = 6,
                     tags$img(src = "logos.png", 
                              width = "100%"),
-                    #h3("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
-                    #   https://mhbarbian.shinyapps.io/covid19_rs"),
+                    h3("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
+                       https://mhbarbian.shinyapps.io/covid19_rs"),
                     br(),
                     dateInput(
                       "data_adulto",
