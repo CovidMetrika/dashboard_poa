@@ -18,10 +18,10 @@ library(tidyverse)
 
 # emergencias
 
-leitos_antigos <- read_csv("bancos/leitos/base_antiga/leitos_poa_13_12.csv") %>%
+leitos_antigos <- read_csv("bancos/leitos/base_antiga/leitos_poa_15_12.csv") %>%
   select(-semana_epidemiologica)
 
-dia_atualizacao <- "14-12-2020" # mudar o dia
+dia_atualizacao <- "16-12-2020" # mudar o dia
 
 emergencias_adulto <- tibble(
   local = c("hospital_de_clinicas_de_porto_alegre","hospital_conceicao","instituto_de_cardiologia",
@@ -76,9 +76,9 @@ uti_adulto <- tibble(local = c("instituto_de_cardiologia","hospital_de_clinicas_
                                "hospital_porto_alegre","hospital_cristo_redentor","hospital_vila_nova",
                                "hospital_de_pronto_socorro","hospital_independencia","hospital_femina",
                                "hospital_restinga_extremo_sul","hospital_santa_ana"),
-                     leitos_total = c(38,132,75,64,121,59,60,40,42,15,29,34,20,18,6,10,10),
-                     internados = c(30,117,73,64,103,53,59,37,38,14,29,33,15,17,5,10,7),
-                     leitos_covid = c(2,66,27,32,48,17,28,20,19,7,0,18,1,9,0,0,0),
+                     leitos_total = c(39,144,75,65,121,59,60,39,44,15,39,40,20,18,6,10,10),
+                     internados = c(35,129,72,65,104,54,58,37,32,12,30,37,15,18,5,9,7),
+                     leitos_covid = c(0,70,34,36,48,14,24,19,17,7,0,21,0,9,0,1,0),
                      data_atualizacao = rep(dia_atualizacao,17))
 
 
@@ -86,7 +86,7 @@ uti_pedia <- tibble(local = c("hospital_santa_casa","hospital_de_clinicas_de_por
                               "hospital_de_pronto_socorro","hospital_moinhos_de_vento",
                               "hospital_conceicao","hospital_materno_infantil_presidente_vargas"),
                     leitos_total = c(37,13,10,8,11,18,10),
-                    internados = c(30,10,4,8,9,10,6),
+                    internados = c(29,11,4,7,9,10,6),
                     leitos_covid = c(0,0,0,0,0,1,0),
                     data_atualizacao = rep(dia_atualizacao,7))
 
@@ -132,7 +132,7 @@ semana_epidemio <- read_csv("bancos/semana_epidemio_dia.csv")
 leitos <- bind_rows(leitos_antigos,leitos_novos) %>%
   left_join(semana_epidemio, by = c("data_atualizacao" = "dia"))
 
-write_csv(leitos, "bancos/leitos/base_antiga/leitos_poa_14_12.csv")
+write_csv(leitos, "bancos/leitos/base_antiga/leitos_poa_16_12.csv")
 
 
 
