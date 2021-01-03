@@ -2,7 +2,7 @@
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_26_12.csv") 
+leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_03_01.csv") 
 
 adultos <- leitos %>%
   filter(classe == "adulto")
@@ -135,8 +135,8 @@ caixinha_hospital <- function(var1,var2,var3) {
           width = 6,
           descriptionBlock(
             number = numero_diff,
-            number_color = cor,
-            number_icon = icone,
+            numberColor = cor,
+            numberIcon = icone,
             header = sum(aux$internados),
             text = "Leitos ocupados"
           )
@@ -145,8 +145,8 @@ caixinha_hospital <- function(var1,var2,var3) {
           width = 6,
           descriptionBlock(
             number = paste0(round(porcentagem_diff*100, 2),"%"),
-            number_color = cor,
-            number_icon = icone,
+            numberColor = cor,
+            numberIcon = icone,
             header = paste0(round(porcentagem*100,2),"%"),
             text = "Lotação"
           )
