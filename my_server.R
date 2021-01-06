@@ -300,7 +300,7 @@ server <- function(input, output) {
                       geom_line(aes(x = data_confirmacao, y = acumulado, group = 1, color = "Acumulado"), linetype = 'dotted') +
                       geom_point(aes(x = data_confirmacao, y = acumulado, color = "Acumulado")) + 
                       geom_col(aes(x = data_confirmacao, y = frequencia, fill = "Frequência")) +
-                      scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+                      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y") +
                       scale_color_manual(values = list("Acumulado" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
@@ -359,7 +359,7 @@ server <- function(input, output) {
                       geom_line(aes(x = data_confirmacao, y = acumulado, group = 1, color = "Em acompanhamento"), linetype = 'dotted') +
                       geom_point(aes(x = data_confirmacao, y = acumulado, color = "Em acompanhamento")) + 
                       geom_col(aes(x = data_confirmacao, y = frequencia, fill = "Frequência")) +
-                      scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+                      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y") +
                       scale_color_manual(values = list("Em acompanhamento" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
@@ -670,7 +670,7 @@ server <- function(input, output) {
                       geom_line(aes(x = data_confirmacao, y = acumulado, group = 1, color = "Acumulado"), linetype = 'dotted') +
                       geom_point(aes(x = data_confirmacao, y = acumulado, color = "Acumulado")) + 
                       geom_col(aes(x = data_confirmacao, y = frequencia, fill = "Frequência")) +
-                      scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+                      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y") +
                       scale_color_manual(values = list("Acumulado" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
@@ -729,7 +729,7 @@ server <- function(input, output) {
                       geom_line(aes(x = data_confirmacao, y = acumulado, group = 1, color = "Em acompanhamento"), linetype = 'dotted') +
                       geom_point(aes(x = data_confirmacao, y = acumulado, color = "Em acompanhamento")) + 
                       geom_col(aes(x = data_confirmacao, y = frequencia, fill = "Frequência")) +
-                      scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+                      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y") +
                       scale_color_manual(values = list("Em acompanhamento" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       scale_fill_manual(values = list("Frequência" = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["cor"]])) +
                       labs(x = label_x, y = opcoes[[str_c(input$var_covid,input$tipo_covid)]][["texto"]], colour = NULL, fill = NULL) +
@@ -1569,7 +1569,7 @@ server <- function(input, output) {
       geom_col(aes(x = data_atualizacao, y = `Leitos ocupados`, label = lotacao), fill = "#605ca8") +
       geom_line(aes(x = data_atualizacao, y = `Total leitos`, group = 1), color = "#00a65a") +
       geom_point(aes(x = data_atualizacao, y = `Total leitos`), color = "#00a65a") +
-      scale_x_date(date_breaks = "1 month", date_labels = "%b")
+      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y")
     
     ggplotly(p)
     
@@ -1625,7 +1625,7 @@ server <- function(input, output) {
       geom_col(aes(x = data_atualizacao, y = `Leitos disponíveis`), fill = "#0073b7") +
       geom_line(aes(x = data_atualizacao, y = `Total leitos`, group = 1), color = "#00a65a") +
       geom_point(aes(x = data_atualizacao, y = `Total leitos`), color = "#00a65a") +
-      scale_x_date(date_breaks = "1 month", date_labels = "%b")
+      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y")
     
     ggplotly(p)
     
@@ -1681,7 +1681,7 @@ server <- function(input, output) {
     p <- ggplot(aux) +
       geom_col(aes(x = data_atualizacao, y = `Leitos com covid`), fill = "#d81b60") +
       scale_y_continuous(limits = c(0,max(aux$`Leitos com covid`+20))) +
-      scale_x_date(date_breaks = "1 month", date_labels = "%b")
+      scale_x_date(date_breaks = "1 month", date_labels = "%b/%y")
     
     ggplotly(p)
     
