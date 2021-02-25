@@ -472,6 +472,8 @@ ui <- dashboardPagePlus(
                   )
                 ),
                 fluidRow(
+                  h3("Os dados não foram atualizados no período de 7 de fevereiro até 23, por isso não são apresentados nos gráficos.
+                     Caso queira ver a série completa verifique nosso outro painel com dados do estado(lembrando que as bases de dados são diferentes, portanto resultam em números diferentes também."),
                   column(
                     width = 6,
                     tabBox(
