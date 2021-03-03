@@ -18,10 +18,10 @@ library(tidyverse)
 
 # emergencias
 
-leitos_antigos <- read_csv("bancos/leitos/base_antiga/leitos_poa_25_02.csv") %>%
+leitos_antigos <- read_csv("bancos/leitos/base_antiga/leitos_poa_01_03_21.csv") %>%
   select(-semana_epidemiologica)
 
-dia_atualizacao <- "26-02-2021" # mudar o dia
+dia_atualizacao <- "02-03-2021" # mudar o dia
 
 emergencias_adulto <- tibble(
   local = c("hospital_de_clinicas_de_porto_alegre","hospital_conceicao","instituto_de_cardiologia",
@@ -29,7 +29,7 @@ emergencias_adulto <- tibble(
             "pronto_atendimento_bom_jesus","pronto_atendimento_cruzeiro_do_sul","pronto_atendimento_lomba_do_pinheiro",
             "unidade_de_pronto_atendimento_zona_norte"),
   leitos_total = c(41,64,21,24,17,18,26,7,12,9,17),
-  internados = c(78,68,19,40,22,29,12,28,21,20,38),
+  internados = c(81,78,17,30,22,31,22,31,45,27,57),
   data_atualizacao = rep(dia_atualizacao,11)
 )
 
@@ -37,7 +37,7 @@ emergencias_pedia <- tibble(local = c("hospital_de_clinicas_de_porto_alegre","ho
                                       "hospital_materno_infantil_presidente_vargas","hospital_restinga_extremo_sul",
                                       "pronto_atendimento_bom_jesus","pronto_atendimento_cruzeiro_do_sul","pronto_atendimento_lomba_do_pinheiro"),
                             leitos_total = c(9,16,11,4,8,6,5,9,4),
-                            internados = c(6,3,0,0,1,3,0,1,0),
+                            internados = c(2,9,2,0,8,3,0,2,2),
                             data_atualizacao = rep(dia_atualizacao,9))
 
 locais <- c("centro_de_operacoes_de_emergencias_rs","consultorio_privado","equipe_de_vigilância_de_doencas_transmissiveis",
@@ -76,9 +76,9 @@ uti_adulto <- tibble(local = c("instituto_de_cardiologia","hospital_de_clinicas_
                                "hospital_porto_alegre","hospital_cristo_redentor","hospital_vila_nova",
                                "hospital_de_pronto_socorro","hospital_independencia","hospital_femina",
                                "hospital_restinga_extremo_sul","hospital_santa_ana"),
-                     leitos_total = c(47,163,75,66,124,59,68,40,45,14,44,40,16,20,6,10,10),
-                     internados = c(46,157,73,76,124,59,68,39,45,12,39,40,14,19,4,10,10),
-                     leitos_covid = c(7,98,40,64,60,27,28,23,35,12,2,33,2,9,0,9,0),
+                     leitos_total = c(48,163,85,66,138,59,70,40,42,18,44,56,16,20,6,10,10),
+                     internados = c(44,179,83,79,136,59,65,40,39,17,43,56,14,21,5,10,10),
+                     leitos_covid = c(8,101,43,72,82,26,53,27,29,17,2,48,2,14,1,18,0),
                      data_atualizacao = rep(dia_atualizacao,17))
 
 
@@ -86,8 +86,8 @@ uti_pedia <- tibble(local = c("hospital_santa_casa","hospital_de_clinicas_de_por
                               "hospital_de_pronto_socorro","hospital_moinhos_de_vento",
                               "hospital_conceicao","hospital_materno_infantil_presidente_vargas"),
                     leitos_total = c(37,13,10,8,11,18,10),
-                    internados = c(33,10,4,6,8,9,6),
-                    leitos_covid = c(0,2,0,0,1,0,0),
+                    internados = c(33,9,4,5,8,10,7),
+                    leitos_covid = c(0,4,0,0,1,1,0),
                     data_atualizacao = rep(dia_atualizacao,7))
 
 uti_adulto <- left_join(uti_adulto, lat_long, by = "local")
@@ -132,7 +132,7 @@ semana_epidemio <- read_csv("bancos/semana_epidemio_dia.csv")
 leitos <- bind_rows(leitos_antigos,leitos_novos) %>%
   left_join(semana_epidemio, by = c("data_atualizacao" = "dia"))
 
-write_csv(leitos, "bancos/leitos/base_antiga/leitos_poa_26_02.csv")
+write_csv(leitos, "bancos/leitos/base_antiga/leitos_poa_02_03_21.csv")
 
 
 
