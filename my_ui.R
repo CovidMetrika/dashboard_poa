@@ -135,8 +135,8 @@ caixinha_hospital <- function(var1,var2,var3) {
           width = 6,
           descriptionBlock(
             number = numero_diff,
-            numberColor = cor,
-            numberIcon = icone,
+            #Color = "red",
+            #numberIcon = icone,
             header = sum(aux$internados),
             text = "Leitos ocupados"
           )
@@ -145,8 +145,8 @@ caixinha_hospital <- function(var1,var2,var3) {
           width = 6,
           descriptionBlock(
             number = paste0(round(porcentagem_diff*100, 2),"%"),
-            numberColor = cor,
-            numberIcon = icone,
+            #Color = "red",
+            #numberIcon = icone,
             header = paste0(round(porcentagem*100,2),"%"),
             text = "Lotação"
           )

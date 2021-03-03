@@ -5,9 +5,9 @@ account: mhbarbian
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2012741
-bundleId: 3424228
+bundleId: 4293147
 url: https://mhbarbian.shinyapps.io/covid19_poa/
-when: 1595472809.8572
+when: 1614738075.97542
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: LICENSE|README.md
