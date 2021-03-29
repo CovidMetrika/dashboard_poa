@@ -15014,24 +15014,24 @@ emergencia,pediatrico,Hospital Restinga,0,2021-03-27,-30.142524,-51.128803,6,6,0
 emergencia,pediatrico,PA Bom Jesus,0,2021-03-27,-30.043194,-51.153916,5,5,0,NA,NA
 emergencia,pediatrico,PA Cruzeiro do Sul,1,2021-03-27,-30.069603,-51.216537,9,8,0.1111111111111111,NA,NA
 emergencia,pediatrico,PA Lomba do Pinheiro,0,2021-03-27,-30.110731,-51.110188,4,4,0,NA,NA
-uti,adulto,Instituto de Cardiologia,47,2021-03-27,-30.049092,-51.20903,55,8,0.8545454545454545,24,NA
-uti,adulto,HCPA,205,2021-03-27,-30.038435,-51.206637,197,-8,1.0406091370558375,122,NA
-uti,adulto,Hospital Conceição,85,2021-03-27,-30.01587,-51.158236,59,-26,1.4406779661016949,78,NA
-uti,adulto,Hospital Moinhos de Vento,106,2021-03-27,-30.02552,-51.20842,68,-38,1.5588235294117647,64,NA
-uti,adulto,Hospital Santa Casa,166,2021-03-27,-30.030803,-51.221512,168,2,0.9880952380952381,138,NA
-uti,adulto,Hospital São Lucas,75,2021-03-27,-30.055122,-51.173819,59,-16,1.271186440677966,33,NA
-uti,adulto,Hospital Mãe de Deus,80,2021-03-27,-30.058845,-51.228945,70,-10,1.1428571428571428,68,NA
-uti,adulto,Hospital Ernesto Dornelles,53,2021-03-27,-30.047509,-51.212131,40,-13,1.325,46,NA
-uti,adulto,Hospital Divina Providência,84,2021-03-27,-30.084428,-51.18839,70,-14,1.2,74,NA
-uti,adulto,Hospital Porto Alegre,14,2021-03-27,-30.04475,-51.21856,18,4,0.7777777777777778,12,NA
-uti,adulto,Hospital Cristo Redentor,45,2021-03-27,-30.010102,-51.15926,39,-6,1.1538461538461537,1,NA
+uti,adulto,Instituto de Cardiologia,47,2021-03-27,-30.049092,-51.20903,55,8,0.8545454545454545,22,NA
+uti,adulto,HCPA,205,2021-03-27,-30.038435,-51.206637,197,-8,1.0406091370558375,132,NA
+uti,adulto,Hospital Conceição,85,2021-03-27,-30.01587,-51.158236,59,-26,1.4406779661016949,76,NA
+uti,adulto,Hospital Moinhos de Vento,106,2021-03-27,-30.02552,-51.20842,68,-38,1.5588235294117647,103,NA
+uti,adulto,Hospital Santa Casa,166,2021-03-27,-30.030803,-51.221512,168,2,0.9880952380952381,126,NA
+uti,adulto,Hospital São Lucas,75,2021-03-27,-30.055122,-51.173819,59,-16,1.271186440677966,42,NA
+uti,adulto,Hospital Mãe de Deus,80,2021-03-27,-30.058845,-51.228945,70,-10,1.1428571428571428,71,NA
+uti,adulto,Hospital Ernesto Dornelles,53,2021-03-27,-30.047509,-51.212131,40,-13,1.325,43,NA
+uti,adulto,Hospital Divina Providência,84,2021-03-27,-30.084428,-51.18839,70,-14,1.2,73,NA
+uti,adulto,Hospital Porto Alegre,14,2021-03-27,-30.04475,-51.21856,18,4,0.7777777777777778,14,NA
+uti,adulto,Hospital Cristo Redentor,45,2021-03-27,-30.010102,-51.15926,39,-6,1.1538461538461537,2,NA
 uti,adulto,Hospital Vila Nova,56,2021-03-27,-30.119308,-51.207744,56,0,1,50,NA
 uti,adulto,HPS,21,2021-03-27,-30.036874,-51.209282,23,2,0.9130434782608695,10,NA
-uti,adulto,HospitaL Independência,29,2021-03-27,-30.061051,-51.149073,30,1,0.9666666666666667,30,NA
+uti,adulto,HospitaL Independência,29,2021-03-27,-30.061051,-51.149073,30,1,0.9666666666666667,29,NA
 uti,adulto,Hospital Femina,8,2021-03-27,-30.029239,-51.206848,6,-2,1.3333333333333333,0,NA
-uti,adulto,Hospital Restinga,20,2021-03-27,-30.142524,-51.128803,20,0,1,20,NA
-uti,adulto,Hospital Santa Ana,12,2021-03-27,-30.086664,-51.20689,10,-2,1.2,11,NA
-uti,adulto,Hospital Beneficência Portuguesa,16,2021-03-27,NA,NA,16,0,1,15,NA
+uti,adulto,Hospital Restinga,20,2021-03-27,-30.142524,-51.128803,20,0,1,29,NA
+uti,adulto,Hospital Santa Ana,12,2021-03-27,-30.086664,-51.20689,10,-2,1.2,9,NA
+uti,adulto,Hospital Beneficência Portuguesa,16,2021-03-27,NA,NA,16,0,1,16,NA
 uti,pediatrico,Hospital Santa Casa,32,2021-03-27,-30.030803,-51.221512,37,5,0.8648648648648649,0,NA
 uti,pediatrico,HCPA,7,2021-03-27,-30.038435,-51.206637,13,6,0.5384615384615384,0,NA
 uti,pediatrico,Instituto de Cardiologia,5,2021-03-27,-30.049092,-51.20903,9,4,0.5555555555555556,0,NA
