@@ -2,13 +2,8 @@
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_27_04_21.csv") 
+leitos <- read_csv("bancos/leitos/ultima_atualizacao.csv") 
 
-adultos <- leitos %>%
-  filter(classe == "adulto")
-
-pediatricos <- leitos %>%
-  filter(classe=="pediatrico")
 
 # criando funcao pra barra de progresso do shiny ui
 
@@ -96,21 +91,17 @@ widgetUserBoxx <- function (..., title = NULL, subtitle = NULL, type = NULL, bac
 
 # criando função pra criar caixas de cada hospital
 
-caixinha_hospital <- function(var1,var2,var3) {
+caixinha_hospital <- function(var3) {
   
   antigo_dia <- max(leitos$data_atualizacao)-1
   novo_dia <- max(leitos$data_atualizacao)
   
   aux <- leitos %>%
-    filter(classe == var2) %>%
-    filter(tipo %in% var1) %>%
-    filter(local == var3) %>%
+    filter(hospital == var3) %>%
     filter(data_atualizacao %in% novo_dia)
   
   aux2 <- leitos %>%
-    filter(classe == var2) %>%
-    filter(tipo %in% var1) %>%
-    filter(local == var3) %>%
+    filter(hospital == var3) %>%
     filter(data_atualizacao %in% antigo_dia)
   
   porcentagem <- sum(aux$internados)/sum(aux$leitos_total)
@@ -126,7 +117,7 @@ caixinha_hospital <- function(var1,var2,var3) {
   if(nrow(aux)!=0) {
     box(
       width = 3,
-      title = var3,
+      title = ifelse(var3 == "Irmandade Da Santa Casa De Misericordia De Porto Alegre","Hospital Santa Casa",var3),
       background = NULL,
       status = status,
       my_progress_bar(value = porcentagem*100, striped = T, active = T, color = status),
@@ -167,7 +158,7 @@ ui <- dashboardPagePlus(
       menuItem("Leitos - Adultos", tabName = "leitos_adulto"),
       #menuItem("Covid-19 - Prefeitura", tabName = "casos_pref"),
       menuItem("Casos por bairro", tabName = "casos_ses"),
-      menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
+      #menuItem("Leitos - Pediátricos", tabName = "leitos_pedia"),
       menuItem("Fonte de dados", tabName = "fonte"),
       menuItem("CovidMetrika", tabName = "sobre")
     ),
@@ -409,15 +400,15 @@ ui <- dashboardPagePlus(
                     width = 6,
                     tags$img(src = "logos.png", 
                              width = "100%"),
-                    h3("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
+                    h4("Para consulta de dados de leitos de UTI do Rio Grande do Sul acesse: 
                        https://mhbarbian.shinyapps.io/covid19_rs"),
                     br(),
                     dateInput(
                       "data_adulto",
                       label = "Defina a data de atualização(o default é a última data disponível)",
-                      value = max(adultos$data_atualizacao, na.rm = T),
-                      min = min(adultos$data_atualizacao, na.rm = T),
-                      max = max(adultos$data_atualizacao, na.rm = T),
+                      value = max(leitos$data_atualizacao, na.rm = T),
+                      min = min(leitos$data_atualizacao, na.rm = T),
+                      max = max(leitos$data_atualizacao, na.rm = T),
                       format = "dd/mm/yyyy",
                       language = "pt-BR", 
                       width = "700px"
@@ -434,18 +425,18 @@ ui <- dashboardPagePlus(
                     width = 6,
                     selectizeInput("local_adulto",
                                    label = "Digite os hospitais de interesse(por default todas estão já incluídos)",
-                                   choices = levels(as.factor(adultos$local)),
-                                   selected = levels(as.factor(adultos$local)),
+                                   choices = levels(as.factor(leitos$hospital)),
+                                   selected = levels(as.factor(leitos$hospital)),
                                    multiple = T,
                                    width = "900px"
-                    ),
-                    h4("Escolha se os gráficos devem conter leitos de UTI e/ou emergência"),
-                    br(),
-                    checkboxGroupInput("tipo_adulto",
-                                       label = NULL,
-                                       choices = list("UTI" = "uti", "EMERGÊNCIA" = "emergencia"),
-                                       selected = c("uti")
                     )
+                    # h4("Escolha se os gráficos devem conter leitos de UTI e/ou emergência"),
+                    # br(),
+                    # checkboxGroupInput("tipo_adulto",
+                    #                    label = NULL,
+                    #                    choices = list("UTI" = "uti", "EMERGÊNCIA" = "emergencia"),
+                    #                    selected = c("uti")
+                    # )
                   )
                 ),
                 fluidRow(
@@ -472,8 +463,8 @@ ui <- dashboardPagePlus(
                   )
                 ),
                 fluidRow(
-                  h3("Os dados não foram atualizados no período de 7 de fevereiro até 23, por isso não são apresentados nos gráficos.
-                     Caso queira ver a série completa verifique nosso outro painel com dados do estado(lembrando que as bases de dados são diferentes, portanto resultam em números diferentes também."),
+                  # h3("Os dados não foram atualizados no período de 7 de fevereiro até 23, por isso não são apresentados nos gráficos.
+                  #    Caso queira ver a série completa verifique nosso outro painel com dados do estado(lembrando que as bases de dados são diferentes, portanto resultam em números diferentes também."),
                   column(
                     width = 6,
                     tabBox(
@@ -538,103 +529,103 @@ ui <- dashboardPagePlus(
                 )
               )      
       ),
-      tabItem("leitos_pedia",
-              fluidPage(
-                fluidRow(
-                  column(
-                    width = 6,
-                    dateInput(
-                      "data_pedia",
-                      label = "Defina a data de atualização(por default está selecionada a última disponível)",
-                      value = max(pediatricos$data_atualizacao, na.rm = T),
-                      min = min(pediatricos$data_atualizacao, na.rm = T),
-                      max = max(pediatricos$data_atualizacao, na.rm = T),
-                      format = "dd/mm/yyyy",
-                      language = "pt-BR",
-                      width = "700px"
-                    ),
-                    tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400)
-                  ),
-                  column(
-                    width = 6,
-                    selectizeInput("local_pedia",
-                                   label = "Digite os hospitais de interesse(por default todas estão já incluídos)",
-                                   choices = levels(as.factor(pediatricos$local)),
-                                   selected = levels(as.factor(pediatricos$local)),
-                                   multiple = T,
-                                   width = "900px"
-                    ),
-                    h3("Escolha se os gráficos devem conter leitos de UTI e/ou emergência"),
-                    br(),
-                    checkboxGroupInput("tipo_pedia",
-                                       label = NULL,
-                                       choices = list("UTI" = "uti", "EMERGÊNCIA" = "emergencia"),
-                                       selected = c("uti","emergencia")
-                    )
-                  )
-                ),
-                fluidRow(
-                  valueBoxOutput("box_opera_pedia", width = 3),
-                  valueBoxOutput("box_ocupa_pedia", width = 3),
-                  valueBoxOutput("box_porce_pedia", width = 3),
-                  valueBoxOutput("box_covid_pedia", width = 3)
-                  
-                ),
-                fluidRow(
-                  h3("Mapa com leitos pediátricos disponíveis em Porto Alegre"),
-                  column(
-                    width = 7,
-                    mainPanel(
-                      leafletOutput("mapa_leitos_pedia", height = "700px"),
-                      HTML("<br><br><br>"), # para dar um espaço entre os gráficos
-                      width = 12
-                    )
-                  ),
-                  column(
-                    width = 5,
-                    box(
-                      title = "Número de leitos disponíveis por hospital",
-                      background = "green",
-                      plotlyOutput("barras_hosp_pedia", height = "700px"),
-                      width = 12
-                    )
-                  )
-                ),
-                fluidRow(
-                  column(
-                    width = 6,
-                    box(
-                      title = "Número de leitos disponíveis por dia",
-                      background = "green",
-                      plotlyOutput("linhas_serie_pedia", height = "500px"),
-                      width = 12
-                    )
-                  ),
-                  column(
-                    width = 6,
-                    box(
-                      title = "Número de leitos ocupados por dia",
-                      background = "green",
-                      plotlyOutput("linhas_serie_pedia2", height = "500px"),
-                      width = 12
-                    )
-                  ),
-                  h4("A seguir temos as caixas de cada hospital individualizadas, onde os números coloridos indicam a variação com
-                   relação ao dia anterior"),
-                  uiOutput("conceicao_pedia"),
-                  uiOutput("santa_casa_pedia"),
-                  uiOutput("hcpa_pedia"),
-                  uiOutput("sao_lucas_pedia"),
-                  uiOutput("moinhos_pedia"),
-                  uiOutput("restinga_pedia"),
-                  uiOutput("hps_pedia"),
-                  uiOutput("pabj_pedia"),
-                  uiOutput("pacs_pedia"),
-                  uiOutput("palp_pedia"),
-                  uiOutput("mipv_pedia")
-                )
-              )
-      ),
+      # tabItem("leitos_pedia",
+      #         fluidPage(
+      #           fluidRow(
+      #             column(
+      #               width = 6,
+      #               dateInput(
+      #                 "data_pedia",
+      #                 label = "Defina a data de atualização(por default está selecionada a última disponível)",
+      #                 value = max(pediatricos$data_atualizacao, na.rm = T),
+      #                 min = min(pediatricos$data_atualizacao, na.rm = T),
+      #                 max = max(pediatricos$data_atualizacao, na.rm = T),
+      #                 format = "dd/mm/yyyy",
+      #                 language = "pt-BR",
+      #                 width = "700px"
+      #               ),
+      #               tags$img(src="ufrgs_logo.png", height = 100, width = 127),tags$img(src="logo_ime2.png", height = 100, width = 400)
+      #             ),
+      #             column(
+      #               width = 6,
+      #               selectizeInput("local_pedia",
+      #                              label = "Digite os hospitais de interesse(por default todas estão já incluídos)",
+      #                              choices = levels(as.factor(pediatricos$local)),
+      #                              selected = levels(as.factor(pediatricos$local)),
+      #                              multiple = T,
+      #                              width = "900px"
+      #               ),
+      #               h3("Escolha se os gráficos devem conter leitos de UTI e/ou emergência"),
+      #               br(),
+      #               checkboxGroupInput("tipo_pedia",
+      #                                  label = NULL,
+      #                                  choices = list("UTI" = "uti", "EMERGÊNCIA" = "emergencia"),
+      #                                  selected = c("uti","emergencia")
+      #               )
+      #             )
+      #           ),
+      #           fluidRow(
+      #             valueBoxOutput("box_opera_pedia", width = 3),
+      #             valueBoxOutput("box_ocupa_pedia", width = 3),
+      #             valueBoxOutput("box_porce_pedia", width = 3),
+      #             valueBoxOutput("box_covid_pedia", width = 3)
+      #             
+      #           ),
+      #           fluidRow(
+      #             h3("Mapa com leitos pediátricos disponíveis em Porto Alegre"),
+      #             column(
+      #               width = 7,
+      #               mainPanel(
+      #                 leafletOutput("mapa_leitos_pedia", height = "700px"),
+      #                 HTML("<br><br><br>"), # para dar um espaço entre os gráficos
+      #                 width = 12
+      #               )
+      #             ),
+      #             column(
+      #               width = 5,
+      #               box(
+      #                 title = "Número de leitos disponíveis por hospital",
+      #                 background = "green",
+      #                 plotlyOutput("barras_hosp_pedia", height = "700px"),
+      #                 width = 12
+      #               )
+      #             )
+      #           ),
+      #           fluidRow(
+      #             column(
+      #               width = 6,
+      #               box(
+      #                 title = "Número de leitos disponíveis por dia",
+      #                 background = "green",
+      #                 plotlyOutput("linhas_serie_pedia", height = "500px"),
+      #                 width = 12
+      #               )
+      #             ),
+      #             column(
+      #               width = 6,
+      #               box(
+      #                 title = "Número de leitos ocupados por dia",
+      #                 background = "green",
+      #                 plotlyOutput("linhas_serie_pedia2", height = "500px"),
+      #                 width = 12
+      #               )
+      #             ),
+      #             h4("A seguir temos as caixas de cada hospital individualizadas, onde os números coloridos indicam a variação com
+      #              relação ao dia anterior"),
+      #             uiOutput("conceicao_pedia"),
+      #             uiOutput("santa_casa_pedia"),
+      #             uiOutput("hcpa_pedia"),
+      #             uiOutput("sao_lucas_pedia"),
+      #             uiOutput("moinhos_pedia"),
+      #             uiOutput("restinga_pedia"),
+      #             uiOutput("hps_pedia"),
+      #             uiOutput("pabj_pedia"),
+      #             uiOutput("pacs_pedia"),
+      #             uiOutput("palp_pedia"),
+      #             uiOutput("mipv_pedia")
+      #           )
+      #         )
+      # ),
       tabItem("fonte",
               fluidPage(
                 fluidRow(

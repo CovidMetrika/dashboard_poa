@@ -21,13 +21,13 @@ opcoes_leitos <- list(
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/base_antiga/leitos_poa_27_04_21.csv") 
+leitos <- read_csv("bancos/leitos/ultima_atualizacao.csv") 
 
-adultos <- leitos %>%
-  filter(classe == "adulto")
-
-pediatricos <- leitos %>%
-  filter(classe=="pediatrico")
+# leitos <- leitos %>%
+#   filter(classe == "adulto")
+# 
+# pediatricos <- leitos %>%
+#   filter(classe=="pediatrico")
 
 server <- function(input, output) {
   
@@ -1234,10 +1234,9 @@ server <- function(input, output) {
   
   # caixa de operantes
   output$box_opera_adulto <- renderValueBox({
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
+    aux <- leitos %>%
       filter(data_atualizacao %in% input$data_adulto) %>%
-      filter(local %in% input$local_adulto)
+      filter(hospital %in% input$local_adulto)
     
     total <- sum(aux$leitos_total)
     
@@ -1250,10 +1249,9 @@ server <- function(input, output) {
   })
   # caixa ocupados
   output$box_ocupa_adulto <- renderValueBox({
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
+    aux <- leitos %>%
       filter(data_atualizacao %in% input$data_adulto) %>%
-      filter(local %in% input$local_adulto)
+      filter(hospital %in% input$local_adulto)
     
     total <- sum(aux$leitos_disponiveis)
     
@@ -1267,12 +1265,11 @@ server <- function(input, output) {
 
   # caixas de lotação
   output$box_porce_adulto <- renderValueBox({
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
+    aux <- leitos %>%
       filter(data_atualizacao %in% input$data_adulto) %>%
-      filter(local %in% input$local_adulto)
+      filter(hospital %in% input$local_adulto)
     
-    porcentagem <- sum(aux$internados)/sum(aux$leitos_total)
+    porcentagem <- sum(aux$leitos_internacoes)/sum(aux$leitos_total)
     
     valueBox(
       paste0(round(porcentagem*100,2),"%"),
@@ -1285,10 +1282,9 @@ server <- function(input, output) {
   
   # caixa de covid confirmado
   output$box_covid_adulto <- renderValueBox({
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
+    aux <- leitos %>%
       filter(data_atualizacao %in% input$data_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+      filter(hospital %in% input$local_adulto) %>%
       filter(!is.na(leitos_covid))
     
     covid <- sum(aux$leitos_covid)
@@ -1303,129 +1299,130 @@ server <- function(input, output) {
   
   output$moinhos_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Moinhos de Vento")
+    caixinha_hospital(var3 = "Hospital Moinhos De Vento")
     
   })
   
   output$hcpa_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "HCPA")
+    caixinha_hospital(var3 = "Hospital De Clinicas")
     
   })
   
   output$conceicao_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Conceição")
+    caixinha_hospital(var3 = "Hospital Nossa Senhora Da Conceicao Sa")
     
   })
   
   output$ic_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Instituto de Cardiologia")
+    caixinha_hospital(var3 = "Instituto De Cardiologia")
     
   })
   
   output$santa_casa_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Santa Casa")
+    caixinha_hospital(var3 = "Irmandade Da Santa Casa De Misericordia De Porto Alegre")
     
   })
   
   output$sao_lucas_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital São Lucas")
+    caixinha_hospital(var3 = "Hospital Sao Lucas Da Pucrs")
     
   })
   
   output$restinga_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Restinga")
+    caixinha_hospital(var3 = "Hospital Restinga E Extremo Sul")
     
   })
   
   output$vila_nova_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Vila Nova")
+    caixinha_hospital(var3 = "Associacao Hospitalar Vila Nova")
     
   })
   
   output$pabj_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "	PA Bom Jesus")
+    caixinha_hospital(var3 = "	PA Bom Jesus")
     
   })
   
   output$pacs_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "PA Cruzeiro do Sul")
+    caixinha_hospital(var3 = "PA Cruzeiro do Sul")
     
   })
   
   output$palp_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "PA Lomba do Pinheiro")
+    caixinha_hospital(var3 = "PA Lomba do Pinheiro")
     
   })
   
   output$upa_zn_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "UPA Zona Norte")
+    caixinha_hospital(var3 = "UPA Zona Norte")
     
   })
   
   output$cristo_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Cristo Redentor")
+    caixinha_hospital(var3 = "Hospital Cristo Redentor")
     
   })
   
   output$ernesto_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Ernesto Dornelles")
+    caixinha_hospital(var3 = "Hospital Ernesto Dornelles")
     
   })
   
   output$hps_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "HPS")
+    caixinha_hospital(var3 = "Hps")
     
   })
   
   output$porto_alegre_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Porto Alegre")
+    caixinha_hospital(var3 = "Hospital Porto Alegre")
     
   })
   
   output$independencia_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospita Independência")
+    caixinha_hospital(var3 = "Hospital Independencia")
     
   })
   
   output$femina_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Femina")
+    caixinha_hospital(var3 = "Hospital Femina")
     
   })
   
   output$divina_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Divina Providência")
+    caixinha_hospital(var3 = "Hospital Divina Providencia")
     
   })
   
   output$ana_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Santa Ana")
+    caixinha_hospital(var3 = "Aesc Hospital Santa Ana")
     
   })
   
   output$mae_adulto <- renderUI({
     
-    caixinha_hospital(var1 = input$tipo_adulto, var2 = "adulto", var3 = "Hospital Mãe de Deus")
+    caixinha_hospital(var3 = "Hospital Mae De Deus")
     
   })
+  
   
   # mapa_leitos_adulto
   
@@ -1434,36 +1431,34 @@ server <- function(input, output) {
     var <- rlang::sym(input$var_leitos)
     
     if (input$var_leitos != "lotacao") {
-      aux_mapa <- adultos %>%
+      aux_mapa <- leitos %>%
         filter(!is.na(!!var)) %>%
-        filter(tipo %in% input$tipo_adulto) %>%
         filter(data_atualizacao %in% input$data_adulto) %>%
-        filter(local %in% input$local_adulto) %>%
-        group_by(local,lat,long) %>%
+        filter(hospital %in% input$local_adulto) %>%
+        group_by(hospital,latitude,longitude) %>%
         summarise(var = sum(!!var)) %>%
         filter(var != 0)
     } else {
-      aux_mapa <- adultos %>%
+      aux_mapa <- leitos %>%
         filter(!is.na(!!var)) %>%
-        filter(tipo %in% input$tipo_adulto) %>%
         filter(data_atualizacao %in% input$data_adulto) %>%
-        filter(local %in% input$local_adulto) %>%
-        group_by(local,lat,long) %>%
-        summarise(var = ifelse(sum(leitos_total)!=0,sum(internados)/sum(leitos_total),NA))
+        filter(hospital %in% input$local_adulto) %>%
+        group_by(hospital,latitude,longitude) %>%
+        summarise(var = ifelse(sum(leitos_total)!=0,sum(leitos_internacoes)/sum(leitos_total),NA))
     }
     
     if(input$var_leitos != "lotacao") {
       
       labs <- lapply(seq(nrow(aux_mapa)), function(i) {
         paste0(aux_mapa[i, "var"], " - ",opcoes_leitos[[input$var_leitos]][["texto"]], '</p>', 
-               " ",aux_mapa[i, "local"]) 
+               " ",aux_mapa[i, "hospital"]) 
       })
       
       calculo_raio <- 4*aux_mapa$var^(1/2)
       
       leaflet(aux_mapa) %>%
         addTiles(urlTemplate = "http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", attribution = 'Google') %>%
-        addCircleMarkers(lng = aux_mapa$long, lat = aux_mapa$lat, radius = calculo_raio,
+        addCircleMarkers(lng = aux_mapa$longitude, lat = aux_mapa$latitude, radius = calculo_raio,
                          color = opcoes_leitos[[input$var_leitos]][["cor"]], fillOpacity = 0.5, label = lapply(labs, htmltools::HTML), 
                          labelOptions = labelOptions(interactive = T, textsize = "15px"))
       
@@ -1471,14 +1466,14 @@ server <- function(input, output) {
       
       labs <- lapply(seq(nrow(aux_mapa)), function(i) {
         paste0(100*round(aux_mapa[i, "var"],4),"%", " ",opcoes_leitos[[input$var_leitos]][["texto"]], '</p>', 
-               " ",aux_mapa[i, "local"]) 
+               " ",aux_mapa[i, "hospital"]) 
       })
       
       calculo_raio <- (10*aux_mapa$var)^(2)/3
       
       leaflet(aux_mapa) %>%
         addTiles(urlTemplate = "http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", attribution = 'Google') %>%
-        addCircleMarkers(lng = aux_mapa$long, lat = aux_mapa$lat, radius = calculo_raio,
+        addCircleMarkers(lng = aux_mapa$longitude, lat = aux_mapa$latitude, radius = calculo_raio,
                          color = opcoes_leitos[[input$var_leitos]][["cor"]], fillOpacity = 0.5, label = lapply(labs, htmltools::HTML), 
                          labelOptions = labelOptions(interactive = T, textsize = "15px"))
     }
@@ -1489,22 +1484,22 @@ server <- function(input, output) {
     
     
     
-    # aux_mapa <- adultos %>%
+    # aux_mapa <- leitos %>%
     #   filter(tipo %in% input$tipo_adulto) %>%
     #   filter(data_atualizacao %in% input$data_adulto) %>%
-    #   filter(local %in% input$local_adulto) %>%
-    #   group_by(local,lat,long) %>%
-    #   summarise(total = sum(leitos_total), leitos_disponiveis = sum(leitos_total)-sum(internados))
+    #   filter(hospital %in% input$hospital_adulto) %>%
+    #   group_by(hospital,lat,longitude) %>%
+    #   summarise(total = sum(leitos_total), leitos_disponiveis = sum(leitos_total)-sum(leitos_internacoes))
     # 
     # 
     # labs <- lapply(seq(nrow(aux_mapa)), function(i) {
     #   paste0("leitos_disponiveis: ", aux_mapa[i, "leitos_disponiveis"], '</p>', 
-    #          " ",aux_mapa[i, "local"]) 
+    #          " ",aux_mapa[i, "hospital"]) 
     # })
     # 
     # leaflet(aux_mapa) %>%
     #   addTiles(urlTemplate = "http://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", attribution = 'Google') %>%
-    #   addCircleMarkers(lng = aux_mapa$long, lat = aux_mapa$lat, radius = 4*sqrt(aux_mapa$leitos_disponiveis),
+    #   addCircleMarkers(lng = aux_mapa$longitude, lat = aux_mapa$lat, radius = 4*sqrt(aux_mapa$leitos_disponiveis),
     #                    color = "deepskyblue", fillOpacity = 0.5, label = lapply(labs, htmltools::HTML), 
     #                    labelOptions = labelOptions(interactive = T, textsize = "15px"))
     
@@ -1520,31 +1515,29 @@ server <- function(input, output) {
     var <- rlang::sym(input$var_leitos)
     
     if (input$var_leitos != "lotacao") {
-      aux <- adultos %>%
+      aux <- leitos %>%
         filter(!is.na(!!var)) %>%
-        filter(tipo %in% input$tipo_adulto) %>%
         filter(data_atualizacao %in% input$data_adulto) %>%
-        filter(local %in% input$local_adulto) %>%
-        group_by(local) %>%
+        filter(hospital %in% input$local_adulto) %>%
+        group_by(hospital) %>%
         summarise(var = sum(!!var)) %>%
         filter(var != 0) %>%
         arrange(var)
     } else {
-      aux <- adultos %>%
+      aux <- leitos %>%
         filter(!is.na(!!var)) %>%
-        filter(tipo %in% input$tipo_adulto) %>%
         filter(data_atualizacao %in% input$data_adulto) %>%
-        filter(local %in% input$local_adulto) %>%
-        group_by(local) %>%
-        summarise(var = ifelse(sum(leitos_total)!=0,sum(internados)/sum(leitos_total),NA)) %>%
+        filter(hospital %in% input$local_adulto) %>%
+        group_by(hospital) %>%
+        summarise(var = ifelse(sum(leitos_total)!=0,sum(leitos_internacoes)/sum(leitos_total),NA)) %>%
         arrange(var)
     }
     
-    ordem <- aux$local
+    ordem <- aux$hospital
     
-    p <- ggplot(aux, aes(x = local, y = var)) +
+    p <- ggplot(aux, aes(x = hospital, y = var)) +
       geom_col(fill = opcoes_leitos[[input$var_leitos]][["cor"]]) +
-      labs(x = "Local", y = opcoes_leitos[[input$var_leitos]][["texto"]]) +
+      labs(x = "hospital", y = opcoes_leitos[[input$var_leitos]][["texto"]]) +
       scale_x_discrete(limits = ordem) +
       coord_flip()
     
@@ -1557,12 +1550,11 @@ server <- function(input, output) {
   
   output$serie_leitos_ocup_dia <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao) %>%
-      summarise(`Leitos ocupados` = sum(internados, na.rm = T),
-                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
+      summarise(`Leitos ocupados` = sum(leitos_internacoes, na.rm = T),
+                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(leitos_internacoes, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       arrange(data_atualizacao)
     
     p <- ggplot(aux) +
@@ -1581,12 +1573,11 @@ server <- function(input, output) {
   
   output$serie_leitos_ocup_sem <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao, semana_epidemiologica) %>%
-      summarise(`Leitos ocupados` = sum(internados, na.rm = T),
-                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
+      summarise(`Leitos ocupados` = sum(leitos_internacoes, na.rm = T),
+                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(leitos_internacoes, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       group_by(semana_epidemiologica) %>%
       summarise(`Leitos ocupados` = mean(`Leitos ocupados`, na.rm = T), 
                 `Total leitos` = mean(`Total leitos`, na.rm = T), lotacao = mean(`Leitos ocupados`, na.rm = T)/mean(`Total leitos`, na.rm = T)) %>%
@@ -1613,12 +1604,11 @@ server <- function(input, output) {
   
   output$serie_leitos_disp_dia <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao) %>%
       summarise(`Leitos disponíveis` = sum(leitos_disponiveis, na.rm = T),
-                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
+                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(leitos_internacoes, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       arrange(data_atualizacao)
     
     p <- ggplot(aux) +
@@ -1637,12 +1627,11 @@ server <- function(input, output) {
   
   output$serie_leitos_disp_sem <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao, semana_epidemiologica) %>%
       summarise(`Leitos disponíveis` = sum(leitos_disponiveis, na.rm = T),
-                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
+                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(leitos_internacoes, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       group_by(semana_epidemiologica) %>%
       summarise(`Leitos disponíveis` = mean(`Leitos disponíveis`, na.rm = T), 
                 `Total leitos` = mean(`Total leitos`, na.rm = T), lotacao = mean(`Leitos disponíveis`, na.rm = T)/mean(`Total leitos`, na.rm = T)) %>%
@@ -1669,12 +1658,11 @@ server <- function(input, output) {
   
   output$serie_leitos_covid_dia <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao) %>%
       summarise(`Leitos com covid` = sum(leitos_covid, na.rm = T),
-                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
+                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(leitos_internacoes, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       arrange(data_atualizacao)
   
     
@@ -1692,12 +1680,11 @@ server <- function(input, output) {
   
   output$serie_leitos_covid_sem <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao, semana_epidemiologica) %>%
       summarise(`Leitos com covid` = sum(leitos_covid, na.rm = T),
-                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(internados, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
+                `Total leitos` = sum(leitos_total, na.rm = T), lotacao = sum(leitos_internacoes, na.rm = T)/sum(leitos_total, na.rm = T)) %>%
       group_by(semana_epidemiologica) %>%
       summarise(`Leitos com covid` = mean(`Leitos com covid`, na.rm = T), 
                 `Total leitos` = mean(`Total leitos`, na.rm = T)) %>%
@@ -1725,12 +1712,11 @@ server <- function(input, output) {
   
   output$linhas_serie_adulto <- renderPlotly({
     
-    aux <- adultos %>%
-      filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+    aux <- leitos %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao, tipo) %>%
-      summarise(porcentagem_media = 100*(sum(internados)/sum(leitos_total)), total_leitos = sum(leitos_total),
-                total_ocupados = sum(internados), total_disponiveis = sum(leitos_total)-sum(internados)) %>%
+      summarise(porcentagem_media = 100*(sum(leitos_internacoes)/sum(leitos_total)), total_leitos = sum(leitos_total),
+                total_ocupados = sum(leitos_internacoes), total_disponiveis = sum(leitos_total)-sum(leitos_internacoes)) %>%
       arrange(data_atualizacao)
     
     ordem <- as.character(format(aux$data_atualizacao, "%d-%m"))
@@ -1764,12 +1750,12 @@ server <- function(input, output) {
   ###############
   output$linhas_serie_adulto2 <- renderPlotly({
     
-    aux <- adultos %>%
+    aux <- leitos %>%
       filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao, tipo) %>%
-      summarise(porcentagem_media = 100*(sum(internados)/sum(leitos_total)), total_leitos = sum(leitos_total), total_ocupados = sum(internados), 
-                total_disponiveis = sum(leitos_total)-sum(internados)) %>%
+      summarise(porcentagem_media = 100*(sum(leitos_internacoes)/sum(leitos_total)), total_leitos = sum(leitos_total), total_ocupados = sum(leitos_internacoes), 
+                total_disponiveis = sum(leitos_total)-sum(leitos_internacoes)) %>%
       arrange(data_atualizacao)
     
     ordem <- as.character(format(aux$data_atualizacao, "%d-%m"))
@@ -1806,9 +1792,9 @@ server <- function(input, output) {
   
   output$barras_covid_adulto <- renderPlotly({
     
-    aux <- adultos %>%
+    aux <- leitos %>%
       filter(tipo %in% input$tipo_adulto) %>%
-      filter(local %in% input$local_adulto) %>%
+      filter(hospital %in% input$local_adulto) %>%
       group_by(data_atualizacao) %>%
       summarise(leitos_covid = sum(na.rm=T, leitos_covid)) %>%
       arrange(data_atualizacao)
@@ -1844,7 +1830,7 @@ server <- function(input, output) {
     aux <- pediatricos %>%
       filter(tipo %in% input$tipo_pedia) %>%
       filter(data_atualizacao %in% input$data_adulto) %>%
-      filter(local %in% input$local_adulto)
+      filter(hospital %in% input$local_adulto)
     
     total <- sum(aux$leitos_total)
     
@@ -1862,7 +1848,7 @@ server <- function(input, output) {
       filter(data_atualizacao %in% input$data_adulto) %>%
       filter(local %in% input$local_adulto)
     
-    total <- sum(aux$internados)
+    total <- sum(aux$leitos_internacoes)
     
     valueBox(
       total,
@@ -1895,7 +1881,7 @@ server <- function(input, output) {
       filter(data_atualizacao %in% input$data_adulto) %>%
       filter(local %in% input$local_adulto)
     
-    porcentagem <- sum(aux$internados)/sum(aux$leitos_total)
+    porcentagem <- sum(aux$leitos_internacoes)/sum(aux$leitos_total)
     
     valueBox(
       paste0(round(porcentagem*100,2),"%"),
@@ -1983,7 +1969,7 @@ server <- function(input, output) {
       filter(data_atualizacao %in% input$data_adulto) %>%
       filter(local %in% input$local_adulto) %>%
       group_by(local,lat,long) %>%
-      summarise(total = sum(leitos_total), leitos_disponiveis = sum(leitos_total)-sum(internados))
+      summarise(total = sum(leitos_total), leitos_disponiveis = sum(leitos_total)-sum(leitos_internacoes))
     
     
     labs <- lapply(seq(nrow(aux_mapa)), function(i) {
@@ -2011,7 +1997,7 @@ server <- function(input, output) {
       filter(data_atualizacao %in% input$data_adulto) %>%
       filter(local %in% input$local_adulto) %>%
       group_by(local) %>%
-      summarise(leitos_disponiveis = sum(leitos_total)-sum(internados)) %>%
+      summarise(leitos_disponiveis = sum(leitos_total)-sum(leitos_internacoes)) %>%
       arrange(leitos_disponiveis)
     
     ordem <- aux$local
@@ -2037,8 +2023,8 @@ server <- function(input, output) {
       filter(tipo %in% input$tipo_pedia) %>%
       filter(local %in% input$local_adulto) %>%
       group_by(data_atualizacao, tipo) %>%
-      summarise(porcentagem_media = 100*(sum(internados)/sum(leitos_total)), total_leitos = sum(leitos_total),
-                total_ocupados = sum(internados), total_disponiveis = sum(leitos_total)-sum(internados)) %>%
+      summarise(porcentagem_media = 100*(sum(leitos_internacoes)/sum(leitos_total)), total_leitos = sum(leitos_total),
+                total_ocupados = sum(leitos_internacoes), total_disponiveis = sum(leitos_total)-sum(leitos_internacoes)) %>%
       arrange(data_atualizacao)
     
     ordem <- as.character(format(aux$data_atualizacao, "%d-%m"))
@@ -2073,8 +2059,8 @@ server <- function(input, output) {
       filter(tipo %in% input$tipo_pedia) %>%
       filter(local %in% input$local_adulto) %>%
       group_by(data_atualizacao, tipo) %>%
-      summarise(porcentagem_media = 100*(sum(internados)/sum(leitos_total)), total_leitos = sum(leitos_total), total_ocupados = sum(internados), 
-                total_disponiveis = sum(leitos_total)-sum(internados)) %>%
+      summarise(porcentagem_media = 100*(sum(leitos_internacoes)/sum(leitos_total)), total_leitos = sum(leitos_total), total_ocupados = sum(leitos_internacoes), 
+                total_disponiveis = sum(leitos_total)-sum(leitos_internacoes)) %>%
       arrange(data_atualizacao)
     
     ordem <- as.character(format(aux$data_atualizacao, "%d-%m"))

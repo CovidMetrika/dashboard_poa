@@ -30,6 +30,7 @@ library(shinyBS)
 # enquanto não se arranjar solução vou deixar comentado o comando
 
 source("criando_banco_covid_2.0.R", encoding = "UTF-8")
+source("criando_banco_leitos_2.0.R", encoding = "UTF-8")
 source("my_ui.R", encoding = "UTF-8")
 source("my_server.R", encoding = "UTF-8")
 
