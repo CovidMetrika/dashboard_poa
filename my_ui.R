@@ -148,9 +148,9 @@ caixinha_hospital <- function(var3) {
 }
 
 
-ui <- dashboardPagePlus(
+ui <- dashboardPage(
   skin = "green", 
-  dashboardHeaderPlus(title = "Dados COVID-19 em Porto Alegre",
+  dashboardHeader(title = "Dados COVID-19 em Porto Alegre",
                       titleWidth = 400
   ),
   dashboardSidebar(
@@ -688,70 +688,82 @@ ui <- dashboardPagePlus(
                 fluidRow(
                   setShadow(class = "box"), # aplicando efeito de sombra nas boxes do grupo
                   
-                  widgetUserBox(
-                    title = tags$b("Franciele Lobo Pallaoro"),
-                    subtitle = "Estudante de Estatística da UFRGS",
-                    type = 2,
+                  userBox(
+                    title = userDescription(
+                      title = tags$b("Franciele Lobo Pallaoro"),
+                      subtitle = "Estudante de Estatística da UFRGS",
+                      type = 2,
+                      image = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/franciele.jpg?raw=true'
+                    ),
                     width = 4,
-                    src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/franciele.jpg?raw=true',
-                    color = "green",
+                    status = "success",
                     "Contato: franpallaoro@gmail.com",
                     footer_padding = F
                   ),
                   
-                  widgetUserBox(
-                    title = tags$b("Gabriel Holmer Saul"),
-                    subtitle = "Estudante de Estatística da UFRGS",
-                    type = 2,
+                  userBox(
+                    title = userDescription(
+                      title = tags$b("Gabriel Holmer Saul"),
+                      subtitle = "Estudante de Estatística da UFRGS",
+                      type = 2,
+                      image = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/gabriel.jpg?raw=true'
+                    ),
                     width = 4,
-                    src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/gabriel.jpg?raw=true',
-                    color = "green",
+                    status = "success",
                     "Contato: gabrielholmersaul@gmail.com",
                     footer_padding = F
                   )
                   ,
                   
-                  widgetUserBox(
-                    title = tags$b("Gustavo Machado Utpott"),
-                    subtitle = "Estudante de Estatística da UFRGS",
-                    type = 2,
+                  userBox(
+                    title = userDescription(
+                      title = tags$b("Gustavo Machado Utpott"),
+                      subtitle = "Estudante de Estatística da UFRGS",
+                      type = 2,
+                      image = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/gustavo.png?raw=true',
+                    ),
                     width = 4,
-                    src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/gustavo.png?raw=true',
-                    color = "green",
+                    status = "success",
                     "Contato: gustavo.utpott@gmail.com",
                     footer_padding = F
                   ),
                   
-                  widgetUserBox(
-                    title = tags$b("Juliana Sena de Souza"),
-                    subtitle = "Estudante de Pós-Graduação em Epidemiologia da UFRGS",
-                    type = 2,
+                  userBox(
+                    title = userDescription(
+                      title = tags$b("Juliana Sena de Souza"),
+                      subtitle = "Estudante de Pós-Graduação em Epidemiologia da UFRGS",
+                      type = 2,
+                      image =  'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/juliana.jpeg?raw=true',
+                    ),
                     width = 4,
-                    src =  'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/juliana.jpeg?raw=true',
-                    color = "green",
+                    status = "success",
                     "Contato: julianass.estatistica@gmail.com",
                     footer_padding = F
                   ),
                   
                   
-                  widgetUserBox(
-                    title = tags$b("Márcia Helena Barbian"),
-                    subtitle = "Professora do Departamento de Estatística da UFRGS",
-                    type = 2,
+                  userBox(
+                    title = userDescription(
+                      title = tags$b("Márcia Helena Barbian"),
+                      subtitle = "Professora do Departamento de Estatística da UFRGS",
+                      type = 2,
+                      image = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/marcia.png?raw=true',
+                    ),
                     width = 4,
-                    src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/marcia.png?raw=true',
-                    color = "green",
+                    status = "success",
                     "Contato: mhbarbian@ufrgs.br", 
                     footer_padding = F
                   ), 
                   
-                  widgetUserBox(
-                    title = tags$b("Rodrigo Citton P. dos Reis"),
-                    subtitle = "Professor do Departamento de Estatística da UFRGS",
-                    type = 2,
+                  userBox(
+                    title = userDescription(
+                      title = tags$b("Rodrigo Citton P. dos Reis"),
+                      subtitle = "Professor do Departamento de Estatística da UFRGS",
+                      type = 2,
+                      image = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/rodrigo.jpg?raw=true'
+                    ),
                     width = 4,
-                    src = 'https://github.com/franpallaoro/COVID-19/blob/ssjuliana/Dashboard/fotos/rodrigo.jpg?raw=true',
-                    color = "green",
+                    status = "success",
                     "Contato: citton.padilha@ufrgs.br",
                     footer_padding = F
                   ), 
