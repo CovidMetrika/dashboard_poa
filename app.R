@@ -35,6 +35,5 @@ source("my_ui.R", encoding = "UTF-8")
 source("my_server.R", encoding = "UTF-8")
 
 
-
 shinyApp(ui, server)
 
