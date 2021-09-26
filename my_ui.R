@@ -2,7 +2,7 @@
 
 dados <- read_csv("bancos/covid/dados_covid_poa_11_05.csv") 
 
-leitos <- read_csv("bancos/leitos/ultima_atualizacao.csv") 
+leitos <- read_csv("bancos/leitos/ultima_atualizacao2.csv") 
 
 
 # criando funcao pra barra de progresso do shiny ui
