@@ -98,6 +98,6 @@ if(nrow(ultima_atualizacao) != 0) {
     distinct(cnes,data_atualizacao,.keep_all = T)
 }
 
-write_csv(new_data,"bancos/leitos/ultima_atualizacao2.csv")
+try(write_csv(new_data,"bancos/leitos/ultima_atualizacao2.csv"))
 
 
